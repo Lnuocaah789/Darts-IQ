@@ -501,7 +501,7 @@ var RARITY_CONFIG = {
   common:    { label: "Common",    color: "#8a8a9a", glow: "rgba(138,138,154,0.3)",  bg: "rgba(138,138,154,0.08)" },
   uncommon:  { label: "Uncommon",  color: "#5cb85c", glow: "rgba(92,184,92,0.35)",   bg: "rgba(92,184,92,0.08)"  },
   rare:      { label: "Rare",      color: "#7ab8f5", glow: "rgba(122,184,245,0.4)",  bg: "rgba(122,184,245,0.1)" },
-  legendary: { label: "Legendary", color: "#caf300", glow: "rgba(202,243,0,0.5)",   bg: "rgba(202,243,0,0.12)" },
+  legendary: { label: "Legendary", color: "#e8763f", glow: "rgba(232,118,63,0.5)",   bg: "rgba(232,118,63,0.12)" },
 };
 
 // ─── DARTS IQ ────────────────────────────────────────────────────────────────
@@ -511,9 +511,9 @@ var IQ_TIERS = [
   { min: 200,  max: 399,  label: "Club Starter",  color: "#7ab8f5", emoji: "📌" },
   { min: 400,  max: 599,  label: "Club Player",   color: "#5cb85c", emoji: "🏹" },
   { min: 600,  max: 799,  label: "Strong Club",   color: "#f0ad4e", emoji: "⚡" },
-  { min: 800,  max: 999,  label: "League Player", color: "#caf300", emoji: "🔥" },
+  { min: 800,  max: 999,  label: "League Player", color: "#e8763f", emoji: "🔥" },
   { min: 1000, max: 1149, label: "Advanced",      color: "#ff9800", emoji: "👑" },
-  { min: 1150, max: 1299, label: "Elite",         color: "#ff4757", emoji: "🌍" },
+  { min: 1150, max: 1299, label: "Elite",         color: "#c2483f", emoji: "🌍" },
   { min: 1300, max: 1500, label: "Pro",           color: "#c084fc", emoji: "💜" },
 ];
 
@@ -578,7 +578,7 @@ function calcDartsIQ({ sessions = 0, streak = 0, weeklyAvg = 0,
         desc: `High Score best: ${highScoreBest} · Bob's 27: ${bobs27Best}` },
       { label: "Finishing",    score: finishing,   max: 450, icon: "🎯", color: "#5cb85c",
         desc: `Doubles rate: ${doublesRate}% · Bob's 27: ${bobs27Best}` },
-      { label: "Match Play",   score: matchPlay,   max: 225, icon: "🤖", color: "#caf300",
+      { label: "Match Play",   score: matchPlay,   max: 225, icon: "🤖", color: "#e8763f",
         desc: `Best bot level: ${botMaxLevel} · Win rate: ${Math.round(botWinRate * 100)}%` },
       { label: "Consistency",  score: consistency, max: 225, icon: "📅", color: "#7ab8f5",
         desc: `Sessions: ${sessions} · Streak: ${streak} days` },
@@ -728,29 +728,29 @@ var css = `
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    /* Colours — inspired by reference design */
-    --bg:#111317; --surface:#1e2024; --surface2:#282a2e; --surface3:#37393e;
-    --border:#2d3018; --border2:#444932;
-    --accent:#caf300; --accent2:#ff4757; --accent3:#7c6aff;
-    --text:#e2e2e8; --text2:#c5c9ac; --muted:#8f9378;
-    --on-accent:#1a1f00;
-    /* Radius — tighter, cleaner */
-    --radius:14px; --radius-sm:10px; --radius-xs:8px;
+    /* Colours — warm charcoal base with a terracotta accent, no neon */
+    --bg:#1b1815; --surface:#23201b; --surface2:#2c2821; --surface3:#363026;
+    --border:#3a332a; --border2:#4a4136;
+    --accent:#e8763f; --accent2:#c2483f; --accent3:#7a9482;
+    --text:#f2ece2; --text2:#cabfae; --muted:#928677;
+    --on-accent:#241004;
+    /* Radius — soft but structured */
+    --radius:16px; --radius-sm:12px; --radius-xs:9px;
     /* Spacing scale — 4/8pt rhythm */
     --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px; --sp-7:48px;
     /* Motion tokens */
     --ease-out:cubic-bezier(.16,1,.3,1); --ease-spring:cubic-bezier(.34,1.56,.64,1);
     --dur-fast:120ms; --dur-base:200ms; --dur-slow:320ms;
-    /* Shadows */
-    --shadow-sm:0 2px 8px rgba(0,0,0,.4);
-    --shadow-md:0 4px 20px rgba(0,0,0,.55);
-    --shadow-card:0 1px 3px rgba(0,0,0,.5),0 4px 16px rgba(0,0,0,.3);
-    --shadow-card-hover:0 2px 6px rgba(0,0,0,.5),0 8px 28px rgba(0,0,0,.35);
-    --shadow-accent:0 4px 20px rgba(202,243,0,.2);
-    --shadow-glow:0 0 15px rgba(202,243,0,.3);
-    /* Glass */
-    --glass-bg:rgba(30,34,42,0.7);
-    --glass-border:rgba(68,73,50,0.3);
+    /* Shadows — warm, soft, no neon glow */
+    --shadow-sm:0 2px 8px rgba(15,10,4,.35);
+    --shadow-md:0 6px 22px rgba(15,10,4,.4);
+    --shadow-card:0 1px 2px rgba(15,10,4,.3),0 6px 18px rgba(15,10,4,.22);
+    --shadow-card-hover:0 2px 6px rgba(15,10,4,.32),0 10px 26px rgba(15,10,4,.26);
+    --shadow-accent:0 6px 18px rgba(232,118,63,.22);
+    --shadow-glow:0 0 0 rgba(0,0,0,0);
+    /* Surfaces — flat, low-blur panels rather than heavy glass */
+    --glass-bg:rgba(44,40,33,0.92);
+    --glass-border:rgba(74,65,54,0.55);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -775,10 +775,10 @@ var css = `
   .fade-in-up:nth-child(n+7){animation-delay:220ms}
 
   /* ── Navigation ── */
-  .nav { position:fixed; bottom:0; left:50%; transform:translateX(-50%); width:100%; max-width:430px; background:rgba(17,19,23,0.95); backdrop-filter:blur(24px) saturate(180%); -webkit-backdrop-filter:blur(24px) saturate(180%); border-top:1px solid var(--border); display:flex; z-index:100; padding-bottom:env(safe-area-inset-bottom,0px); box-shadow:0 -4px 24px rgba(202,243,0,.06); }
+  .nav { position:fixed; bottom:0; left:50%; transform:translateX(-50%); width:100%; max-width:430px; background:rgba(27,24,21,0.97); border-top:1px solid var(--border); display:flex; z-index:100; padding-bottom:env(safe-area-inset-bottom,0px); box-shadow:0 -2px 14px rgba(15,10,4,.3); }
   .nav-btn { flex:1; min-height:48px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; padding:10px 8px 9px; background:none; border:none; color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:500; letter-spacing:.05em; text-transform:uppercase; cursor:pointer; transition:color var(--dur-base) var(--ease-out),background var(--dur-base) var(--ease-out),transform var(--dur-fast); position:relative; border-radius:10px; margin:6px 4px; -webkit-tap-highlight-color:transparent; }
   .nav-btn:active { transform:scale(0.88); }
-  .nav-btn.active { color:var(--on-accent); background:var(--accent); box-shadow:0 0 12px rgba(202,243,0,.3); }
+  .nav-btn.active { color:var(--on-accent); background:var(--accent); }
   .nav-btn.active::after { display:none; }
   .nav-btn svg { width:22px; height:22px; transition:transform var(--dur-base) var(--ease-spring); }
   .nav-btn.active svg { transform:scale(1.08); }
@@ -790,25 +790,26 @@ var css = `
   .page-subtitle { font-size:14px; color:var(--muted); margin-top:4px; font-family:'Hanken Grotesk',sans-serif; }
 
   /* ── Top app bar (new) ── */
-  .top-bar { position:sticky; top:0; z-index:10; background:rgba(17,19,23,0.9); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border-bottom:1px solid var(--border); padding:0 20px; height:68px; display:flex; align-items:center; justify-content:space-between; }
+  .top-bar { position:sticky; top:0; z-index:10; background:rgba(27,24,21,0.95); border-bottom:1px solid var(--border); padding:0 20px; height:68px; display:flex; align-items:center; justify-content:space-between; }
   .top-bar-title { font-family:'Hanken Grotesk',sans-serif; font-size:20px; font-weight:800; letter-spacing:-0.02em; color:var(--accent); white-space:nowrap; }
   .top-bar-actions { display:flex; align-items:center; gap:8px; flex-shrink:0; }
 
   /* ── Home screen ── */
   .home-hero { padding:32px 0 20px; }
-  .glow-blob { position:absolute; top:-60px; left:50%; transform:translateX(-50%); width:320px; height:320px; background:radial-gradient(ellipse at center, rgba(202,243,0,.12) 0%, rgba(202,243,0,.04) 45%, transparent 70%); border-radius:50%; pointer-events:none; z-index:0; filter:blur(20px); }
-  .glow-blob-sm { position:absolute; top:20px; right:-40px; width:180px; height:180px; background:radial-gradient(ellipse at center, rgba(124,106,255,.08) 0%, transparent 70%); border-radius:50%; pointer-events:none; z-index:0; filter:blur(16px); }
-  .home-logo { font-family:'Hanken Grotesk',sans-serif; font-size:40px; font-weight:800; letter-spacing:-0.03em; background:linear-gradient(135deg,var(--accent) 30%,#a8ff78 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; filter:drop-shadow(0 0 20px rgba(202,243,0,.2)); }
+  .glow-blob { position:absolute; top:-60px; left:50%; transform:translateX(-50%); width:320px; height:320px; background:radial-gradient(ellipse at center, rgba(232,118,63,.10) 0%, rgba(232,118,63,.03) 45%, transparent 70%); border-radius:50%; pointer-events:none; z-index:0; filter:blur(24px); }
+  .glow-blob-sm { position:absolute; top:20px; right:-40px; width:180px; height:180px; background:radial-gradient(ellipse at center, rgba(122,148,130,.08) 0%, transparent 70%); border-radius:50%; pointer-events:none; z-index:0; filter:blur(20px); }
+  .home-logo { font-family:'Hanken Grotesk',sans-serif; font-size:40px; font-weight:800; letter-spacing:-0.03em; color:var(--text); line-height:1; }
+  .home-logo span { color:var(--accent); }
   .home-tagline { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; margin-top:6px; }
-  .dart-icon { font-size:48px; display:block; margin-bottom:12px; filter:drop-shadow(0 0 24px rgba(202,243,0,.4)); }
+  .dart-icon { font-size:48px; display:block; margin-bottom:12px; color:var(--accent); }
   .section-label { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin:20px 0 10px; }
 
   /* ── Cards ── */
-  .card { background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:var(--radius); padding:16px; margin-bottom:10px; cursor:pointer; box-shadow:var(--shadow-card); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); transition:border-color var(--dur-base) var(--ease-out),transform var(--dur-fast),box-shadow var(--dur-base) var(--ease-out); -webkit-tap-highlight-color:transparent; position:relative; }
+  .card { background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:var(--radius); padding:16px; margin-bottom:10px; cursor:pointer; box-shadow:var(--shadow-card); transition:border-color var(--dur-base) var(--ease-out),transform var(--dur-fast),box-shadow var(--dur-base) var(--ease-out); -webkit-tap-highlight-color:transparent; position:relative; }
   .card:active { transform:scale(.97); box-shadow:var(--shadow-sm); }
-  .card:hover { border-color:rgba(202,243,0,.25); box-shadow:var(--shadow-card-hover); }
+  .card:hover { border-color:rgba(232,118,63,.3); box-shadow:var(--shadow-card-hover); }
   .card-header { display:flex; align-items:flex-start; gap:12px; }
-  .card-icon { font-size:26px; line-height:1; flex-shrink:0; margin-top:2px; width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:rgba(202,243,0,.07); border-radius:var(--radius-xs); }
+  .card-icon { font-size:26px; line-height:1; flex-shrink:0; margin-top:2px; width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:rgba(232,118,63,.1); border-radius:var(--radius-xs); }
   .card-info { flex:1; min-width:0; }
   .card-name { font-family:'Hanken Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--text); letter-spacing:-0.01em; }
   .card-meta { display:flex; gap:6px; margin-top:4px; flex-wrap:wrap; }
@@ -816,15 +817,15 @@ var css = `
 
   /* ── Badges ── */
   .badge { font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:500; letter-spacing:.05em; text-transform:uppercase; padding:3px 8px; border-radius:100px; background:var(--surface2); color:var(--muted); border:1px solid var(--border); white-space:nowrap; transition:background var(--dur-base),color var(--dur-base); }
-  .badge.accent { background:rgba(202,243,0,.1); color:var(--accent); border-color:rgba(202,243,0,.2); }
-  .badge.red { background:rgba(255,71,87,.1); color:var(--accent2); border-color:rgba(255,71,87,.2); }
+  .badge.accent { background:rgba(232,118,63,.14); color:var(--accent); border-color:rgba(232,118,63,.28); }
+  .badge.red { background:rgba(194,72,63,.14); color:var(--accent2); border-color:rgba(194,72,63,.28); }
 
   /* ── Quick start grid ── */
   .qs-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px; }
-  .qs-card { background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:var(--radius); padding:16px; cursor:pointer; transition:border-color var(--dur-base) var(--ease-out),transform var(--dur-fast),box-shadow var(--dur-base); -webkit-tap-highlight-color:transparent; text-align:center; box-shadow:var(--shadow-card); backdrop-filter:blur(12px); }
+  .qs-card { background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:var(--radius); padding:16px; cursor:pointer; transition:border-color var(--dur-base) var(--ease-out),transform var(--dur-fast),box-shadow var(--dur-base); -webkit-tap-highlight-color:transparent; text-align:center; box-shadow:var(--shadow-card); }
   .qs-card:active { transform:scale(.97); }
-  .qs-card:hover { border-color:rgba(202,243,0,.25); box-shadow:var(--shadow-card-hover); }
-  .qs-card.featured { grid-column:1/-1; background:linear-gradient(135deg,rgba(202,243,0,.08),rgba(168,255,120,.03)); border-color:rgba(202,243,0,.2); display:flex; align-items:center; gap:16px; text-align:left; box-shadow:0 4px 20px rgba(202,243,0,.06); }
+  .qs-card:hover { border-color:rgba(232,118,63,.3); box-shadow:var(--shadow-card-hover); }
+  .qs-card.featured { grid-column:1/-1; background:linear-gradient(135deg,rgba(232,118,63,.12),rgba(122,148,130,.04)); border-color:rgba(232,118,63,.25); display:flex; align-items:center; gap:16px; text-align:left; }
   .qs-icon { font-size:30px; margin-bottom:8px; }
   .qs-card.featured .qs-icon { margin-bottom:0; font-size:38px; }
   .qs-label { font-family:'Hanken Grotesk',sans-serif; font-size:13px; font-weight:700; color:var(--text); letter-spacing:-0.01em; }
@@ -835,22 +836,22 @@ var css = `
   .filter-row::-webkit-scrollbar { display:none; }
   .filter-btn { flex-shrink:0; padding:6px 14px; border-radius:100px; font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; letter-spacing:.05em; text-transform:uppercase; background:var(--surface); border:1px solid var(--border); color:var(--muted); cursor:pointer; transition:all .15s; -webkit-tap-highlight-color:transparent; }
   .filter-btn:active { transform:scale(0.92); }
-  .filter-btn.active { background:var(--accent); border-color:var(--accent); color:var(--on-accent); font-weight:700; box-shadow:0 2px 12px rgba(202,243,0,.2); }
+  .filter-btn.active { background:var(--accent); border-color:var(--accent); color:var(--on-accent); font-weight:700; }
 
   /* ── Info blocks ── */
-  .info-block { background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:var(--radius); padding:16px; margin-bottom:12px; box-shadow:var(--shadow-card); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
-  .info-title { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; opacity:.85; }
+  .info-block { background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:var(--radius); padding:16px; margin-bottom:12px; box-shadow:var(--shadow-card); }
+  .info-title { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; opacity:.9; }
   .info-block p { font-size:14px; color:var(--text2); line-height:1.7; }
   .rules-list { list-style:none; display:flex; flex-direction:column; gap:8px; }
   .rules-list li { font-size:14px; color:var(--text2); line-height:1.5; padding-left:20px; position:relative; }
-  .rules-list li::before { content:''; position:absolute; left:0; top:7px; width:6px; height:6px; border-radius:50%; background:var(--accent); opacity:.7; }
-  .tip-block { background:rgba(202,243,0,.04); border:1px solid rgba(202,243,0,.12); border-radius:var(--radius); padding:14px 16px; margin-bottom:12px; display:flex; gap:12px; }
+  .rules-list li::before { content:''; position:absolute; left:0; top:7px; width:6px; height:6px; border-radius:50%; background:var(--accent); opacity:.8; }
+  .tip-block { background:rgba(232,118,63,.06); border:1px solid rgba(232,118,63,.18); border-radius:var(--radius); padding:14px 16px; margin-bottom:12px; display:flex; gap:12px; }
   .tip-icon { font-size:20px; flex-shrink:0; }
   .tip-text { font-size:13px; color:var(--text2); line-height:1.6; }
   .tip-text strong { color:var(--text); display:block; margin-bottom:4px; font-weight:700; }
 
   /* ── Programmes ── */
-  .prog-card { background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:var(--radius); padding:16px; margin-bottom:10px; box-shadow:var(--shadow-card); backdrop-filter:blur(12px); }
+  .prog-card { background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:var(--radius); padding:16px; margin-bottom:10px; box-shadow:var(--shadow-card); }
   .prog-name { font-family:'Hanken Grotesk',sans-serif; font-size:16px; font-weight:700; color:var(--text); letter-spacing:-0.01em; }
   .prog-meta { font-size:12px; color:var(--text2); margin-top:3px; }
   .chip-row { display:flex; gap:6px; flex-wrap:wrap; margin-top:10px; }
@@ -860,21 +861,21 @@ var css = `
   .btn { display:flex; align-items:center; justify-content:center; gap:7px; min-height:44px; padding:14px 22px; border-radius:var(--radius-sm); font-family:'Hanken Grotesk',sans-serif; font-size:15px; font-weight:700; letter-spacing:-0.01em; border:none; cursor:pointer; transition:transform var(--dur-fast) var(--ease-spring),opacity var(--dur-base),background var(--dur-base),box-shadow var(--dur-base); -webkit-tap-highlight-color:transparent; }
   .btn:active { transform:scale(.96); }
   .btn:disabled { opacity:.4; cursor:not-allowed; pointer-events:none; }
-  .btn-primary { background:var(--accent); color:var(--on-accent); box-shadow:0 4px 20px rgba(202,243,0,.2); }
-  .btn-primary:active { box-shadow:0 2px 8px rgba(202,243,0,.15); }
-  .btn-primary:hover { box-shadow:0 6px 26px rgba(202,243,0,.3); }
-  .btn-secondary { background:var(--glass-bg); color:var(--text2); border:1px solid var(--glass-border); backdrop-filter:blur(12px); }
-  .btn-secondary:hover { border-color:rgba(202,243,0,.3); color:var(--text); }
-  .btn-danger { background:rgba(255,71,87,.12); color:var(--accent2); border:1px solid rgba(255,71,87,.2); }
+  .btn-primary { background:var(--accent); color:var(--on-accent); box-shadow:var(--shadow-accent); }
+  .btn-primary:active { box-shadow:0 2px 8px rgba(232,118,63,.16); }
+  .btn-primary:hover { box-shadow:0 8px 24px rgba(232,118,63,.3); }
+  .btn-secondary { background:var(--glass-bg); color:var(--text2); border:1px solid var(--glass-border); }
+  .btn-secondary:hover { border-color:rgba(232,118,63,.35); color:var(--text); }
+  .btn-danger { background:rgba(194,72,63,.14); color:var(--accent2); border:1px solid rgba(194,72,63,.28); }
   .btn-sm { min-height:36px; padding:9px 16px; font-size:13px; border-radius:10px; }
   .btn-full { width:100%; }
-  .fab { position:fixed; bottom:88px; right:20px; width:56px; height:56px; border-radius:50%; background:var(--accent); color:var(--on-accent); border:none; font-size:24px; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:50; transition:transform .15s,box-shadow .15s; -webkit-tap-highlight-color:transparent; box-shadow:0 4px 20px rgba(202,243,0,.35),0 2px 8px rgba(0,0,0,.4); }
+  .fab { position:fixed; bottom:88px; right:20px; width:56px; height:56px; border-radius:50%; background:var(--accent); color:var(--on-accent); border:none; font-size:24px; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:50; transition:transform .15s,box-shadow .15s; -webkit-tap-highlight-color:transparent; box-shadow:0 6px 20px rgba(232,118,63,.32),0 2px 8px rgba(15,10,4,.3); }
   .fab:active { transform:scale(.93); box-shadow:none; }
 
   @keyframes overlayIn { from { opacity:0; } to { opacity:1; } }
   @keyframes sheetIn { from { transform:translateY(24px); opacity:0; } to { transform:translateY(0); opacity:1; } }
-  .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.88); backdrop-filter:blur(8px); z-index:200; display:flex; align-items:flex-end; animation:overlayIn var(--dur-base) var(--ease-out) both; }
-  .modal { background:rgba(20,22,28,0.95); border-radius:24px 24px 0 0; width:100%; max-width:430px; margin:0 auto; padding:24px 20px 36px; max-height:92vh; overflow-y:auto; border-top:1px solid var(--glass-border); box-shadow:0 -8px 40px rgba(0,0,0,.7); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); animation:sheetIn var(--dur-slow) var(--ease-spring) both; }
+  .modal-overlay { position:fixed; inset:0; background:rgba(10,7,4,.78); backdrop-filter:blur(4px); z-index:200; display:flex; align-items:flex-end; animation:overlayIn var(--dur-base) var(--ease-out) both; }
+  .modal { background:#24201b; border-radius:24px 24px 0 0; width:100%; max-width:430px; margin:0 auto; padding:24px 20px 36px; max-height:92vh; overflow-y:auto; border-top:1px solid var(--glass-border); box-shadow:0 -10px 32px rgba(10,7,4,.5); animation:sheetIn var(--dur-slow) var(--ease-spring) both; }
   .modal-handle { width:36px; height:3px; background:var(--border2); border-radius:100px; margin:0 auto 22px; }
   .modal-title { font-family:'Hanken Grotesk',sans-serif; font-size:26px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin-bottom:6px; }
   .modal-sub { font-size:13px; color:var(--text2); margin-bottom:22px; line-height:1.55; }
@@ -882,23 +883,23 @@ var css = `
   .form-group { margin-bottom:18px; }
   .form-label { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:9px; display:block; }
   .form-hint { font-size:12px; color:var(--muted); margin-top:6px; line-height:1.4; }
-  .form-input { width:100%; background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius-sm); padding:13px 16px; font-family:'DM Sans',sans-serif; font-size:15px; color:var(--text); outline:none; transition:border-color .2s,box-shadow .2s; }
-  .form-input:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(202,243,0,.08); }
+  .form-input { width:100%; background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius-sm); padding:13px 16px; font-family:'Hanken Grotesk',sans-serif; font-size:15px; color:var(--text); outline:none; transition:border-color .2s,box-shadow .2s; }
+  .form-input:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(232,118,63,.12); }
   .form-input::placeholder { color:var(--muted); }
   .picker-item { display:flex; align-items:center; gap:12px; padding:13px 14px; background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius-sm); cursor:pointer; transition:all .15s; margin-bottom:8px; -webkit-tap-highlight-color:transparent; }
-  .picker-item.selected { border-color:var(--accent); background:rgba(202,243,0,.07); }
+  .picker-item.selected { border-color:var(--accent); background:rgba(232,118,63,.1); }
   .picker-item:active { transform:scale(.98); }
   .picker-icon { font-size:22px; }
   .picker-info { flex:1; min-width:0; }
   .picker-name { font-size:14px; font-weight:600; color:var(--text); }
   .picker-meta { font-size:11px; color:var(--text2); margin-top:2px; }
   .check-box { width:22px; height:22px; border-radius:7px; border:2px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all .15s; font-size:12px; font-weight:700; }
-  .picker-item.selected .check-box { background:var(--accent); border-color:var(--accent); color:#0a0a0e; }
+  .picker-item.selected .check-box { background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
 
   .prog-bar-wrap { margin-bottom:14px; }
   .prog-bar-top { display:flex; justify-content:space-between; font-size:12px; color:var(--muted); margin-bottom:7px; }
   .prog-bar-bg { height:4px; background:var(--surface2); border-radius:100px; overflow:hidden; }
-  .prog-bar-fill { height:100%; background:linear-gradient(90deg,var(--accent),#a8ff78); border-radius:100px; transition:width .4s ease; }
+  .prog-bar-fill { height:100%; background:linear-gradient(90deg,var(--accent),#f0a06a); border-radius:100px; transition:width .4s ease; }
 
   .session-header { padding-top:52px; display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; }
   .back-btn { display:flex; align-items:center; gap:6px; color:var(--text2); font-size:14px; font-weight:600; background:none; border:none; cursor:pointer; padding:0; font-family:'Hanken Grotesk',sans-serif; -webkit-tap-highlight-color:transparent; }
@@ -906,20 +907,20 @@ var css = `
 
   /* ── Stats ── */
   .stat-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:14px; }
-  .stat-box { background:var(--glass-bg); border:1px solid var(--glass-border); border-top:2px solid rgba(202,243,0,.3); border-radius:var(--radius-sm); padding:12px 8px; text-align:center; box-shadow:var(--shadow-sm); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+  .stat-box { background:var(--glass-bg); border:1px solid var(--glass-border); border-top:2px solid rgba(232,118,63,.4); border-radius:var(--radius-sm); padding:12px 8px; text-align:center; box-shadow:var(--shadow-sm); }
   .stat-val { font-family:'Hanken Grotesk',sans-serif; font-size:26px; font-weight:800; letter-spacing:-0.04em; color:var(--accent); line-height:1; }
   .stat-lbl { font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:500; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin-top:4px; }
 
   /* ── Buttons ── */
   .hit-btn { flex:1; padding:18px; border-radius:var(--radius-sm); font-family:'Hanken Grotesk',sans-serif; font-size:15px; font-weight:700; border:none; cursor:pointer; -webkit-tap-highlight-color:transparent; transition:all .15s; letter-spacing:-0.01em; }
   .hit-btn:active { transform:scale(.96); }
-  .hit-btn.yes { background:var(--accent); color:var(--on-accent); box-shadow:0 2px 14px rgba(202,243,0,.25); }
-  .hit-btn.no { background:rgba(255,71,87,.1); color:var(--accent2); border:1px solid rgba(255,71,87,.2); }
+  .hit-btn.yes { background:var(--accent); color:var(--on-accent); box-shadow:0 2px 14px rgba(232,118,63,.3); }
+  .hit-btn.no { background:rgba(194,72,63,.14); color:var(--accent2); border:1px solid rgba(194,72,63,.28); }
 
   .next-panel { display:flex; gap:10px; }
   .next-box { flex:1; text-align:center; padding:12px 8px; border-radius:var(--radius-sm); }
-  .next-box.up { background:rgba(202,243,0,.05); border:1px solid rgba(202,243,0,.15); }
-  .next-box.down { background:rgba(255,71,87,.05); border:1px solid rgba(255,71,87,.15); }
+  .next-box.up { background:rgba(232,118,63,.07); border:1px solid rgba(232,118,63,.2); }
+  .next-box.down { background:rgba(194,72,63,.07); border:1px solid rgba(194,72,63,.2); }
   .next-num { font-family:'Hanken Grotesk',sans-serif; font-size:20px; font-weight:800; letter-spacing:-0.02em; }
   .next-num.up { color:var(--accent); }
   .next-num.down { color:var(--accent2); }
@@ -936,27 +937,27 @@ var css = `
 
   .hits-row { display:flex; gap:8px; justify-content:center; }
   .hit-dot-btn { width:52px; height:52px; border-radius:12px; border:2px solid var(--border); background:var(--surface2); color:var(--muted); font-family:'Hanken Grotesk',sans-serif; font-size:17px; font-weight:800; cursor:pointer; display:flex; align-items:center; justify-content:center; -webkit-tap-highlight-color:transparent; transition:all .15s; }
-  .hit-dot-btn.selected { background:var(--accent); border-color:var(--accent); color:var(--on-accent); box-shadow:0 2px 12px rgba(202,243,0,.25); }
+  .hit-dot-btn.selected { background:var(--accent); border-color:var(--accent); color:var(--on-accent); box-shadow:0 2px 12px rgba(232,118,63,.3); }
   .hit-dot-btn:active { transform:scale(.93); }
 
   .history-row { display:flex; align-items:center; gap:10px; padding:9px 12px; background:var(--surface2); border-radius:10px; margin-bottom:6px; }
   .history-name { font-size:13px; color:var(--text2); flex:1; }
   .history-score { font-family:'Hanken Grotesk',sans-serif; font-size:13px; font-weight:700; color:var(--accent); }
-  .history-card { background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:var(--radius); padding:16px; margin-bottom:10px; box-shadow:var(--shadow-card); backdrop-filter:blur(12px); }
-  .divider { height:1px; background:var(--border); margin:14px 0; opacity:.6; }
+  .history-card { background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:var(--radius); padding:16px; margin-bottom:10px; box-shadow:var(--shadow-card); }
+  .divider { height:1px; background:var(--border); margin:14px 0; opacity:.7; }
   .notes-input { width:100%; background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px 14px; font-family:'Hanken Grotesk',sans-serif; font-size:14px; color:var(--text); outline:none; resize:none; height:70px; margin-top:10px; transition:border-color .2s; }
   .notes-input:focus { border-color:var(--accent); }
   .notes-input::placeholder { color:var(--muted); }
-  .warn-banner { background:rgba(255,71,87,.07); border:1px solid rgba(255,71,87,.2); border-radius:var(--radius-sm); padding:10px 14px; font-size:12px; color:var(--accent2); font-weight:600; text-align:center; margin-top:10px; }
+  .warn-banner { background:rgba(194,72,63,.1); border:1px solid rgba(194,72,63,.28); border-radius:var(--radius-sm); padding:10px 14px; font-size:12px; color:var(--accent2); font-weight:600; text-align:center; margin-top:10px; }
 
   /* ── Empty states ── */
   .empty-state { text-align:center; padding:48px 24px; }
   .empty-rings { position:relative; width:140px; height:140px; margin:0 auto 24px; display:flex; align-items:center; justify-content:center; }
-  .empty-rings::before { content:''; position:absolute; inset:0; border:1px solid rgba(202,243,0,.15); border-radius:50%; animation:spin 20s linear infinite; }
-  .empty-rings::after { content:''; position:absolute; inset:20px; border:1px solid rgba(202,243,0,.25); border-radius:50%; animation:spin 12s linear infinite reverse; }
-  @keyframes pulse-neon { 0%,100%{opacity:1;filter:drop-shadow(0 0 10px rgba(202,243,0,.6))} 50%{opacity:.6;filter:drop-shadow(0 0 2px rgba(202,243,0,.2))} }
+  .empty-rings::before { content:''; position:absolute; inset:0; border:1px solid rgba(232,118,63,.18); border-radius:50%; animation:spin 20s linear infinite; }
+  .empty-rings::after { content:''; position:absolute; inset:20px; border:1px solid rgba(232,118,63,.28); border-radius:50%; animation:spin 12s linear infinite reverse; }
+  @keyframes pulse-neon { 0%,100%{opacity:1} 50%{opacity:.55} }
   .empty-icon-anim { animation:pulse-neon 3s infinite ease-in-out; position:relative; z-index:1; }
-  .empty-icon { font-size:52px; margin-bottom:14px; opacity:.6; }
+  .empty-icon { font-size:52px; margin-bottom:14px; opacity:.65; }
   .empty-title { font-family:'Hanken Grotesk',sans-serif; font-size:20px; font-weight:800; color:var(--text); margin-bottom:8px; letter-spacing:-0.01em; }
   .empty-body { font-size:14px; color:var(--text2); line-height:1.6; max-width:260px; margin:0 auto; }
   @keyframes dlbounce { 0%,80%,100%{transform:scale(0)} 40%{transform:scale(1)} }
@@ -970,9 +971,9 @@ var IMG_DARTS_STRIP = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA
 
 // ── Custom Dartboard SVG ─────────────────────────────────────────────────────
 var DartboardSVG = ({ size = 120, muted = false }) => {
-  var a = "#caf300"; // accent lime
-  var d = muted ? "rgba(202,243,0,.15)" : a;
-  var r = muted ? "rgba(255,71,87,.2)" : "#ff4757";
+  var a = "#e8763f"; // accent
+  var d = muted ? "rgba(232,118,63,.15)" : a;
+  var r = muted ? "rgba(194,72,63,.2)" : "#c2483f";
   var w = muted ? "rgba(255,255,255,.06)" : "rgba(255,255,255,.12)";
   var b = muted ? "rgba(0,0,0,.3)" : "#1a1a24";
   var cx = 100, cy = 100, R = 90;
@@ -1006,7 +1007,7 @@ var DartboardSVG = ({ size = 120, muted = false }) => {
     );
   }
   return (
-    React.createElement('svg', { viewBox: "0 0 200 200"   , width: size, height: size, style: { filter: muted ? "none" : "drop-shadow(0 0 16px rgba(202,243,0,.3))" },}
+    React.createElement('svg', { viewBox: "0 0 200 200"   , width: size, height: size, style: { filter: muted ? "none" : "drop-shadow(0 0 16px rgba(232,118,63,.3))" },}
       , React.createElement('circle', { cx: cx, cy: cy, r: R+2, fill: "rgba(0,0,0,.5)",} )
       , segs
       /* Wire rings */
@@ -1015,7 +1016,7 @@ var DartboardSVG = ({ size = 120, muted = false }) => {
       , React.createElement('circle', { cx: cx, cy: cy, r: 14, fill: r,} )
       , React.createElement('circle', { cx: cx, cy: cy, r: 7, fill: d,} )
       /* Glow on bull */
-      , !muted && React.createElement('circle', { cx: cx, cy: cy, r: 7, fill: "rgba(202,243,0,.4)",} )
+      , !muted && React.createElement('circle', { cx: cx, cy: cy, r: 7, fill: "rgba(232,118,63,.4)",} )
     )
   );
 };
@@ -1121,7 +1122,7 @@ function SessionTopBar({ onExit, idx, total, label }) {
           message: "Are you sure you want to exit? Your session progress will be lost."            ,}
         )
       )
-      , React.createElement('div', { style: { position:"sticky", top:0, zIndex:10, background:"rgba(17,19,23,0.9)", backdropFilter:"blur(16px)", WebkitBackdropFilter:"blur(16px)", borderBottom:"1px solid var(--border)", padding:"0 16px", height:52, display:"flex", alignItems:"center", justifyContent:"space-between", margin:"0 -16px 16px" },}
+      , React.createElement('div', { style: { position:"sticky", top:0, zIndex:10, background:"rgba(27,24,21,0.93)", backdropFilter:"blur(16px)", WebkitBackdropFilter:"blur(16px)", borderBottom:"1px solid var(--border)", padding:"0 16px", height:52, display:"flex", alignItems:"center", justifyContent:"space-between", margin:"0 -16px 16px" },}
         , React.createElement('button', { className: "back-btn", onClick: () => setConfirming(true), style: { fontSize:13, color:"var(--muted)", display:"flex", alignItems:"center", gap:6 },}, React.createElement(Ms, { icon: "close", size: 18,} ), " Exit" )
         , React.createElement('span', { style: { fontFamily:"'JetBrains Mono',monospace", fontSize:10, fontWeight:500, letterSpacing:".05em", textTransform:"uppercase", color:"var(--muted)" },}, label || `${idx + 1} of ${total}`)
       )
@@ -1163,11 +1164,11 @@ function GameResultScreen({ title, emoji, subtitle, stats, history, notes, setNo
       /* Hero card */
       , React.createElement('div', { style: {
         background: isWin
-          ? "linear-gradient(135deg,rgba(202,243,0,.1),rgba(168,255,120,.04))"
+          ? "linear-gradient(135deg,rgba(232,118,63,.1),rgba(168,255,120,.04))"
           : isBust
-            ? "linear-gradient(135deg,rgba(255,71,87,.08),rgba(255,100,100,.03))"
+            ? "linear-gradient(135deg,rgba(194,72,63,.08),rgba(255,100,100,.03))"
             : "var(--glass-bg)",
-        border: `1px solid ${isWin ? "rgba(202,243,0,.25)" : isBust ? "rgba(255,71,87,.2)" : "var(--glass-border)"}`,
+        border: `1px solid ${isWin ? "rgba(232,118,63,.25)" : isBust ? "rgba(194,72,63,.2)" : "var(--glass-border)"}`,
         borderTop: `3px solid ${isWin ? "var(--accent)" : isBust ? "var(--accent2)" : "rgba(255,255,255,.1)"}`,
         borderRadius: "var(--radius)", padding: "28px 20px 24px",
         textAlign: "center", marginBottom: 14,
@@ -1320,13 +1321,13 @@ function AtcSession({ game, onDone, onExit, sessionIdx, sessionTotal }) {
       , React.createElement(ProgressBar, { current: currentIdx, total: allTargets.length, label: game.name,} )
 
       , game.level === 4 && (
-        React.createElement('div', { style: { background: "var(--surface)", border: `1px solid ${timeLeft < 120 ? "rgba(255,71,87,.4)" : "var(--border)"}`, borderRadius: "var(--radius)", padding: 14, marginBottom: 14, textAlign: "center" },}
+        React.createElement('div', { style: { background: "var(--surface)", border: `1px solid ${timeLeft < 120 ? "rgba(194,72,63,.4)" : "var(--border)"}`, borderRadius: "var(--radius)", padding: 14, marginBottom: 14, textAlign: "center" },}
           , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--muted)", marginBottom: 4 },}, "Time Remaining" )
           , React.createElement('div', { className: `timer-display ${timeLeft < 120 ? "warning" : "ok"}`,}, fmt(timeLeft))
         )
       )
 
-      , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(202,243,0,.07),rgba(168,255,120,.03))", border: "1px solid rgba(202,243,0,.25)", borderRadius: "var(--radius)", padding: 20, marginBottom: 14, textAlign: "center" },}
+      , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(232,118,63,.07),rgba(168,255,120,.03))", border: "1px solid rgba(232,118,63,.25)", borderRadius: "var(--radius)", padding: 20, marginBottom: 14, textAlign: "center" },}
         , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--muted)", marginBottom: 8 },}, "Current Target" )
         , React.createElement('div', { className: "big-number", style: { fontSize: current === "Bull" ? 64 : 88 },}, current === "Bull" ? "🎯 Bull" : current)
         , React.createElement('div', { style: { fontSize: 12, color: "var(--muted)", marginTop: 8 },}, levelLabel[game.level])
@@ -1370,7 +1371,7 @@ function AtcSession({ game, onDone, onExit, sessionIdx, sessionTotal }) {
         , React.createElement('div', { className: "info-title",}, "Progress")
         , React.createElement('div', { style: { display: "flex", gap: 5, flexWrap: "wrap" },}
           , allTargets.map((t, i) => (
-            React.createElement('div', { key: i, style: { width: 28, height: 28, borderRadius: 7, background: completedNumbers.includes(t) ? "var(--accent)" : i === currentIdx ? "rgba(202,243,0,.15)" : "var(--surface2)", border: `1px solid ${i <= currentIdx ? "var(--accent)" : "var(--border)"}`, fontSize: 11, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", color: completedNumbers.includes(t) ? "var(--on-accent)" : i === currentIdx ? "var(--accent)" : "var(--muted)" },}
+            React.createElement('div', { key: i, style: { width: 28, height: 28, borderRadius: 7, background: completedNumbers.includes(t) ? "var(--accent)" : i === currentIdx ? "rgba(232,118,63,.15)" : "var(--surface2)", border: `1px solid ${i <= currentIdx ? "var(--accent)" : "var(--border)"}`, fontSize: 11, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", color: completedNumbers.includes(t) ? "var(--on-accent)" : i === currentIdx ? "var(--accent)" : "var(--muted)" },}
               , completedNumbers.includes(t) ? "✓" : t === "Bull" ? "B" : t
             )
           ))
@@ -1427,7 +1428,7 @@ function Bobs27Session({ onDone, onExit, sessionIdx, sessionTotal }) {
       , React.createElement(ProgressBar, { current: idx, total: allTargets.length, label: "Bob's 27" ,} )
 
       , React.createElement('div', { style: { display: "flex", gap: 10, marginBottom: 14 },}
-        , React.createElement('div', { style: { flex: 1, background: "linear-gradient(135deg,rgba(202,243,0,.07),rgba(168,255,120,.03))", border: "1px solid rgba(202,243,0,.25)", borderRadius: "var(--radius)", padding: 16, textAlign: "center" },}
+        , React.createElement('div', { style: { flex: 1, background: "linear-gradient(135deg,rgba(232,118,63,.07),rgba(168,255,120,.03))", border: "1px solid rgba(232,118,63,.25)", borderRadius: "var(--radius)", padding: 16, textAlign: "center" },}
           , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--muted)", marginBottom: 4 },}, "Score")
           , React.createElement('div', { className: "stat-val", style: { fontSize: 40 },}, score)
         )
@@ -1445,7 +1446,7 @@ function Bobs27Session({ onDone, onExit, sessionIdx, sessionTotal }) {
           ))
         )
         , selectedHits !== null && (
-          React.createElement('div', { style: { marginTop: 12, padding: "10px 14px", borderRadius: 10, background: selectedHits === 0 ? "rgba(255,71,87,.08)" : "rgba(202,243,0,.08)", border: `1px solid ${selectedHits === 0 ? "rgba(255,71,87,.3)" : "rgba(202,243,0,.3)"}`, textAlign: "center" },}
+          React.createElement('div', { style: { marginTop: 12, padding: "10px 14px", borderRadius: 10, background: selectedHits === 0 ? "rgba(194,72,63,.08)" : "rgba(232,118,63,.08)", border: `1px solid ${selectedHits === 0 ? "rgba(194,72,63,.3)" : "rgba(232,118,63,.3)"}`, textAlign: "center" },}
             , React.createElement('span', { style: { fontSize: 14, fontWeight: 700, color: selectedHits === 0 ? "var(--accent2)" : "var(--accent)" },}
               , selectedHits === 0 ? `Miss — Score: ${score} − ${dblValue} = ${score - dblValue}` : `${selectedHits} hit${selectedHits > 1 ? "s" : ""} — Score: ${score} + ${selectedHits * dblValue} = ${score + selectedHits * dblValue}`
             )
@@ -1518,7 +1519,7 @@ function DoublesSession({ onDone, onExit, sessionIdx, sessionTotal }) {
           , React.createElement('div', { className: "stat-val",}, totalHits)
           , React.createElement('div', { style: { fontSize: 11, color: "var(--muted)", marginTop: 2 },}, idx > 0 ? `${Math.round((totalHits / (idx * 3)) * 100)}% so far` : "—")
         )
-        , React.createElement('div', { style: { flex: 1, background: "linear-gradient(135deg,rgba(202,243,0,.07),rgba(168,255,120,.03))", border: "1px solid rgba(202,243,0,.25)", borderRadius: "var(--radius)", padding: 14, textAlign: "center" },}
+        , React.createElement('div', { style: { flex: 1, background: "linear-gradient(135deg,rgba(232,118,63,.07),rgba(168,255,120,.03))", border: "1px solid rgba(232,118,63,.25)", borderRadius: "var(--radius)", padding: 14, textAlign: "center" },}
           , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--muted)", marginBottom: 4 },}, "Target")
           , React.createElement('div', { className: "stat-val", style: { fontSize: 36 },}, allTargets[idx])
         )
@@ -1542,7 +1543,7 @@ function DoublesSession({ onDone, onExit, sessionIdx, sessionTotal }) {
           , allTargets.map((t, i) => {
             var res = results[i];
             return (
-              React.createElement('div', { key: i, style: { width: 34, height: 34, borderRadius: 8, background: res ? (res.hits > 0 ? "var(--accent)" : "rgba(255,71,87,.2)") : i === idx ? "rgba(202,243,0,.15)" : "var(--surface2)", border: `1px solid ${i === idx ? "var(--accent)" : res ? (res.hits > 0 ? "var(--accent)" : "rgba(255,71,87,.4)") : "var(--border)"}`, fontSize: 10, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", color: res ? (res.hits > 0 ? "var(--on-accent)" : "var(--accent2)") : i === idx ? "var(--accent)" : "var(--muted)" },}
+              React.createElement('div', { key: i, style: { width: 34, height: 34, borderRadius: 8, background: res ? (res.hits > 0 ? "var(--accent)" : "rgba(194,72,63,.2)") : i === idx ? "rgba(232,118,63,.15)" : "var(--surface2)", border: `1px solid ${i === idx ? "var(--accent)" : res ? (res.hits > 0 ? "var(--accent)" : "rgba(194,72,63,.4)") : "var(--border)"}`, fontSize: 10, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", color: res ? (res.hits > 0 ? "var(--on-accent)" : "var(--accent2)") : i === idx ? "var(--accent)" : "var(--muted)" },}
                 , res ? res.hits : t === "D-Bull" ? "B" : i + 1
               )
             );
@@ -1599,7 +1600,7 @@ function TreblesSession({ onDone, onExit, sessionIdx, sessionTotal }) {
           , React.createElement('div', { className: "stat-val",}, totalHits)
           , React.createElement('div', { style: { fontSize: 11, color: "var(--muted)", marginTop: 2 },}, idx > 0 ? `${Math.round((totalHits / (idx * 3)) * 100)}%` : "—")
         )
-        , React.createElement('div', { style: { flex: 1, background: "linear-gradient(135deg,rgba(202,243,0,.07),rgba(168,255,120,.03))", border: "1px solid rgba(202,243,0,.25)", borderRadius: "var(--radius)", padding: 14, textAlign: "center" },}
+        , React.createElement('div', { style: { flex: 1, background: "linear-gradient(135deg,rgba(232,118,63,.07),rgba(168,255,120,.03))", border: "1px solid rgba(232,118,63,.25)", borderRadius: "var(--radius)", padding: 14, textAlign: "center" },}
           , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--muted)", marginBottom: 4 },}, "Target")
           , React.createElement('div', { className: "stat-val", style: { fontSize: 36 },}, allTargets[idx])
           , ["T20", "T19", "T18", "T17"].includes(allTargets[idx]) && React.createElement('div', { style: { fontSize: 10, color: "var(--accent)", fontWeight: 700, marginTop: 4 },}, React.createElement(Ms, { icon: "star", size: 10, fill: true,} ), " KEY TREBLE"  )
@@ -1624,7 +1625,7 @@ function TreblesSession({ onDone, onExit, sessionIdx, sessionTotal }) {
           , allTargets.map((t, i) => {
             var res = results[i];
             return (
-              React.createElement('div', { key: i, style: { width: 34, height: 34, borderRadius: 8, background: res ? (res.hits > 0 ? "var(--accent)" : "rgba(255,71,87,.2)") : i === idx ? "rgba(202,243,0,.15)" : "var(--surface2)", border: `1px solid ${i === idx ? "var(--accent)" : res ? (res.hits > 0 ? "var(--accent)" : "rgba(255,71,87,.4)") : "var(--border)"}`, fontSize: 10, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", color: res ? (res.hits > 0 ? "var(--on-accent)" : "var(--accent2)") : i === idx ? "var(--accent)" : "var(--muted)" },}
+              React.createElement('div', { key: i, style: { width: 34, height: 34, borderRadius: 8, background: res ? (res.hits > 0 ? "var(--accent)" : "rgba(194,72,63,.2)") : i === idx ? "rgba(232,118,63,.15)" : "var(--surface2)", border: `1px solid ${i === idx ? "var(--accent)" : res ? (res.hits > 0 ? "var(--accent)" : "rgba(194,72,63,.4)") : "var(--border)"}`, fontSize: 10, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", color: res ? (res.hits > 0 ? "var(--on-accent)" : "var(--accent2)") : i === idx ? "var(--accent)" : "var(--muted)" },}
                 , res ? res.hits : i + 1
               )
             );
@@ -1675,7 +1676,7 @@ function BullseyeSession({ onDone, onExit, sessionIdx, sessionTotal }) {
       , React.createElement(SessionTopBar, { onExit: onExit, idx: sessionIdx, total: sessionTotal,} )
       , React.createElement(ProgressBar, { current: groupIdx, total: GROUPS, label: "Bullseye Challenge" ,} )
 
-      , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(202,243,0,.07),rgba(168,255,120,.03))", border: "1px solid rgba(202,243,0,.25)", borderRadius: "var(--radius)", padding: 20, marginBottom: 14, textAlign: "center" },}
+      , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(232,118,63,.07),rgba(168,255,120,.03))", border: "1px solid rgba(232,118,63,.25)", borderRadius: "var(--radius)", padding: 20, marginBottom: 14, textAlign: "center" },}
         , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--muted)", marginBottom: 6 },}, "Group " , groupIdx + 1, " of "  , GROUPS)
         , React.createElement('div', { style: { marginBottom: 4 },}, React.createElement(DartboardSVG, { size: 64,} ))
         , React.createElement('div', { style: { fontSize: 13, color: "var(--muted)" },}, "Throw 10 darts at the bull — then log results below"          )
@@ -1770,7 +1771,7 @@ function HalveItSession({ onDone, onExit, sessionIdx, sessionTotal }) {
       , React.createElement(ProgressBar, { current: roundIdx, total: HALVE_IT_SEQUENCE.length, label: "Halve-It",} )
 
       , React.createElement('div', { style: { display: "flex", gap: 10, marginBottom: 14 },}
-        , React.createElement('div', { style: { flex: 1, background: "linear-gradient(135deg,rgba(202,243,0,.07),rgba(168,255,120,.03))", border: "1px solid rgba(202,243,0,.25)", borderRadius: "var(--radius)", padding: 16, textAlign: "center" },}
+        , React.createElement('div', { style: { flex: 1, background: "linear-gradient(135deg,rgba(232,118,63,.07),rgba(168,255,120,.03))", border: "1px solid rgba(232,118,63,.25)", borderRadius: "var(--radius)", padding: 16, textAlign: "center" },}
           , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--muted)", marginBottom: 4 },}, "Score")
           , React.createElement('div', { className: "stat-val", style: { fontSize: 40 },}, score)
           , React.createElement('div', { style: { fontSize: 11, color: "var(--muted)", marginTop: 2 },}, "Halved → "  , Math.floor(score / 2))
@@ -1967,19 +1968,19 @@ function Game121Session({ game, onDone, onExit, sessionIdx, sessionTotal }) {
 
       /* Timer */
       , secondsLeft !== null && (
-        React.createElement('div', { style: { background: timerWarning121 ? "rgba(255,71,87,.08)" : "var(--surface)", border: `1px solid ${timerWarning121 ? "rgba(255,71,87,.35)" : "var(--border)"}`, borderRadius: 12, padding: "8px 14px", marginBottom: 10, display: "flex", alignItems: "center", justifyContent: "space-between" },}
+        React.createElement('div', { style: { background: timerWarning121 ? "rgba(194,72,63,.08)" : "var(--surface)", border: `1px solid ${timerWarning121 ? "rgba(194,72,63,.35)" : "var(--border)"}`, borderRadius: 12, padding: "8px 14px", marginBottom: 10, display: "flex", alignItems: "center", justifyContent: "space-between" },}
           , React.createElement('span', { style: { fontSize: 12, color: timerWarning121 ? "var(--accent2)" : "var(--muted)" },}, "⏱ Time remaining"  )
           , React.createElement('span', { style: { fontFamily: "'Hanken Grotesk',sans-serif", fontSize: 18, fontWeight: 700, color: timerWarning121 ? "var(--accent2)" : "var(--text)", letterSpacing: 2 },}, fmtTime121(secondsLeft))
         )
       )
 
-      , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(202,243,0,.08),rgba(168,255,120,.04))", border: "1px solid rgba(202,243,0,.25)", borderRadius: "var(--radius)", padding: 20, marginBottom: 14, textAlign: "center" },}
+      , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(232,118,63,.08),rgba(168,255,120,.04))", border: "1px solid rgba(232,118,63,.25)", borderRadius: "var(--radius)", padding: 20, marginBottom: 14, textAlign: "center" },}
         , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--muted)", marginBottom: 8 },}, "Current Target" )
         , React.createElement('div', { className: "big-number",}, current)
         , React.createElement('div', { style: { fontSize: 13, color: "var(--muted)", marginTop: 6 },}, config.darts, " darts · Goal: "    , goal, " · Floor: "   , floor, " · Best: "   , highest)
         , React.createElement('div', { style: { display: "flex", justifyContent: "center", gap: 8, marginTop: 12 },}
           , Array.from({ length: maxVisits }, (_, i) => i + 1).map(v => (
-            React.createElement('div', { key: v, style: { width: 36, height: 36, borderRadius: 10, background: v < visit ? "var(--accent)" : v === visit ? "rgba(202,243,0,.2)" : "var(--surface2)", border: `1px solid ${v <= visit ? "var(--accent)" : "var(--border)"}`, fontSize: 13, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", color: v < visit ? "var(--on-accent)" : v === visit ? "var(--accent)" : "var(--muted)" },}
+            React.createElement('div', { key: v, style: { width: 36, height: 36, borderRadius: 10, background: v < visit ? "var(--accent)" : v === visit ? "rgba(232,118,63,.2)" : "var(--surface2)", border: `1px solid ${v <= visit ? "var(--accent)" : "var(--border)"}`, fontSize: 13, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", color: v < visit ? "var(--on-accent)" : v === visit ? "var(--accent)" : "var(--muted)" },}
               , v < visit ? "✓" : v
             )
           ))
@@ -2044,7 +2045,7 @@ function GameF50Session({ game, onDone, onExit, sessionIdx, sessionTotal }) {
           , React.createElement('span', { style: { fontSize: 12, color: "var(--accent)" },}, attempt > 1 ? `${Math.round((checkouts / (attempt - 1)) * 100)}% so far` : "—")
         )
       )
-      , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(202,243,0,.08),rgba(168,255,120,.04))", border: "1px solid rgba(202,243,0,.25)", borderRadius: "var(--radius)", padding: 20, marginBottom: 14, textAlign: "center" },}
+      , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(232,118,63,.08),rgba(168,255,120,.04))", border: "1px solid rgba(232,118,63,.25)", borderRadius: "var(--radius)", padding: 20, marginBottom: 14, textAlign: "center" },}
         , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--muted)", marginBottom: 8 },}, "Checkout This Number"  )
         , React.createElement('div', { className: "big-number",}, current)
         , React.createElement('div', { style: { fontSize: 13, color: "var(--muted)", marginTop: 8 },}, "3 darts · Finish on a double"      )
@@ -2078,9 +2079,9 @@ function HomePage({ programmes, onStartSession, onGoTo, onPlayBot, authUser, onG
         /* Dartboard photo — darkened background */
         , React.createElement('div', { style: { position:"absolute", inset:0, backgroundImage:`url(${IMG_BOARD_HERO})`, backgroundSize:"150%", backgroundPosition:"center", opacity:0.2, pointerEvents:"none" },} )
         /* Radial fade so edges blend into dark */
-        , React.createElement('div', { style: { position:"absolute", inset:0, background:"radial-gradient(ellipse at center, transparent 30%, rgba(17,19,23,.7) 80%)", pointerEvents:"none" },} )
+        , React.createElement('div', { style: { position:"absolute", inset:0, background:"radial-gradient(ellipse at center, transparent 30%, rgba(27,24,21,.75) 80%)", pointerEvents:"none" },} )
         , React.createElement('span', { className: "dart-icon", style: { position:"relative", zIndex:1 },}, React.createElement(DartboardSVG, { size: 56,} ))
-        , React.createElement('div', { className: "home-logo",}, "DARTS IQ" )
+        , React.createElement('div', { className: "home-logo",}, "DARTS ", React.createElement('span', null, "IQ") )
         , React.createElement('div', { style: { fontSize: 13, color: "var(--muted)", letterSpacing: 2, textTransform: "uppercase", marginTop: 6 },}, "Train smarter. Throw better."   )
       )
       , programmes.length > 0 && (React.createElement(React.Fragment, null
@@ -2110,7 +2111,7 @@ function HomePage({ programmes, onStartSession, onGoTo, onPlayBot, authUser, onG
         )
         , React.createElement('div', { className: "qs-card fade-in-up", onClick: () => onGoTo("library"),}, React.createElement('div', { className: "qs-icon",}, React.createElement(Ms, { icon: "track_changes", size: 30,} )), React.createElement('div', { className: "qs-label",}, "Game Library" ), React.createElement('div', { className: "qs-sub",}, GAMES.length, " games" ))
         , React.createElement('div', { className: "qs-card fade-in-up", onClick: () => onGoTo("history"),}, React.createElement('div', { className: "qs-icon",}, React.createElement(Ms, { icon: "analytics", size: 30,} )), React.createElement('div', { className: "qs-label",}, "History"), React.createElement('div', { className: "qs-sub",}, "Past sessions" ))
-        , React.createElement('div', { className: "qs-card featured fade-in-up", style: { background: "linear-gradient(135deg,rgba(255,71,87,.12),rgba(255,71,87,.06))", borderColor: "rgba(255,71,87,.3)" }, onClick: onPlayBot,}
+        , React.createElement('div', { className: "qs-card featured fade-in-up", style: { background: "linear-gradient(135deg,rgba(194,72,63,.12),rgba(194,72,63,.06))", borderColor: "rgba(194,72,63,.3)" }, onClick: onPlayBot,}
           , React.createElement('div', { className: "qs-icon", style: { marginBottom: 0 },}, React.createElement(Ms, { icon: "smart_toy", size: 38,} ))
           , React.createElement('div', null, React.createElement('div', { className: "qs-label",}, "Play vs Bot"  ), React.createElement('div', { className: "qs-sub",}, "10 difficulty levels"  ))
         )
@@ -2166,7 +2167,7 @@ function GameDetailPage({ game, onBack, onAddToProgramme }) {
     React.createElement('div', { className: "scroll-area", style: { paddingBottom: 120 },}
       , React.createElement('div', { style: { paddingTop: 52 },}, React.createElement('button', { className: "back-btn", onClick: onBack,}, React.createElement(Ms, { icon: "arrow_back", size: 18,} ), " Back" ))
       , React.createElement('div', { className: "fade-in-up", style: { textAlign: "center", padding: "24px 0" },}
-        , React.createElement('div', { style: { fontSize: 56, lineHeight: 1, width: 96, height: 96, margin: "0 auto 14px", display: "flex", alignItems: "center", justifyContent: "center", background: "radial-gradient(circle,rgba(202,243,0,.1),transparent 70%)", borderRadius: "50%" },}, game.icon)
+        , React.createElement('div', { style: { fontSize: 56, lineHeight: 1, width: 96, height: 96, margin: "0 auto 14px", display: "flex", alignItems: "center", justifyContent: "center", background: "radial-gradient(circle,rgba(232,118,63,.1),transparent 70%)", borderRadius: "50%" },}, game.icon)
         , React.createElement('div', { style: { fontFamily: "'Hanken Grotesk',sans-serif", fontSize: 28, fontWeight: 800, letterSpacing: "-0.02em", color: "var(--text)" },}, game.name)
         , React.createElement('div', { style: { display: "flex", gap: 8, justifyContent: "center", marginTop: 10, flexWrap: "wrap" },}
           , React.createElement('span', { className: "badge accent" ,}, game.category)
@@ -2286,13 +2287,13 @@ function GenericSession({ game, onDone, onExit, sessionIdx, sessionTotal }) {
   return (
     React.createElement('div', { className: "scroll-area",}
       , React.createElement(SessionTopBar, { onExit: onExit, idx: sessionIdx, total: sessionTotal,} )
-      , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(202,243,0,.06),rgba(168,255,120,.03))", border: "1px solid rgba(202,243,0,.25)", borderRadius: "var(--radius)", padding: 20, marginBottom: 14, textAlign: "center" },}
+      , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(232,118,63,.06),rgba(168,255,120,.03))", border: "1px solid rgba(232,118,63,.25)", borderRadius: "var(--radius)", padding: 20, marginBottom: 14, textAlign: "center" },}
         , React.createElement('div', { style: { fontSize: 52, marginBottom: 10 },}, game.icon)
         , React.createElement('div', { style: { fontFamily: "'Hanken Grotesk',sans-serif", fontSize: 22, fontWeight: 800, letterSpacing: "-0.02em", color: "var(--text)", marginBottom: 6 },}, game.name)
         , React.createElement('div', { style: { fontSize: 13, color: "var(--muted)", lineHeight: 1.5, marginBottom: 14 },}, game.shortDesc)
         , React.createElement('div', { className: "divider",} )
         , React.createElement('ul', { className: "rules-list", style: { textAlign: "left", marginTop: 10 },}, game.rules.map((r, i) => React.createElement('li', { key: i,}, r)))
-        , game.tips && React.createElement('div', { style: { marginTop: 12, padding: "10px 12px", background: "rgba(202,243,0,.06)", borderRadius: 10, border: "1px solid rgba(202,243,0,.15)", textAlign: "left" },}, React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 1, textTransform: "uppercase", color: "var(--accent)", marginBottom: 4 },}, "💡 Tip" ), React.createElement('div', { style: { fontSize: 12, color: "var(--muted)", lineHeight: 1.5 },}, game.tips))
+        , game.tips && React.createElement('div', { style: { marginTop: 12, padding: "10px 12px", background: "rgba(232,118,63,.06)", borderRadius: 10, border: "1px solid rgba(232,118,63,.15)", textAlign: "left" },}, React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 1, textTransform: "uppercase", color: "var(--accent)", marginBottom: 4 },}, "💡 Tip" ), React.createElement('div', { style: { fontSize: 12, color: "var(--muted)", lineHeight: 1.5 },}, game.tips))
       )
       , React.createElement('div', { className: "info-block",}
         , React.createElement('div', { className: "info-title",}, game.scoreLabel)
@@ -2447,7 +2448,7 @@ function SingleMasterySession({ onDone, onExit, sessionIdx, sessionTotal }) {
           , React.createElement('span', { style: { fontSize: 11, fontWeight: 700, color: "var(--accent)" },}, overallPct, "% complete" )
         )
         , React.createElement('div', { style: { height: 6, background: "rgba(255,255,255,0.07)", borderRadius: 100, overflow: "hidden" },}
-          , React.createElement('div', { style: { height: "100%", width: `${overallPct}%`, background: "linear-gradient(90deg,var(--accent),#a8ff78)", borderRadius: 100, transition: "width .5s ease" },} )
+          , React.createElement('div', { style: { height: "100%", width: `${overallPct}%`, background: "linear-gradient(90deg,var(--accent),#f0a06a)", borderRadius: 100, transition: "width .5s ease" },} )
         )
         /* Target pip track */
         , React.createElement('div', { style: { display: "flex", gap: 4, marginTop: 8, justifyContent: "center" },}
@@ -2459,7 +2460,7 @@ function SingleMasterySession({ onDone, onExit, sessionIdx, sessionTotal }) {
 
       /* Score cards */
       , React.createElement('div', { style: { display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 14 },}
-        , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(202,243,0,.08),rgba(168,255,120,.04))", border: "1px solid rgba(202,243,0,.3)", borderRadius: "var(--radius)", padding: 14, textAlign: "center" },}
+        , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(232,118,63,.08),rgba(168,255,120,.04))", border: "1px solid rgba(232,118,63,.3)", borderRadius: "var(--radius)", padding: 14, textAlign: "center" },}
           , React.createElement('div', { style: { fontSize: 10, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--accent)", marginBottom: 4 },}, "Target")
           , React.createElement('div', { style: { fontFamily: "'Bebas Neue',sans-serif", fontSize: 40, color: "var(--accent)", lineHeight: 1 },}, current)
         )
@@ -2505,8 +2506,8 @@ function SingleMasterySession({ onDone, onExit, sessionIdx, sessionTotal }) {
 
         , singlesHit !== null && (
           React.createElement('div', { style: { padding: "10px 14px", borderRadius: 10, marginBottom: 12, textAlign: "center", fontSize: 14, fontWeight: 600,
-            background: isSuccess ? "rgba(202,243,0,.08)" : "rgba(255,71,87,.06)",
-            border: `1px solid ${isSuccess ? "rgba(202,243,0,.25)" : "rgba(255,71,87,.2)"}`,
+            background: isSuccess ? "rgba(232,118,63,.08)" : "rgba(194,72,63,.06)",
+            border: `1px solid ${isSuccess ? "rgba(232,118,63,.25)" : "rgba(194,72,63,.2)"}`,
             color: isSuccess ? "var(--accent)" : "var(--accent2)",
           },}
             , isSuccess
@@ -2731,7 +2732,7 @@ function KillTheBullSession({ game, onDone, onExit, sessionIdx, sessionTotal }) 
   // ── Main game screen ─────────────────────────────────────────────────────
   var goalPct    = Math.min(100, Math.round((currentScore / goal) * 100));
   var isDanger   = level === 1 && consecMisses === 1;
-  var borderCol  = isDanger ? "rgba(255,71,87,.5)" : "rgba(202,243,0,.3)";
+  var borderCol  = isDanger ? "rgba(194,72,63,.5)" : "rgba(232,118,63,.3)";
   var timerWarning = secondsLeft !== null && secondsLeft <= 60;
 
   return (
@@ -2740,7 +2741,7 @@ function KillTheBullSession({ game, onDone, onExit, sessionIdx, sessionTotal }) 
 
       /* Score + peak + goal */
       , React.createElement('div', { style: { display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 12 },}
-        , React.createElement('div', { style: { background: isDanger ? "rgba(255,71,87,.08)" : "linear-gradient(135deg,rgba(202,243,0,.08),rgba(168,255,120,.04))", border: `1px solid ${borderCol}`, borderRadius: "var(--radius)", padding: 14, textAlign: "center" },}
+        , React.createElement('div', { style: { background: isDanger ? "rgba(194,72,63,.08)" : "linear-gradient(135deg,rgba(232,118,63,.08),rgba(168,255,120,.04))", border: `1px solid ${borderCol}`, borderRadius: "var(--radius)", padding: 14, textAlign: "center" },}
           , React.createElement('div', { style: { fontSize: 10, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: isDanger ? "var(--accent2)" : "var(--accent)", marginBottom: 4 },}
             , isDanger ? "⚠️ DANGER" : "Score"
           )
@@ -2758,7 +2759,7 @@ function KillTheBullSession({ game, onDone, onExit, sessionIdx, sessionTotal }) 
 
       /* Timer display */
       , secondsLeft !== null && (
-        React.createElement('div', { style: { background: timerWarning ? "rgba(255,71,87,.08)" : "var(--surface)", border: `1px solid ${timerWarning ? "rgba(255,71,87,.35)" : "var(--border)"}`, borderRadius: 12, padding: "8px 14px", marginBottom: 10, display: "flex", alignItems: "center", justifyContent: "space-between" },}
+        React.createElement('div', { style: { background: timerWarning ? "rgba(194,72,63,.08)" : "var(--surface)", border: `1px solid ${timerWarning ? "rgba(194,72,63,.35)" : "var(--border)"}`, borderRadius: 12, padding: "8px 14px", marginBottom: 10, display: "flex", alignItems: "center", justifyContent: "space-between" },}
           , React.createElement('span', { style: { fontSize: 12, color: timerWarning ? "var(--accent2)" : "var(--muted)" },}, "⏱ Time remaining"  )
           , React.createElement('span', { style: { fontFamily: "'Hanken Grotesk',sans-serif", fontSize: 18, fontWeight: 700, color: timerWarning ? "var(--accent2)" : "var(--text)", letterSpacing: 2 },}, fmtTime(secondsLeft))
         )
@@ -2771,13 +2772,13 @@ function KillTheBullSession({ game, onDone, onExit, sessionIdx, sessionTotal }) 
           , React.createElement('span', { style: { fontSize: 11, fontWeight: 700, color: "var(--accent)" },}, goalPct, "%")
         )
         , React.createElement('div', { style: { height: 8, background: "rgba(255,255,255,0.07)", borderRadius: 100, overflow: "hidden" },}
-          , React.createElement('div', { style: { height: "100%", width: `${goalPct}%`, background: "linear-gradient(90deg,var(--accent),#a8ff78)", borderRadius: 100, transition: "width .4s ease" },} )
+          , React.createElement('div', { style: { height: "100%", width: `${goalPct}%`, background: "linear-gradient(90deg,var(--accent),#f0a06a)", borderRadius: 100, transition: "width .4s ease" },} )
         )
       )
 
       /* L1 danger warning */
       , isDanger && (
-        React.createElement('div', { style: { background: "rgba(255,71,87,.08)", border: "1px solid rgba(255,71,87,.35)", borderRadius: 12, padding: "10px 14px", marginBottom: 12, textAlign: "center" },}
+        React.createElement('div', { style: { background: "rgba(194,72,63,.08)", border: "1px solid rgba(194,72,63,.35)", borderRadius: 12, padding: "10px 14px", marginBottom: 12, textAlign: "center" },}
           , React.createElement('div', { style: { fontSize: 13, fontWeight: 700, color: "var(--accent2)" },}, "⚠️ One more miss = BUST!"     )
           , React.createElement('div', { style: { fontSize: 11, color: "var(--muted)", marginTop: 2 },}, "Hit at least a 25 this visit to stay alive"         )
         )
@@ -2802,8 +2803,8 @@ function KillTheBullSession({ game, onDone, onExit, sessionIdx, sessionTotal }) 
 
         , visitScore !== null && (
           React.createElement('div', { style: { padding: "10px 14px", borderRadius: 10, marginBottom: 12, textAlign: "center", fontSize: 14, fontWeight: 600,
-            background: visitScore === 0 ? "rgba(255,71,87,.08)" : "rgba(202,243,0,.06)",
-            border: `1px solid ${visitScore === 0 ? "rgba(255,71,87,.25)" : "rgba(202,243,0,.2)"}`,
+            background: visitScore === 0 ? "rgba(194,72,63,.08)" : "rgba(232,118,63,.06)",
+            border: `1px solid ${visitScore === 0 ? "rgba(194,72,63,.25)" : "rgba(232,118,63,.2)"}`,
             color: visitScore === 0 ? "var(--accent2)" : "var(--accent)",
           },}
             , visitScore === 0
@@ -2916,7 +2917,7 @@ function Catch40Session({ onDone, onExit, sessionIdx, sessionTotal }) {
           , React.createElement('div', { className: "info-title",}, "Breakdown — 61 to 100"    )
           , React.createElement('div', { style: { display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 6 },}
             , hist.map((h, i) => (
-              React.createElement('div', { key: i, style: { background: h.pts === 3 ? "rgba(202,243,0,.15)" : h.pts === 2 ? "rgba(100,200,255,.1)" : h.pts === 1 ? "rgba(255,152,0,.1)" : "rgba(255,71,87,.08)", border: `1px solid ${h.pts === 3 ? "rgba(202,243,0,.35)" : h.pts === 2 ? "rgba(100,200,255,.25)" : h.pts === 1 ? "rgba(255,152,0,.25)" : "rgba(255,71,87,.2)"}`, borderRadius: 10, padding: "6px 4px", textAlign: "center" },}
+              React.createElement('div', { key: i, style: { background: h.pts === 3 ? "rgba(232,118,63,.15)" : h.pts === 2 ? "rgba(100,200,255,.1)" : h.pts === 1 ? "rgba(255,152,0,.1)" : "rgba(194,72,63,.08)", border: `1px solid ${h.pts === 3 ? "rgba(232,118,63,.35)" : h.pts === 2 ? "rgba(100,200,255,.25)" : h.pts === 1 ? "rgba(255,152,0,.25)" : "rgba(194,72,63,.2)"}`, borderRadius: 10, padding: "6px 4px", textAlign: "center" },}
                 , React.createElement('div', { style: { fontSize: 10, color: "var(--muted)" },}, h.score)
                 , React.createElement('div', { style: { fontFamily: "'Bebas Neue',sans-serif", fontSize: 18, color: h.pts === 3 ? "var(--accent)" : h.pts === 2 ? "#64c8ff" : h.pts === 1 ? "#ff9800" : "var(--accent2)" },}
                   , h.pts > 0 ? `+${h.pts}` : "—"
@@ -2949,7 +2950,7 @@ function Catch40Session({ onDone, onExit, sessionIdx, sessionTotal }) {
           , React.createElement('div', { style: { fontSize: 10, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--muted)", marginBottom: 4 },}, "Points")
           , React.createElement('div', { style: { fontFamily: "'Bebas Neue',sans-serif", fontSize: 32, color: "var(--text)" },}, totalPoints)
         )
-        , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(202,243,0,.08),rgba(168,255,120,.04))", border: "1px solid rgba(202,243,0,.3)", borderRadius: "var(--radius)", padding: 14, textAlign: "center" },}
+        , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(232,118,63,.08),rgba(168,255,120,.04))", border: "1px solid rgba(232,118,63,.3)", borderRadius: "var(--radius)", padding: 14, textAlign: "center" },}
           , React.createElement('div', { style: { fontSize: 10, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--accent)", marginBottom: 4 },}, "Checkout")
           , React.createElement('div', { style: { fontFamily: "'Bebas Neue',sans-serif", fontSize: 44, color: "var(--accent)", letterSpacing: 2 },}, current)
         )
@@ -2961,7 +2962,7 @@ function Catch40Session({ onDone, onExit, sessionIdx, sessionTotal }) {
 
       /* Checkout route hint */
       , checkout !== "—" && (
-        React.createElement('div', { style: { background: "rgba(202,243,0,.06)", border: "1px solid rgba(202,243,0,.2)", borderRadius: 12, padding: "8px 14px", marginBottom: 14, display: "flex", justifyContent: "space-between", alignItems: "center" },}
+        React.createElement('div', { style: { background: "rgba(232,118,63,.06)", border: "1px solid rgba(232,118,63,.2)", borderRadius: 12, padding: "8px 14px", marginBottom: 14, display: "flex", justifyContent: "space-between", alignItems: "center" },}
           , React.createElement('span', { style: { fontSize: 11, fontWeight: 700, color: "var(--accent)", letterSpacing: 1 },}, "💡 ROUTE" )
           , React.createElement('span', { style: { fontSize: 14, fontWeight: 700, color: "var(--text)" },}, checkout)
         )
@@ -2992,7 +2993,7 @@ function Catch40Session({ onDone, onExit, sessionIdx, sessionTotal }) {
         )
 
         , dartsUsed !== null && (
-          React.createElement('div', { style: { padding: "10px 14px", borderRadius: 10, background: dartsUsed === "miss" ? "rgba(255,71,87,.06)" : "rgba(202,243,0,.06)", border: `1px solid ${dartsUsed === "miss" ? "rgba(255,71,87,.2)" : "rgba(202,243,0,.2)"}`, textAlign: "center", fontSize: 14, fontWeight: 600, color: dartsUsed === "miss" ? "var(--accent2)" : "var(--accent)", marginBottom: 12 },}
+          React.createElement('div', { style: { padding: "10px 14px", borderRadius: 10, background: dartsUsed === "miss" ? "rgba(194,72,63,.06)" : "rgba(232,118,63,.06)", border: `1px solid ${dartsUsed === "miss" ? "rgba(194,72,63,.2)" : "rgba(232,118,63,.2)"}`, textAlign: "center", fontSize: 14, fontWeight: 600, color: dartsUsed === "miss" ? "var(--accent2)" : "var(--accent)", marginBottom: 12 },}
             , dartsUsed === "miss" ? `Missed ${current} — 0 points` : `${current} in ${dartsUsed === 4 ? "4–6" : dartsUsed} darts → +${getPoints(current, dartsUsed)} point${getPoints(current, dartsUsed) !== 1 ? "s" : ""}`
           )
         )
@@ -3205,8 +3206,8 @@ function JDCSession({ onDone, onExit, sessionIdx, sessionTotal }) {
   // ── Shanghai section (s1 or s3) ───────────────────────────────────────────
   if (section === "s1" || section === "s3") {
     var sectionLabel = section === "s1" ? "Section 1 — Numbers 10–15" : "Section 3 — Numbers 15–20";
-    var sectionColor = section === "s1" ? "rgba(202,243,0,.25)" : "rgba(168,85,247,.3)";
-    var sectionBg    = section === "s1" ? "rgba(202,243,0,.06)" : "rgba(168,85,247,.06)";
+    var sectionColor = section === "s1" ? "rgba(232,118,63,.25)" : "rgba(168,85,247,.3)";
+    var sectionBg    = section === "s1" ? "rgba(232,118,63,.06)" : "rgba(168,85,247,.06)";
     var sectionAccent = section === "s1" ? "var(--accent)" : "rgb(168,85,247)";
 
     return (
@@ -3238,7 +3239,7 @@ function JDCSession({ onDone, onExit, sessionIdx, sessionTotal }) {
           , React.createElement('div', { style: { display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 14 },}
             , [
               { label: "Single", key: "S", hit: hitSingle, set: setHitSingle, pts: currentNum, color: "rgba(100,200,255,.3)", accent: "#64c8ff" },
-              { label: "Double", key: "D", hit: hitDouble, set: setHitDouble, pts: currentNum * 2, color: "rgba(202,243,0,.3)", accent: "var(--accent)" },
+              { label: "Double", key: "D", hit: hitDouble, set: setHitDouble, pts: currentNum * 2, color: "rgba(232,118,63,.3)", accent: "var(--accent)" },
               { label: "Treble", key: "T", hit: hitTreble, set: setHitTreble, pts: currentNum * 3, color: "rgba(255,100,100,.3)", accent: "var(--accent2)" },
             ].map(({ label, hit, set, pts, color, accent }) => (
               React.createElement('button', { key: label, onClick: () => set(v => !v),
@@ -3251,7 +3252,7 @@ function JDCSession({ onDone, onExit, sessionIdx, sessionTotal }) {
           )
 
           , isShanghai && (
-            React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(202,243,0,.15),rgba(168,255,120,.08))", border: "1px solid rgba(202,243,0,.5)", borderRadius: 12, padding: "12px 16px", marginBottom: 12, textAlign: "center" },}
+            React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(232,118,63,.15),rgba(168,255,120,.08))", border: "1px solid rgba(232,118,63,.5)", borderRadius: 12, padding: "12px 16px", marginBottom: 12, textAlign: "center" },}
               , React.createElement('div', { style: { fontFamily: "'Hanken Grotesk',sans-serif", fontSize: 18, fontWeight: 700, color: "var(--accent)", letterSpacing: 2 },}, "🎯 SHANGHAI! +100 Bonus"   )
               , React.createElement('div', { style: { fontSize: 13, color: "var(--muted)", marginTop: 2 },}, "Scored " , visitScore, " + 100 bonus = "     , thisVisitTotal, " pts" )
             )
@@ -3309,7 +3310,7 @@ function JDCSession({ onDone, onExit, sessionIdx, sessionTotal }) {
           , React.createElement('div', { style: { fontSize: 10, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--muted)", marginBottom: 4 },}, "Running Total" )
           , React.createElement('div', { style: { fontFamily: "'Bebas Neue',sans-serif", fontSize: 32, color: "var(--text)" },}, runningTotal)
         )
-        , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(255,100,100,.08),rgba(255,71,87,.04))", border: "1px solid rgba(255,100,100,.3)", borderRadius: "var(--radius)", padding: 14, textAlign: "center" },}
+        , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(255,100,100,.08),rgba(194,72,63,.04))", border: "1px solid rgba(255,100,100,.3)", borderRadius: "var(--radius)", padding: 14, textAlign: "center" },}
           , React.createElement('div', { style: { fontSize: 10, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--accent2)", marginBottom: 4 },}, "Target")
           , React.createElement('div', { style: { fontFamily: "'Bebas Neue',sans-serif", fontSize: 44, color: "var(--accent2)", letterSpacing: 2 },}, dblLabel)
         )
@@ -3319,19 +3320,19 @@ function JDCSession({ onDone, onExit, sessionIdx, sessionTotal }) {
         , React.createElement('div', { className: "info-title",}, "One dart at "   , dblLabel, " — "  , dblPts, " pts if hit"   )
         , React.createElement('div', { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 14 },}
           , React.createElement('button', { onClick: () => setDoubleHit(true),
-            style: { padding: "24px 0", background: doubleHit === true ? "rgba(202,243,0,.15)" : "var(--surface2)", border: `2px solid ${doubleHit === true ? "var(--accent)" : "var(--border)"}`, borderRadius: 18, fontFamily: "'Hanken Grotesk',sans-serif", fontSize: 18, fontWeight: 700, color: doubleHit === true ? "var(--accent)" : "var(--muted)", cursor: "pointer", WebkitTapHighlightColor: "transparent", transition: "all .15s" },}, "✓ Hit"
+            style: { padding: "24px 0", background: doubleHit === true ? "rgba(232,118,63,.15)" : "var(--surface2)", border: `2px solid ${doubleHit === true ? "var(--accent)" : "var(--border)"}`, borderRadius: 18, fontFamily: "'Hanken Grotesk',sans-serif", fontSize: 18, fontWeight: 700, color: doubleHit === true ? "var(--accent)" : "var(--muted)", cursor: "pointer", WebkitTapHighlightColor: "transparent", transition: "all .15s" },}, "✓ Hit"
              , React.createElement('br', null)
             , React.createElement('span', { style: { fontSize: 32, letterSpacing: 1 },}, "+", dblPts)
           )
           , React.createElement('button', { onClick: () => setDoubleHit(false),
-            style: { padding: "24px 0", background: doubleHit === false ? "rgba(255,71,87,.12)" : "var(--surface2)", border: `2px solid ${doubleHit === false ? "var(--accent2)" : "var(--border)"}`, borderRadius: 18, fontFamily: "'Hanken Grotesk',sans-serif", fontSize: 18, fontWeight: 700, color: doubleHit === false ? "var(--accent2)" : "var(--muted)", cursor: "pointer", WebkitTapHighlightColor: "transparent", transition: "all .15s" },}, "✗ Miss"
+            style: { padding: "24px 0", background: doubleHit === false ? "rgba(194,72,63,.12)" : "var(--surface2)", border: `2px solid ${doubleHit === false ? "var(--accent2)" : "var(--border)"}`, borderRadius: 18, fontFamily: "'Hanken Grotesk',sans-serif", fontSize: 18, fontWeight: 700, color: doubleHit === false ? "var(--accent2)" : "var(--muted)", cursor: "pointer", WebkitTapHighlightColor: "transparent", transition: "all .15s" },}, "✗ Miss"
              , React.createElement('br', null)
             , React.createElement('span', { style: { fontSize: 32 },}, "0")
           )
         )
 
         , doubleHit !== null && (
-          React.createElement('div', { style: { padding: "10px 14px", borderRadius: 10, background: doubleHit ? "rgba(202,243,0,.06)" : "rgba(255,71,87,.06)", border: `1px solid ${doubleHit ? "rgba(202,243,0,.25)" : "rgba(255,71,87,.25)"}`, textAlign: "center", fontSize: 14, fontWeight: 600, color: doubleHit ? "var(--accent)" : "var(--accent2)", marginBottom: 12 },}
+          React.createElement('div', { style: { padding: "10px 14px", borderRadius: 10, background: doubleHit ? "rgba(232,118,63,.06)" : "rgba(194,72,63,.06)", border: `1px solid ${doubleHit ? "rgba(232,118,63,.25)" : "rgba(194,72,63,.25)"}`, textAlign: "center", fontSize: 14, fontWeight: 600, color: doubleHit ? "var(--accent)" : "var(--accent2)", marginBottom: 12 },}
             , doubleHit ? `Hit! ${dblLabel} = +${dblPts} pts` : `Miss — no points for ${dblLabel}`
           )
         )
@@ -3350,7 +3351,7 @@ function JDCSession({ onDone, onExit, sessionIdx, sessionTotal }) {
             var done  = i < stepIdx;
             var h     = hist.find(x => x.section === "S2" && x.target === (i === 20 ? "Bull" : `D${i + 1}`));
             return (
-              React.createElement('div', { key: i, style: { width: 34, height: 34, borderRadius: 8, background: done ? (_optionalChain([h, 'optionalAccess', _12 => _12.hit]) ? "rgba(202,243,0,.2)" : "rgba(255,71,87,.12)") : i === stepIdx ? "var(--surface2)" : "var(--surface)", border: `1px solid ${done ? (_optionalChain([h, 'optionalAccess', _13 => _13.hit]) ? "rgba(202,243,0,.4)" : "rgba(255,71,87,.3)") : i === stepIdx ? "var(--accent)" : "var(--border)"}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 700, color: done ? (_optionalChain([h, 'optionalAccess', _14 => _14.hit]) ? "var(--accent)" : "var(--accent2)") : i === stepIdx ? "var(--accent)" : "var(--muted)" },}
+              React.createElement('div', { key: i, style: { width: 34, height: 34, borderRadius: 8, background: done ? (_optionalChain([h, 'optionalAccess', _12 => _12.hit]) ? "rgba(232,118,63,.2)" : "rgba(194,72,63,.12)") : i === stepIdx ? "var(--surface2)" : "var(--surface)", border: `1px solid ${done ? (_optionalChain([h, 'optionalAccess', _13 => _13.hit]) ? "rgba(232,118,63,.4)" : "rgba(194,72,63,.3)") : i === stepIdx ? "var(--accent)" : "var(--border)"}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 700, color: done ? (_optionalChain([h, 'optionalAccess', _14 => _14.hit]) ? "var(--accent)" : "var(--accent2)") : i === stepIdx ? "var(--accent)" : "var(--muted)" },}
                 , label
               )
             );
@@ -3536,20 +3537,20 @@ function ShareSessionCard({ results, programmeName, hasPBs, sessionPBs }) {
 
     // Accent border top
     var grad = ctx.createLinearGradient(0, 0, 900, 0);
-    grad.addColorStop(0, "#caf300"); grad.addColorStop(1, "#a8ff78");
+    grad.addColorStop(0, "#e8763f"); grad.addColorStop(1, "#f0a06a");
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, 900, 4);
 
     // Logo area — left column
-    ctx.fillStyle = "#caf300";
+    ctx.fillStyle = "#e8763f";
     ctx.font = "bold 13px sans-serif";
     ctx.letterSpacing = "3px";
     ctx.fillText("DARTS IQ", 48, 52);
 
     // Dart icon (simplified SVG path as text)
-    ctx.fillStyle = "rgba(202,243,0,0.15)";
+    ctx.fillStyle = "rgba(232,118,63,0.15)";
     ctx.beginPath(); ctx.arc(62, 100, 38, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = "#caf300";
+    ctx.fillStyle = "#e8763f";
     ctx.font = "bold 48px sans-serif";
     ctx.fillText("🎯", 42, 120);
 
@@ -3576,9 +3577,9 @@ function ShareSessionCard({ results, programmeName, hasPBs, sessionPBs }) {
 
     // PB banner
     if (hasPBs) {
-      ctx.fillStyle = "rgba(202,243,0,0.1)";
+      ctx.fillStyle = "rgba(232,118,63,0.1)";
       ctx.beginPath(); ctx.roundRect(startX, 24, 648, 36, 8); ctx.fill();
-      ctx.fillStyle = "#caf300";
+      ctx.fillStyle = "#e8763f";
       ctx.font = "bold 12px sans-serif";
       ctx.fillText(`🏆  ${sessionPBs.length} NEW PERSONAL BEST${sessionPBs.length > 1 ? "S" : ""} THIS SESSION`, startX + 16, 47);
     }
@@ -3591,10 +3592,10 @@ function ShareSessionCard({ results, programmeName, hasPBs, sessionPBs }) {
       var isPB = _optionalChain([sessionPBs, 'optionalAccess', _27 => _27.find, 'call', _28 => _28(p => p.name === r.name)]);
 
       // Card bg
-      ctx.fillStyle = isPB ? "rgba(202,243,0,0.07)" : "rgba(255,255,255,0.04)";
+      ctx.fillStyle = isPB ? "rgba(232,118,63,0.07)" : "rgba(255,255,255,0.04)";
       ctx.beginPath(); ctx.roundRect(x, y, colW - 12, rowH - 8, 10); ctx.fill();
       if (isPB) {
-        ctx.strokeStyle = "rgba(202,243,0,0.3)";
+        ctx.strokeStyle = "rgba(232,118,63,0.3)";
         ctx.lineWidth = 1;
         ctx.beginPath(); ctx.roundRect(x, y, colW - 12, rowH - 8, 10); ctx.stroke();
       }
@@ -3606,15 +3607,15 @@ function ShareSessionCard({ results, programmeName, hasPBs, sessionPBs }) {
       ctx.fillText(gameName, x + 12, y + 22);
 
       // Score
-      ctx.fillStyle = isPB ? "#caf300" : "#f0f0f8";
+      ctx.fillStyle = isPB ? "#e8763f" : "#f0f0f8";
       ctx.font = "bold 26px sans-serif";
       ctx.fillText(r.score.toString(), x + 12, y + 54);
 
       // PB badge
       if (isPB) {
-        ctx.fillStyle = "rgba(202,243,0,0.2)";
+        ctx.fillStyle = "rgba(232,118,63,0.2)";
         ctx.beginPath(); ctx.roundRect(x + colW - 52, y + 36, 32, 18, 4); ctx.fill();
-        ctx.fillStyle = "#caf300";
+        ctx.fillStyle = "#e8763f";
         ctx.font = "bold 9px sans-serif";
         ctx.fillText("PB", x + colW - 44, y + 49);
       }
@@ -3631,7 +3632,7 @@ function ShareSessionCard({ results, programmeName, hasPBs, sessionPBs }) {
 
   return (
     React.createElement('button', { onClick: handleShare, disabled: sharing,
-      style: { width: "100%", padding: "14px 0", marginTop: 10, background: "rgba(202,243,0,.08)", border: "1px solid rgba(202,243,0,.25)", borderRadius: 14, fontFamily: "'DM Sans',sans-serif", fontSize: 14, fontWeight: 700, color: "var(--accent)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, WebkitTapHighlightColor: "transparent", transition: "opacity .15s", opacity: sharing ? 0.5 : 1 },}
+      style: { width: "100%", padding: "14px 0", marginTop: 10, background: "rgba(232,118,63,.08)", border: "1px solid rgba(232,118,63,.25)", borderRadius: 14, fontFamily: "'DM Sans',sans-serif", fontSize: 14, fontWeight: 700, color: "var(--accent)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, WebkitTapHighlightColor: "transparent", transition: "opacity .15s", opacity: sharing ? 0.5 : 1 },}
       , sharing ? "⏳ Preparing…" : "📤 Share Session"
     )
   );
@@ -3659,11 +3660,11 @@ function ShareIQCard({ iqData, iqTier, iqNextTier, iqPct }) {
 
     // Top accent bar
     var topGrad = ctx.createLinearGradient(0, 0, 800, 0);
-    topGrad.addColorStop(0, iqTier.color); topGrad.addColorStop(1, "#a8ff78");
+    topGrad.addColorStop(0, iqTier.color); topGrad.addColorStop(1, "#f0a06a");
     ctx.fillStyle = topGrad; ctx.fillRect(0, 0, 800, 4);
 
     // Logo
-    ctx.fillStyle = "#caf300";
+    ctx.fillStyle = "#e8763f";
     ctx.font = "bold 14px sans-serif";
     ctx.letterSpacing = "4px";
     ctx.fillText("DARTS IQ", 40, 44);
@@ -3810,7 +3811,7 @@ function SessionOrchestrator({ programme, onComplete, onExit, savedHistory }) {
 
         /* ── Proactive AI coaching card ── */
         , coachInsight === "loading" && (
-          React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(168,85,247,.08),rgba(202,243,0,.04))", border: "1px solid rgba(168,85,247,.25)", borderRadius: "var(--radius)", padding: 16, marginBottom: 16, display: "flex", alignItems: "center", gap: 12 },}
+          React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(168,85,247,.08),rgba(232,118,63,.04))", border: "1px solid rgba(168,85,247,.25)", borderRadius: "var(--radius)", padding: 16, marginBottom: 16, display: "flex", alignItems: "center", gap: 12 },}
             , React.createElement('div', { style: { fontSize: 28, flexShrink: 0 },}, "🎯")
             , React.createElement('div', { style: { flex: 1 },}
               , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "rgb(168,85,247)", marginBottom: 6 },}, "AI Coach" )
@@ -3824,9 +3825,9 @@ function SessionOrchestrator({ programme, onComplete, onExit, savedHistory }) {
           )
         )
         , coachInsight && coachInsight !== "loading" && (
-          React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(168,85,247,.08),rgba(202,243,0,.04))", border: "1px solid rgba(168,85,247,.3)", borderRadius: "var(--radius)", padding: 16, marginBottom: 16 },}
+          React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(168,85,247,.08),rgba(232,118,63,.04))", border: "1px solid rgba(168,85,247,.3)", borderRadius: "var(--radius)", padding: 16, marginBottom: 16 },}
             , React.createElement('div', { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 10 },}
-              , React.createElement('div', { style: { width: 34, height: 34, borderRadius: 10, background: "linear-gradient(135deg,rgb(168,85,247),rgba(202,243,0,.6))", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, flexShrink: 0 },}, "🎯")
+              , React.createElement('div', { style: { width: 34, height: 34, borderRadius: 10, background: "linear-gradient(135deg,rgb(168,85,247),rgba(232,118,63,.6))", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, flexShrink: 0 },}, "🎯")
               , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "rgb(168,85,247)" },}, "Coach Insight" )
             )
             , React.createElement('div', { style: { fontSize: 14, color: "var(--text)", lineHeight: 1.65 },}, coachInsight)
@@ -3834,7 +3835,7 @@ function SessionOrchestrator({ programme, onComplete, onExit, savedHistory }) {
         )
 
         , hasPBs && (
-          React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(202,243,0,.12),rgba(168,255,120,.06))", border: "1px solid rgba(202,243,0,.4)", borderRadius: "var(--radius)", padding: 16, marginBottom: 16 },}
+          React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(232,118,63,.12),rgba(168,255,120,.06))", border: "1px solid rgba(232,118,63,.4)", borderRadius: "var(--radius)", padding: 16, marginBottom: 16 },}
             , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--accent)", marginBottom: 10 },}, "🏆 Personal Bests"  )
             , sessionPBs.map((pb, i) => (
               React.createElement('div', { key: i, style: { display: "flex", alignItems: "center", gap: 10, marginBottom: i < sessionPBs.length-1 ? 8 : 0 },}
@@ -3860,12 +3861,12 @@ function SessionOrchestrator({ programme, onComplete, onExit, savedHistory }) {
         , allResults.map((r, i) => {
           var isPB = sessionPBs.find(p => p.name === r.name);
           return (
-            React.createElement('div', { key: i, className: "history-card", style: { border: isPB ? "1px solid rgba(202,243,0,.35)" : undefined },}
+            React.createElement('div', { key: i, className: "history-card", style: { border: isPB ? "1px solid rgba(232,118,63,.35)" : undefined },}
               , React.createElement('div', { className: "history-row", style: { padding: 0, background: "none" },}
                 , React.createElement('span', { style: { fontSize: 22 },}, r.icon)
                 , React.createElement('span', { className: "history-name",}, r.name)
                 , React.createElement('div', { style: { display: "flex", alignItems: "center", gap: 6 },}
-                  , isPB && React.createElement('span', { style: { fontSize: 10, fontWeight: 700, color: "var(--accent)", background: "rgba(202,243,0,.15)", padding: "2px 6px", borderRadius: 6 },}, "PB")
+                  , isPB && React.createElement('span', { style: { fontSize: 10, fontWeight: 700, color: "var(--accent)", background: "rgba(232,118,63,.15)", padding: "2px 6px", borderRadius: 6 },}, "PB")
                   , React.createElement('span', { className: "history-score",}, r.score)
                 )
               )
@@ -3910,7 +3911,7 @@ function SessionOrchestrator({ programme, onComplete, onExit, savedHistory }) {
 
 // ─── SVG TREND CHART ─────────────────────────────────────────────────────────
 
-function TrendChart({ scores, color = "#caf300", height = 56, showDots = true }) {
+function TrendChart({ scores, color = "#e8763f", height = 56, showDots = true }) {
   if (!scores || scores.length < 2) return (
     React.createElement('div', { style: { height, display: "flex", alignItems: "center", justifyContent: "center" },}
       , React.createElement('div', { style: { fontSize: 11, color: "var(--muted)" },}, "Need 2+ sessions to show trend"     )
@@ -3929,7 +3930,7 @@ function TrendChart({ scores, color = "#caf300", height = 56, showDots = true })
   var pathD = pts.map((p, i) => `${i === 0 ? "M" : "L"}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(" ");
   var areaD = pathD + ` L${pts[pts.length-1][0].toFixed(1)},${h} L${pts[0][0].toFixed(1)},${h} Z`;
   var trend = scores[scores.length-1] >= scores[0];
-  var lineColor = trend ? color : "#ff4757";
+  var lineColor = trend ? color : "#c2483f";
   return (
     React.createElement('svg', { viewBox: `0 0 ${w} ${h}`, style: { width: "100%", height, display: "block" },}
       , React.createElement('defs', null
@@ -4040,7 +4041,7 @@ function HistoryPage({ history, botGames, unlockedAchievements = {}, authUser, d
             { val: streak > 0 ? `${streak}🔥` : "—", lbl: "Streak" },
             { val: iqData.total, lbl: `${iqTier.emoji} IQ` },
           ].map(({ val, lbl }) => (
-            React.createElement('div', { key: lbl, style: { background:"var(--glass-bg)", border:"1px solid var(--glass-border)", borderTop:"2px solid rgba(202,243,0,.25)", borderRadius:"var(--radius-sm)", padding:"11px 6px", textAlign:"center", backdropFilter:"blur(12px)" },}
+            React.createElement('div', { key: lbl, style: { background:"var(--glass-bg)", border:"1px solid var(--glass-border)", borderTop:"2px solid rgba(232,118,63,.25)", borderRadius:"var(--radius-sm)", padding:"11px 6px", textAlign:"center", backdropFilter:"blur(12px)" },}
               , React.createElement('div', { style: { fontFamily:"'Hanken Grotesk',sans-serif", fontSize:20, fontWeight:800, letterSpacing:"-0.04em", color:"var(--accent)", lineHeight:1 },}, val)
               , React.createElement('div', { style: { fontFamily:"'JetBrains Mono',monospace", fontSize:8, fontWeight:500, letterSpacing:".05em", textTransform:"uppercase", color:"var(--muted)", marginTop:4 },}, lbl)
             )
@@ -4073,10 +4074,10 @@ function HistoryPage({ history, botGames, unlockedAchievements = {}, authUser, d
           .sort((a, b) => b.totalPlays - a.totalPlays);
 
         var CAT_COLORS = {
-          Accuracy:    "#7c6aff",
-          Finishing:   "#caf300",
+          Accuracy:    "#6f93b5",
+          Finishing:   "#e8763f",
           Scoring:     "#f0ad4e",
-          "Match Play":"#ff4757",
+          "Match Play":"#c2483f",
         };
 
         var cats = ["All", ...Object.keys(CAT_COLORS)];
@@ -4195,7 +4196,7 @@ function HistoryPage({ history, botGames, unlockedAchievements = {}, authUser, d
               , React.createElement('div', { className: "empty-body",}, "Complete a training session and your results will appear here."         )
               /* Teaser preview cards */
               , React.createElement('div', { style: { display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:8, marginTop:28, opacity:.35, filter:"grayscale(1)", pointerEvents:"none" },}
-                , [{lbl:"AVG SCORE",val:"--.-",color:"var(--accent)"},{lbl:"CHECKOUT %",val:"--%",color:"#64c8ff"},{lbl:"ACCURACY",val:"--.-",color:"#a8ff78"}].map((s,i) => (
+                , [{lbl:"AVG SCORE",val:"--.-",color:"var(--accent)"},{lbl:"CHECKOUT %",val:"--%",color:"#64c8ff"},{lbl:"ACCURACY",val:"--.-",color:"#f0a06a"}].map((s,i) => (
                   React.createElement('div', { key: i, style: { background:"rgba(19,19,26,0.7)", border:"1px solid rgba(255,255,255,.08)", borderRadius:14, padding:"12px 8px", backdropFilter:"blur(8px)" },}
                     , React.createElement('div', { style: { fontSize:9, fontWeight:700, letterSpacing:1.5, textTransform:"uppercase", color:"var(--muted)", marginBottom:6 },}, s.lbl)
                     , React.createElement('div', { style: { fontFamily:"'Hanken Grotesk',sans-serif", fontSize:22, fontWeight:800, letterSpacing:"-0.04em", color:s.color },}, s.val)
@@ -4293,7 +4294,7 @@ function HistoryPage({ history, botGames, unlockedAchievements = {}, authUser, d
                       /* Score history mini list */
                       , React.createElement('div', { style: { marginTop: 10, display: "flex", gap: 5, flexWrap: "wrap" },}
                         , g.scores.slice(-10).map((s, i) => (
-                          React.createElement('div', { key: i, style: { padding: "3px 8px", borderRadius: 8, background: s === g.bestScore ? "rgba(202,243,0,.15)" : "var(--surface2)", border: `1px solid ${s === g.bestScore ? "rgba(202,243,0,.4)" : "var(--border)"}`, fontSize: 12, fontWeight: s === g.bestScore ? 700 : 400, color: s === g.bestScore ? "var(--accent)" : "var(--muted)" },}
+                          React.createElement('div', { key: i, style: { padding: "3px 8px", borderRadius: 8, background: s === g.bestScore ? "rgba(232,118,63,.15)" : "var(--surface2)", border: `1px solid ${s === g.bestScore ? "rgba(232,118,63,.4)" : "var(--border)"}`, fontSize: 12, fontWeight: s === g.bestScore ? 700 : 400, color: s === g.bestScore ? "var(--accent)" : "var(--muted)" },}
                             , s
                           )
                         ))
@@ -4379,7 +4380,7 @@ function HistoryPage({ history, botGames, unlockedAchievements = {}, authUser, d
       , activeTab === "achievements" && (
         React.createElement('div', null
           /* Header stats */
-          , React.createElement('div', { style: { background:"var(--glass-bg)", border:"1px solid rgba(202,243,0,.2)", borderTop:"2px solid rgba(202,243,0,.3)", borderRadius:"var(--radius)", padding:16, marginBottom:14, backdropFilter:"blur(12px)" },}
+          , React.createElement('div', { style: { background:"var(--glass-bg)", border:"1px solid rgba(232,118,63,.2)", borderTop:"2px solid rgba(232,118,63,.3)", borderRadius:"var(--radius)", padding:16, marginBottom:14, backdropFilter:"blur(12px)" },}
             , React.createElement('div', { style: { display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:10 },}
               , React.createElement('div', null
                 , React.createElement('div', { style: { fontFamily:"'Hanken Grotesk',sans-serif", fontSize:28, fontWeight:800, letterSpacing:"-0.04em", color:"var(--accent)", lineHeight:1 },}, unlockedCount, React.createElement('span', { style: { fontSize:16, color:"var(--muted)", fontWeight:500 },}, " / "  , ACHIEVEMENTS.length))
@@ -4391,7 +4392,7 @@ function HistoryPage({ history, botGames, unlockedAchievements = {}, authUser, d
               )
             )
             , React.createElement('div', { style: { height:4, background:"rgba(255,255,255,0.08)", borderRadius:100, overflow:"hidden" },}
-              , React.createElement('div', { style: { height:"100%", width:`${(unlockedCount / ACHIEVEMENTS.length) * 100}%`, background:"linear-gradient(90deg,var(--accent),#a8ff78)", borderRadius:100, transition:"width .6s ease", boxShadow:"0 0 8px rgba(202,243,0,.35)" },} )
+              , React.createElement('div', { style: { height:"100%", width:`${(unlockedCount / ACHIEVEMENTS.length) * 100}%`, background:"linear-gradient(90deg,var(--accent),#f0a06a)", borderRadius:100, transition:"width .6s ease", boxShadow:"0 0 8px rgba(232,118,63,.35)" },} )
             )
           )
 
@@ -4539,8 +4540,8 @@ function HistoryPage({ history, botGames, unlockedAchievements = {}, authUser, d
           )
 
           /* How it's calculated */
-          , React.createElement('div', { style: { padding: "13px 15px", background: "rgba(202,243,0,.04)", border: "1px solid rgba(202,243,0,.12)", borderRadius: "var(--radius)" },}
-            , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "rgba(202,243,0,.6)", marginBottom: 7 },}, "How it's calculated"  )
+          , React.createElement('div', { style: { padding: "13px 15px", background: "rgba(232,118,63,.04)", border: "1px solid rgba(232,118,63,.12)", borderRadius: "var(--radius)" },}
+            , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "rgba(232,118,63,.6)", marginBottom: 7 },}, "How it's calculated"  )
             , React.createElement('div', { style: { fontSize: 12, color: "var(--muted)", lineHeight: 1.65 },}, "Five pillars totalling 1500 points. "
                    , React.createElement('strong', { style: { color: "var(--text)" },}, "Scoring"), " (35%) is based on your High Score and Bob's 27 best. "            , React.createElement('strong', { style: { color: "var(--text)" },}, "Finishing"), " (30%) tracks your doubles rate and checkout accuracy. "         , React.createElement('strong', { style: { color: "var(--text)" },}, "Match Play" ), " (15%) rewards beating higher bot levels. "       , React.createElement('strong', { style: { color: "var(--text)" },}, "Consistency"), " (15%) adds points for sessions and streaks. "        , React.createElement('strong', { style: { color: "var(--text)" },}, "Breadth"), " (5%) rewards playing across all game types. All pillars use logarithmic scaling — the top tiers genuinely require elite play."
             )
@@ -4604,7 +4605,7 @@ function LeaderboardTab({ authUser, history, botGames, dartsIQ }) {
   return (
     React.createElement('div', null
       /* Header */
-      , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(202,243,0,.08),rgba(168,255,120,.04))", border: "1px solid rgba(202,243,0,.2)", borderRadius: "var(--radius)", padding: "16px", marginBottom: 16 },}
+      , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(232,118,63,.08),rgba(168,255,120,.04))", border: "1px solid rgba(232,118,63,.2)", borderRadius: "var(--radius)", padding: "16px", marginBottom: 16 },}
         , React.createElement('div', { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-start" },}
           , React.createElement('div', null
             , React.createElement('div', { style: { fontFamily: "'Hanken Grotesk',sans-serif", fontSize: 24, fontWeight: 800, letterSpacing: "-0.02em", color: "var(--accent)", lineHeight: 1 },}, "Leaderboards")
@@ -4613,7 +4614,7 @@ function LeaderboardTab({ authUser, history, botGames, dartsIQ }) {
             )
           )
           , myRank && (
-            React.createElement('div', { style: { textAlign: "center", padding: "8px 12px", background: "rgba(202,243,0,.1)", border: "1px solid rgba(202,243,0,.25)", borderRadius: 12 },}
+            React.createElement('div', { style: { textAlign: "center", padding: "8px 12px", background: "rgba(232,118,63,.1)", border: "1px solid rgba(232,118,63,.25)", borderRadius: 12 },}
               , React.createElement('div', { style: { fontFamily: "'Hanken Grotesk',sans-serif", fontSize: 26, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--accent)", lineHeight: 1 },}, "#", myRank)
               , React.createElement('div', { style: { fontSize: 9, color: "var(--muted)", letterSpacing: 1, textTransform: "uppercase" },}, "Your Rank" )
             )
@@ -4634,7 +4635,7 @@ function LeaderboardTab({ authUser, history, botGames, dartsIQ }) {
       /* Game selector */
       , React.createElement('div', { style: { display: "flex", gap: 6, overflowX: "auto", paddingBottom: 10, marginBottom: 14 },}
         , LEADERBOARD_GAMES.map(g => (
-          React.createElement('button', { key: g.id, onClick: () => setActiveGame(g.id), style: { flexShrink: 0, display: "flex", alignItems: "center", gap: 6, padding: "7px 13px", borderRadius: 100, border: `1px solid ${activeGame === g.id ? "var(--accent)" : "var(--border)"}`, background: activeGame === g.id ? "rgba(202,243,0,.1)" : "var(--surface)", cursor: "pointer", fontFamily: "'DM Sans',sans-serif", fontSize: 12, fontWeight: 600, color: activeGame === g.id ? "var(--accent)" : "var(--muted)", transition: "all .2s" },}
+          React.createElement('button', { key: g.id, onClick: () => setActiveGame(g.id), style: { flexShrink: 0, display: "flex", alignItems: "center", gap: 6, padding: "7px 13px", borderRadius: 100, border: `1px solid ${activeGame === g.id ? "var(--accent)" : "var(--border)"}`, background: activeGame === g.id ? "rgba(232,118,63,.1)" : "var(--surface)", cursor: "pointer", fontFamily: "'DM Sans',sans-serif", fontSize: 12, fontWeight: 600, color: activeGame === g.id ? "var(--accent)" : "var(--muted)", transition: "all .2s" },}
             , React.createElement('span', null, g.icon), " " , g.label
           )
         ))
@@ -4661,7 +4662,7 @@ function LeaderboardTab({ authUser, history, botGames, dartsIQ }) {
             var medal = medalColor(i);
             var emoji = rankEmoji(i);
             return (
-              React.createElement('div', { key: entry.user_id + i, style: { display:"flex", alignItems:"center", gap:12, padding:"12px 14px", background: isMe ? "linear-gradient(135deg,rgba(202,243,0,.12),rgba(168,255,120,.06))" : i < 3 ? medal.bg : "var(--surface)", border:`1px solid ${isMe ? "rgba(202,243,0,.4)" : i < 3 ? medal.border : "var(--border)"}`, borderRadius:14 },}
+              React.createElement('div', { key: entry.user_id + i, style: { display:"flex", alignItems:"center", gap:12, padding:"12px 14px", background: isMe ? "linear-gradient(135deg,rgba(232,118,63,.12),rgba(168,255,120,.06))" : i < 3 ? medal.bg : "var(--surface)", border:`1px solid ${isMe ? "rgba(232,118,63,.4)" : i < 3 ? medal.border : "var(--border)"}`, borderRadius:14 },}
                 , React.createElement('div', { style: { width:32, textAlign:"center", flexShrink:0 },}
                   , emoji ? React.createElement('span', { style: { fontSize:22 },}, emoji) : React.createElement('span', { style: { fontFamily:"'Bebas Neue',sans-serif", fontSize:20, color:"var(--muted)" },}, "#", i+1)
                 )
@@ -4694,7 +4695,7 @@ function LeaderboardTab({ authUser, history, botGames, dartsIQ }) {
       )
 
       , authUser && authUser !== false && !myEntry && entries.length > 0 && (
-        React.createElement('div', { style: { marginTop:12, padding:"12px 14px", background:"rgba(202,243,0,.05)", border:"1px solid rgba(202,243,0,.15)", borderRadius:12, fontSize:13, color:"var(--muted)", textAlign:"center" },}, "No score posted yet this "
+        React.createElement('div', { style: { marginTop:12, padding:"12px 14px", background:"rgba(232,118,63,.05)", border:"1px solid rgba(232,118,63,.15)", borderRadius:12, fontSize:13, color:"var(--muted)", textAlign:"center" },}, "No score posted yet this "
                , allTime ? "season" : "week", ". Play a session to appear here."
         )
       )
@@ -4814,7 +4815,7 @@ function CelebrationScreen({ achievement, onDismiss }) {
       left:  `${8 + Math.random() * 84}%`,
       top:   `${8 + Math.random() * 84}%`,
       size:  4 + Math.random() * 7,
-      color: i % 4 === 0 ? r.color : i % 4 === 1 ? "#ffffff" : i % 4 === 2 ? "#ff9800" : "#a8ff78",
+      color: i % 4 === 0 ? r.color : i % 4 === 1 ? "#ffffff" : i % 4 === 2 ? "#ff9800" : "#f0a06a",
       delay: Math.random() * 0.65,
       angle: Math.random() * 360,
       dist:  100 + Math.random() * 160,
@@ -4966,7 +4967,7 @@ function AIPage({ compact }) {
       , !compact && (
         React.createElement('div', { style: { padding: "52px 16px 14px", borderBottom: "1px solid var(--border)", flexShrink: 0 },}
           , React.createElement('div', { style: { display: "flex", alignItems: "center", gap: 12 },}
-            , React.createElement('div', { style: { width: 42, height: 42, borderRadius: 12, background: "linear-gradient(135deg,var(--accent),#a8ff78)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0 },}, "🎯")
+            , React.createElement('div', { style: { width: 42, height: 42, borderRadius: 12, background: "linear-gradient(135deg,var(--accent),#f0a06a)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0 },}, "🎯")
             , React.createElement('div', null
               , React.createElement('div', { style: { fontFamily: "'Hanken Grotesk',sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: "-0.02em", color: "var(--text)", lineHeight: 1 },}, "Darts IQ AI"  )
               , React.createElement('div', { style: { fontSize: 12, color: "var(--muted)", marginTop: 2 },}, "Your personal darts coach"   )
@@ -4997,7 +4998,7 @@ function AIPage({ compact }) {
         , messages.map((m, i) => (
           React.createElement('div', { key: i, style: { marginBottom: 14, display: "flex", flexDirection: "column", alignItems: m.role === "user" ? "flex-end" : "flex-start" },}
             , m.role === "assistant" && (
-              React.createElement('div', { style: { width: 26, height: 26, borderRadius: 8, background: "linear-gradient(135deg,var(--accent),#a8ff78)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, marginBottom: 5 },}, "🎯")
+              React.createElement('div', { style: { width: 26, height: 26, borderRadius: 8, background: "linear-gradient(135deg,var(--accent),#f0a06a)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, marginBottom: 5 },}, "🎯")
             )
             , React.createElement('div', { style: { maxWidth: "88%", padding: "12px 14px", borderRadius: m.role === "user" ? "16px 16px 4px 16px" : "4px 16px 16px 16px", background: m.role === "user" ? "var(--accent)" : "var(--surface)", color: m.role === "user" ? "var(--on-accent)" : "var(--text)", border: m.role === "assistant" ? "1px solid var(--border)" : "none", fontSize: 14, lineHeight: 1.6, fontFamily: "'DM Sans',sans-serif", whiteSpace: "pre-wrap", wordBreak: "break-word" },}
               , m.content
@@ -5007,7 +5008,7 @@ function AIPage({ compact }) {
 
         , loading && (
           React.createElement('div', { style: { marginBottom: 14, display: "flex", alignItems: "flex-start", gap: 8 },}
-            , React.createElement('div', { style: { width: 26, height: 26, borderRadius: 8, background: "linear-gradient(135deg,var(--accent),#a8ff78)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, flexShrink: 0 },}, "🎯")
+            , React.createElement('div', { style: { width: 26, height: 26, borderRadius: 8, background: "linear-gradient(135deg,var(--accent),#f0a06a)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, flexShrink: 0 },}, "🎯")
             , React.createElement('div', { style: { background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "4px 16px 16px 16px", padding: "14px 18px", display: "flex", gap: 5, alignItems: "center" },}
               , [0,1,2].map(i => (React.createElement('div', { key: i, style: { width: 7, height: 7, borderRadius: "50%", background: "var(--muted)", animation: `dlbounce 1.2s ${i*0.2}s infinite ease-in-out` },} )))
             )
@@ -5015,7 +5016,7 @@ function AIPage({ compact }) {
         )
 
         , error && (
-          React.createElement('div', { style: { background: "rgba(255,71,87,.08)", border: "1px solid rgba(255,71,87,.3)", borderRadius: 12, padding: "12px 14px", marginBottom: 14, fontSize: 13, color: "var(--accent2)", textAlign: "center" },}, error)
+          React.createElement('div', { style: { background: "rgba(194,72,63,.08)", border: "1px solid rgba(194,72,63,.3)", borderRadius: 12, padding: "12px 14px", marginBottom: 14, fontSize: 13, color: "var(--accent2)", textAlign: "center" },}, error)
         )
         , React.createElement('div', { ref: bottomRef, style: { height: 8 },} )
       )
@@ -5477,7 +5478,7 @@ function InteractiveDartboard({ onSegmentTap }) {
       , React.createElement('circle', { cx: cx, cy: cy, r: R_BULL, fill: COL_RED, stroke: "#222", strokeWidth: "1",} )
 
       /* Centre dot */
-      , React.createElement('circle', { cx: cx, cy: cy, r: 3, fill: "#ff4757",} )
+      , React.createElement('circle', { cx: cx, cy: cy, r: 3, fill: "#c2483f",} )
     )
   );
 }
@@ -5594,9 +5595,9 @@ function BullThrow({ p1Name, p2Name, onDecided }) {
       /* Three simple options */
       , React.createElement('div', { style: { display:"flex", flexDirection:"column", gap:12, width:"100%", maxWidth:320 },}
         , React.createElement('button', { onClick: () => { haptic("hit"); setSelected(50); },
-          style: { padding:"22px 0", background: selected===50 ? "rgba(255,71,87,.25)" : "rgba(255,71,87,.1)", border:`2px solid ${selected===50?"#ff4757":"rgba(255,71,87,.4)"}`, borderRadius:18, cursor:"pointer", WebkitTapHighlightColor:"transparent", transition:"all .15s" },}
-          , React.createElement('div', { style: { fontFamily:"'Bebas Neue',sans-serif", fontSize:36, color:"#ff4757", lineHeight:1 },}, "BULL")
-          , React.createElement('div', { style: { fontSize:12, color:"rgba(255,71,87,.8)", marginTop:4 },}, "Inner Bull — 50 points"    )
+          style: { padding:"22px 0", background: selected===50 ? "rgba(194,72,63,.25)" : "rgba(194,72,63,.1)", border:`2px solid ${selected===50?"#c2483f":"rgba(194,72,63,.4)"}`, borderRadius:18, cursor:"pointer", WebkitTapHighlightColor:"transparent", transition:"all .15s" },}
+          , React.createElement('div', { style: { fontFamily:"'Bebas Neue',sans-serif", fontSize:36, color:"#c2483f", lineHeight:1 },}, "BULL")
+          , React.createElement('div', { style: { fontSize:12, color:"rgba(194,72,63,.8)", marginTop:4 },}, "Inner Bull — 50 points"    )
         )
 
         , React.createElement('button', { onClick: () => { haptic("hit"); setSelected(25); },
@@ -5912,7 +5913,7 @@ function FriendGame({ config, onComplete, onExit }) {
         return (
           React.createElement(React.Fragment, null
             , isBreak && (
-              React.createElement('div', { style: { background:"rgba(202,243,0,.1)", border:"1px solid rgba(202,243,0,.3)", borderRadius:12, padding:"10px 14px", marginBottom:12, textAlign:"center" },}
+              React.createElement('div', { style: { background:"rgba(232,118,63,.1)", border:"1px solid rgba(232,118,63,.3)", borderRadius:12, padding:"10px 14px", marginBottom:12, textAlign:"center" },}
                 , React.createElement('div', { style: { fontSize:14, fontWeight:700, color:"var(--accent)" },}, "💥 Break of Throw!"   )
                 , React.createElement('div', { style: { fontSize:12, color:"var(--muted)", marginTop:3 },}, legWinner === 1 ? p1Name : p2Name, " won on the opponent's throw"     )
               )
@@ -5968,8 +5969,8 @@ function FriendGame({ config, onComplete, onExit }) {
           { name: p2Name, rem: p2Remaining, gameAvg: p2Avg, legAvg: p2LegAvg, legDarts: p2LegDarts, visits: p2Visits, isActive: currentPlayer === 2 },
         ].map((p, i) => (
           React.createElement('div', { key: i, style: {
-            background: p.isActive ? "linear-gradient(135deg,rgba(202,243,0,.10),rgba(168,255,120,.05))" : "var(--surface)",
-            border: `1px solid ${p.isActive ? "rgba(202,243,0,.4)" : "var(--border)"}`,
+            background: p.isActive ? "linear-gradient(135deg,rgba(232,118,63,.10),rgba(168,255,120,.05))" : "var(--surface)",
+            border: `1px solid ${p.isActive ? "rgba(232,118,63,.4)" : "var(--border)"}`,
             borderRadius: "var(--radius)", padding: "14px 12px", textAlign: "center", transition: "all .3s",
           },}
             , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: p.isActive ? "var(--accent)" : "var(--muted)", marginBottom: 4 },}
@@ -5977,7 +5978,7 @@ function FriendGame({ config, onComplete, onExit }) {
             )
             , React.createElement('div', { style: { fontFamily: "'Bebas Neue',sans-serif", fontSize: 52, letterSpacing: 3, color: "var(--text)", lineHeight: 1 },}, p.rem)
             , React.createElement('div', { style: { display: "flex", gap: 4, justifyContent: "center", marginTop: 6 },}
-              , React.createElement('div', { style: { background: p.isActive ? "rgba(202,243,0,.1)" : "var(--surface2)", borderRadius: 8, padding: "2px 6px" },}
+              , React.createElement('div', { style: { background: p.isActive ? "rgba(232,118,63,.1)" : "var(--surface2)", borderRadius: 8, padding: "2px 6px" },}
                 , React.createElement('div', { style: { fontSize: 8, color: p.isActive ? "var(--accent)" : "var(--muted)", fontWeight: 700, letterSpacing: 1 },}, "LEG")
                 , React.createElement('div', { style: { fontSize: 12, fontWeight: 700, color: p.isActive ? "var(--accent)" : "var(--text)" },}, p.legAvg)
               )
@@ -6001,7 +6002,7 @@ function FriendGame({ config, onComplete, onExit }) {
 
       /* Checkout hint inline */
       , checkoutHint && (
-        React.createElement('div', { style: { background: "rgba(202,243,0,.08)", border: "1px solid rgba(202,243,0,.3)", borderRadius: 12, padding: "8px 14px", marginBottom: 12, display: "flex", alignItems: "center", justifyContent: "space-between" },}
+        React.createElement('div', { style: { background: "rgba(232,118,63,.08)", border: "1px solid rgba(232,118,63,.3)", borderRadius: 12, padding: "8px 14px", marginBottom: 12, display: "flex", alignItems: "center", justifyContent: "space-between" },}
           , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, color: "var(--accent)" },}, "💡 " , remaining)
           , React.createElement('div', { style: { fontSize: 14, fontWeight: 700, color: "var(--text)" },}, checkoutHint)
         )
@@ -6011,7 +6012,7 @@ function FriendGame({ config, onComplete, onExit }) {
       , undoStack.length > 0 && (
         React.createElement('button', { onClick: handleUndo, style: {
           width: "100%", padding: "11px", marginBottom: 8,
-          background: "rgba(255,71,87,.08)", border: "1px solid rgba(255,71,87,.25)",
+          background: "rgba(194,72,63,.08)", border: "1px solid rgba(194,72,63,.25)",
           borderRadius: 14, cursor: "pointer", color: "var(--accent2)",
           fontFamily: "'DM Sans',sans-serif", fontSize: 13, fontWeight: 700,
           display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
@@ -6087,7 +6088,7 @@ function FriendResult({ result, config, onPlayAgain, onExit }) {
             { name: p1Name, legs: p1Legs, sets: p1Sets, avg: p1Avg, won: winnerName === p1Name },
             { name: p2Name, legs: p2Legs, sets: p2Sets, avg: p2Avg, won: winnerName === p2Name },
           ].map((p, i) => (
-            React.createElement('div', { key: i, style: { padding: "14px 10px", background: p.won ? "rgba(202,243,0,.08)" : "var(--surface2)", border: `1px solid ${p.won ? "rgba(202,243,0,.3)" : "var(--border)"}`, borderRadius: 12 },}
+            React.createElement('div', { key: i, style: { padding: "14px 10px", background: p.won ? "rgba(232,118,63,.08)" : "var(--surface2)", border: `1px solid ${p.won ? "rgba(232,118,63,.3)" : "var(--border)"}`, borderRadius: 12 },}
               , React.createElement('div', { style: { fontSize: 13, fontWeight: 700, color: p.won ? "var(--accent)" : "var(--muted)", marginBottom: 6 },}
                 , p.won ? "🏆 " : "", p.name
               )
@@ -6108,11 +6109,11 @@ function FriendResult({ result, config, onPlayAgain, onExit }) {
       )
 
       /* AI Coaching */
-      , React.createElement('div', { style: { background:"var(--surface)", border:"1px solid rgba(202,243,0,.2)", borderRadius:"var(--radius)", padding:16, marginBottom:14 },}
-        , React.createElement('div', { style: { fontSize:11, fontWeight:700, letterSpacing:2, textTransform:"uppercase", color:"rgba(202,243,0,.7)", marginBottom:8 },}, React.createElement(Ms, { icon: "psychology", size: 14, fill: true,} ), " Coach Insight"  )
+      , React.createElement('div', { style: { background:"var(--surface)", border:"1px solid rgba(232,118,63,.2)", borderRadius:"var(--radius)", padding:16, marginBottom:14 },}
+        , React.createElement('div', { style: { fontSize:11, fontWeight:700, letterSpacing:2, textTransform:"uppercase", color:"rgba(232,118,63,.7)", marginBottom:8 },}, React.createElement(Ms, { icon: "psychology", size: 14, fill: true,} ), " Coach Insight"  )
         , coachLoading
           ? React.createElement('div', { style: { display:"flex", alignItems:"center", gap:10 },}
-              , React.createElement('div', { style: { width:16, height:16, border:"2px solid rgba(202,243,0,.2)", borderTopColor:"var(--accent)", borderRadius:"50%", animation:"spin .9s linear infinite", flexShrink:0 },} )
+              , React.createElement('div', { style: { width:16, height:16, border:"2px solid rgba(232,118,63,.2)", borderTopColor:"var(--accent)", borderRadius:"50%", animation:"spin .9s linear infinite", flexShrink:0 },} )
               , React.createElement('div', { style: { fontSize:13, color:"var(--muted)" },}, "Analysing your match…"  )
             )
           : coachInsight
@@ -6134,8 +6135,8 @@ function PlayPage({ onClose, onGameComplete, onGameStart, onGameEnd, embedded })
 
   // Mode selection screen
   var MODES = [
-    { id:"bot",      icon:"🤖", label:"VS Bot",     sub:"AI opponent · 10 difficulty levels", color:"#caf300", features:["Pub Beginner","Club Player","Semi-Pro","World Class"] },
-    { id:"friend",   icon:"👥", label:"VS Friend",  sub:"Pass the phone between players",      color:"#ff4757", features:["Custom names","Any format","Legs or Sets","Stats tracked"] },
+    { id:"bot",      icon:"🤖", label:"VS Bot",     sub:"AI opponent · 10 difficulty levels", color:"#e8763f", features:["Pub Beginner","Club Player","Semi-Pro","World Class"] },
+    { id:"friend",   icon:"👥", label:"VS Friend",  sub:"Pass the phone between players",      color:"#c2483f", features:["Custom names","Any format","Legs or Sets","Stats tracked"] },
     { id:"xo",       icon:"⭕", label:"X's & O's",  sub:"Checkout noughts & crosses",          color:"#a855f7", features:["3×3 grid","Choose your square","Strategic bot","10 levels"] },
     { id:"penalties",icon:"⚽", label:"Penalties",  sub:"5 random targets — first to 3 wins", color:"#f0ad4e", features:["Random targets","5 penalties","First to 3","vs Bot or Friend"] },
   ];
@@ -6217,7 +6218,7 @@ function CheckoutPyramidSession({ onDone, onExit, sessionIdx, sessionTotal }) {
     {
       label: "Easy",
       sublabel: "Friendlier doubles throughout",
-      color: "#a8ff78",
+      color: "#f0a06a",
       scores: [40, 52, 62, 74, 80, 96, 100, 114, 128],
     },
     {
@@ -6319,7 +6320,7 @@ function CheckoutPyramidSession({ onDone, onExit, sessionIdx, sessionTotal }) {
             , pyramid.scores.map((s, j) => (
               React.createElement('div', { key: j, style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 4 },}
                 , React.createElement('div', { style: { fontSize: 16 },}, results[j] ? "✅" : "❌")
-                , React.createElement('div', { style: { width: 32, background: results[j] ? `${pColor}30` : "rgba(255,71,87,.12)", border: `1px solid ${results[j] ? pColor + "55" : "rgba(255,71,87,.3)"}`, borderRadius: 6, height: `${20 + j * 4}px` },} )
+                , React.createElement('div', { style: { width: 32, background: results[j] ? `${pColor}30` : "rgba(194,72,63,.12)", border: `1px solid ${results[j] ? pColor + "55" : "rgba(194,72,63,.3)"}`, borderRadius: 6, height: `${20 + j * 4}px` },} )
                 , React.createElement('div', { style: { fontSize: 9, color: "var(--muted)", fontWeight: 700 },}, s)
               )
             ))
@@ -6376,7 +6377,7 @@ function CheckoutPyramidSession({ onDone, onExit, sessionIdx, sessionTotal }) {
               , isPast && React.createElement('div', { style: { fontSize: 10 },}, hitIt ? "✅" : "❌")
               , isCurrent && React.createElement('div', { style: { fontSize: 10, color: pColor },}, "▼")
               , !isPast && !isCurrent && React.createElement('div', { style: { fontSize: 10 },}, " " )
-              , React.createElement('div', { style: { width: 28, background: isPast ? (hitIt ? `${pColor}30` : "rgba(255,71,87,.15)") : isCurrent ? `${pColor}20` : "rgba(255,255,255,0.05)", border: `1px solid ${isCurrent ? pColor : isPast ? (hitIt ? pColor + "44" : "rgba(255,71,87,.3)") : "rgba(255,255,255,0.1)"}`, borderRadius: 6, height: `${14 + j * 3}px`, transition: "all .3s" },} )
+              , React.createElement('div', { style: { width: 28, background: isPast ? (hitIt ? `${pColor}30` : "rgba(194,72,63,.15)") : isCurrent ? `${pColor}20` : "rgba(255,255,255,0.05)", border: `1px solid ${isCurrent ? pColor : isPast ? (hitIt ? pColor + "44" : "rgba(194,72,63,.3)") : "rgba(255,255,255,0.1)"}`, borderRadius: 6, height: `${14 + j * 3}px`, transition: "all .3s" },} )
               , React.createElement('div', { style: { fontSize: 9, color: isCurrent ? pColor : "var(--muted)", fontWeight: isCurrent ? 700 : 400 },}, s)
             )
           );
@@ -6396,7 +6397,7 @@ function CheckoutPyramidSession({ onDone, onExit, sessionIdx, sessionTotal }) {
       /* Hit / Miss */
       , React.createElement('div', { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 },}
         , React.createElement('button', { onClick: () => { haptic("miss"); confirmResult(false); },
-          style: { padding: "22px 0", background: "rgba(255,71,87,.08)", border: "1px solid rgba(255,71,87,.3)", borderRadius: 18, fontFamily: "'Bebas Neue',sans-serif", fontSize: 24, color: "var(--accent2)", cursor: "pointer", WebkitTapHighlightColor: "transparent", letterSpacing: 1 },}, "✗ MISS"
+          style: { padding: "22px 0", background: "rgba(194,72,63,.08)", border: "1px solid rgba(194,72,63,.3)", borderRadius: 18, fontFamily: "'Bebas Neue',sans-serif", fontSize: 24, color: "var(--accent2)", cursor: "pointer", WebkitTapHighlightColor: "transparent", letterSpacing: 1 },}, "✗ MISS"
 
         )
         , React.createElement('button', { onClick: () => { haptic("hit"); confirmResult(true); },
@@ -6417,7 +6418,7 @@ function Street82Session({ onDone, onExit, sessionIdx, sessionTotal }) {
 
   var SECTIONS = [
     { id: "small",  label: "Small Singles", count: 20, color: "#64c8ff" },
-    { id: "big",    label: "Big Singles",   count: 20, color: "#a8ff78" },
+    { id: "big",    label: "Big Singles",   count: 20, color: "#f0a06a" },
     { id: "double", label: "Doubles",       count: 20, color: "var(--accent)" },
     { id: "treble", label: "Trebles",       count: 20, color: "#ff6b6b" },
     { id: "bull",   label: "Bull",          count: 2,  color: "#f0ad4e" },
@@ -6582,7 +6583,7 @@ function Street82Session({ onDone, onExit, sessionIdx, sessionTotal }) {
       )
 
       /* Current target */
-      , React.createElement('div', { style: { background: lastResult === "hit" ? "rgba(202,243,0,.15)" : lastResult === "miss" ? "rgba(255,71,87,.12)" : `${sectionColor}10`, border: `2px solid ${lastResult === "hit" ? "rgba(202,243,0,.5)" : lastResult === "miss" ? "rgba(255,71,87,.4)" : sectionColor + "44"}`, borderRadius: 20, padding: "24px 20px", marginBottom: 14, textAlign: "center", transition: "all .2s" },}
+      , React.createElement('div', { style: { background: lastResult === "hit" ? "rgba(232,118,63,.15)" : lastResult === "miss" ? "rgba(194,72,63,.12)" : `${sectionColor}10`, border: `2px solid ${lastResult === "hit" ? "rgba(232,118,63,.5)" : lastResult === "miss" ? "rgba(194,72,63,.4)" : sectionColor + "44"}`, borderRadius: 20, padding: "24px 20px", marginBottom: 14, textAlign: "center", transition: "all .2s" },}
         , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: sectionColor, marginBottom: 6 },}
           , _optionalChain([SECTIONS, 'access', _51 => _51.find, 'call', _52 => _52(s => s.id === current.section), 'optionalAccess', _53 => _53.label])
         )
@@ -6596,7 +6597,7 @@ function Street82Session({ onDone, onExit, sessionIdx, sessionTotal }) {
       /* Hit / Miss buttons */
       , React.createElement('div', { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 16 },}
         , React.createElement('button', { onClick: () => { haptic("miss"); advance(false); }, disabled: !!lastResult,
-          style: { padding: "22px 0", background: "rgba(255,71,87,.08)", border: "1px solid rgba(255,71,87,.3)", borderRadius: 18, fontFamily: "'Bebas Neue',sans-serif", fontSize: 24, color: "var(--accent2)", cursor: "pointer", WebkitTapHighlightColor: "transparent", letterSpacing: 1, opacity: lastResult ? 0.4 : 1, transition: "opacity .2s" },}, "✗ MISS"
+          style: { padding: "22px 0", background: "rgba(194,72,63,.08)", border: "1px solid rgba(194,72,63,.3)", borderRadius: 18, fontFamily: "'Bebas Neue',sans-serif", fontSize: 24, color: "var(--accent2)", cursor: "pointer", WebkitTapHighlightColor: "transparent", letterSpacing: 1, opacity: lastResult ? 0.4 : 1, transition: "opacity .2s" },}, "✗ MISS"
 
         )
         , React.createElement('button', { onClick: () => { haptic("hit"); advance(true); }, disabled: !!lastResult,
@@ -6627,7 +6628,7 @@ function Street82Session({ onDone, onExit, sessionIdx, sessionTotal }) {
       , results.length > 0 && (
         React.createElement('div', { style: { display: "flex", gap: 4, flexWrap: "wrap", marginTop: 4 },}
           , results.slice(-20).map((r, i) => (
-            React.createElement('div', { key: i, style: { width: 20, height: 20, borderRadius: 4, background: r ? "rgba(202,243,0,.3)" : "rgba(255,71,87,.25)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10 },}
+            React.createElement('div', { key: i, style: { width: 20, height: 20, borderRadius: 4, background: r ? "rgba(232,118,63,.3)" : "rgba(194,72,63,.25)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10 },}
               , r ? "✓" : "✗"
             )
           ))
@@ -6741,7 +6742,7 @@ function PriestleysSession({ onDone, onExit, sessionIdx, sessionTotal }) {
           , React.createElement('div', { style: { fontSize: 10, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--muted)", marginBottom: 4 },}, "Total")
           , React.createElement('div', { style: { fontFamily: "'Bebas Neue',sans-serif", fontSize: 32, color: "var(--text)" },}, totalScore)
         )
-        , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(202,243,0,.08),rgba(168,255,120,.04))", border: "1px solid rgba(202,243,0,.3)", borderRadius: "var(--radius)", padding: 14, textAlign: "center" },}
+        , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(232,118,63,.08),rgba(168,255,120,.04))", border: "1px solid rgba(232,118,63,.3)", borderRadius: "var(--radius)", padding: 14, textAlign: "center" },}
           , React.createElement('div', { style: { fontSize: 10, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--accent)", marginBottom: 4 },}, "Target")
           , React.createElement('div', { style: { fontFamily: "'Bebas Neue',sans-serif", fontSize: 44, color: "var(--accent)", lineHeight: 1 },}, current)
         )
@@ -6797,7 +6798,7 @@ function PriestleysSession({ onDone, onExit, sessionIdx, sessionTotal }) {
 
         /* Preview */
         , (singles > 0 || doubles > 0 || trebles > 0) && (
-          React.createElement('div', { style: { padding: "10px 14px", borderRadius: 10, marginBottom: 12, background: "rgba(202,243,0,.06)", border: "1px solid rgba(202,243,0,.2)", fontSize: 13, color: "var(--accent)", textAlign: "center" },}
+          React.createElement('div', { style: { padding: "10px 14px", borderRadius: 10, marginBottom: 12, background: "rgba(232,118,63,.06)", border: "1px solid rgba(232,118,63,.2)", fontSize: 13, color: "var(--accent)", textAlign: "center" },}
             , [trebles > 0 && `${trebles}×Treble (${trebles*3}pts)`, doubles > 0 && `${doubles}×Double (${doubles*2}pts)`, singles > 0 && `${singles}×Single (${singles}pts)`].filter(Boolean).join(" + "), " = "  , visitPts, " pts"
           )
         )
@@ -7115,11 +7116,11 @@ function PenaltiesGame({ config, onComplete, onExit }) {
             , React.createElement('div', { style: { fontSize: 12, fontWeight: 700, color: "#ff6b6b", textAlign: "center", marginBottom: 6 },}, p2Name)
             , targets.map((t, i) => (
               React.createElement(React.Fragment, null
-                , React.createElement('div', { key: `p1-${i}`, style: { textAlign: "center", padding: "6px 0", background: p1Scores[i] ? "rgba(202,243,0,.1)" : "rgba(255,71,87,.06)", borderRadius: 8, fontSize: 18 },}
+                , React.createElement('div', { key: `p1-${i}`, style: { textAlign: "center", padding: "6px 0", background: p1Scores[i] ? "rgba(232,118,63,.1)" : "rgba(194,72,63,.06)", borderRadius: 8, fontSize: 18 },}
                   , p1Scores[i] ? "✅" : "❌"
                 )
                 , React.createElement('div', { key: `t-${i}`, style: { textAlign: "center", fontSize: 12, fontWeight: 700, color: "var(--text)", padding: "0 8px" },}, t.label)
-                , React.createElement('div', { key: `p2-${i}`, style: { textAlign: "center", padding: "6px 0", background: p2Scores[i] ? "rgba(255,107,107,.1)" : "rgba(255,71,87,.06)", borderRadius: 8, fontSize: 18 },}
+                , React.createElement('div', { key: `p2-${i}`, style: { textAlign: "center", padding: "6px 0", background: p2Scores[i] ? "rgba(255,107,107,.1)" : "rgba(194,72,63,.06)", borderRadius: 8, fontSize: 18 },}
                   , p2Scores[i] ? "✅" : "❌"
                 )
               )
@@ -7161,7 +7162,7 @@ function PenaltiesGame({ config, onComplete, onExit }) {
           var p1Won = i < p1Rounds;
           var p2Won = i < p2Rounds;
           return (
-            React.createElement('div', { key: i, style: { width: 28, height: 28, borderRadius: "50%", border: "2px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 700, background: p1Won ? "rgba(202,243,0,.2)" : p2Won ? "rgba(255,107,107,.2)" : "var(--surface2)", color: p1Won ? "var(--accent)" : p2Won ? "#ff6b6b" : "var(--muted)" },}
+            React.createElement('div', { key: i, style: { width: 28, height: 28, borderRadius: "50%", border: "2px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 700, background: p1Won ? "rgba(232,118,63,.2)" : p2Won ? "rgba(255,107,107,.2)" : "var(--surface2)", color: p1Won ? "var(--accent)" : p2Won ? "#ff6b6b" : "var(--muted)" },}
               , p1Won ? "X" : p2Won ? "O" : i + 1
             )
           );
@@ -7215,7 +7216,7 @@ function PenaltiesGame({ config, onComplete, onExit }) {
 
       /* Attempt result feedback */
       , attemptResult !== null && (
-        React.createElement('div', { style: { padding: "12px 16px", borderRadius: 14, marginBottom: 14, textAlign: "center", fontSize: 16, fontWeight: 700, background: attemptResult ? "rgba(202,243,0,.1)" : "rgba(255,71,87,.08)", border: `1px solid ${attemptResult ? "rgba(202,243,0,.3)" : "rgba(255,71,87,.25)"}`, color: attemptResult ? "var(--accent)" : "var(--accent2)" },}
+        React.createElement('div', { style: { padding: "12px 16px", borderRadius: 14, marginBottom: 14, textAlign: "center", fontSize: 16, fontWeight: 700, background: attemptResult ? "rgba(232,118,63,.1)" : "rgba(194,72,63,.08)", border: `1px solid ${attemptResult ? "rgba(232,118,63,.3)" : "rgba(194,72,63,.25)"}`, color: attemptResult ? "var(--accent)" : "var(--accent2)" },}
           , attemptResult ? `✅ ${isP1Turn && !botThinking ? p1Name : p2Name} hit ${target.label}!` : `❌ ${isP1Turn && !botThinking ? p1Name : p2Name} missed ${target.label}`
         )
       )
@@ -7587,7 +7588,7 @@ function XOGame({ config, onComplete, onExit }) {
               if (turn === "X") handleSquareTap(i);
               else if (vsMode === "friend") handleP2SquareTap(i);
             },
-              style: { aspectRatio: "1", background: inWinLine ? `${ownerColor}25` : owner ? `${ownerColor}12` : isSelected ? "rgba(202,243,0,.1)" : "var(--surface)", border: `2px solid ${inWinLine ? ownerColor : isSelected ? "var(--accent)" : owner ? ownerColor + "60" : "var(--border)"}`, borderRadius: 16, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", cursor: canTap ? "pointer" : "default", transition: "all .15s", WebkitTapHighlightColor: "transparent" },}
+              style: { aspectRatio: "1", background: inWinLine ? `${ownerColor}25` : owner ? `${ownerColor}12` : isSelected ? "rgba(232,118,63,.1)" : "var(--surface)", border: `2px solid ${inWinLine ? ownerColor : isSelected ? "var(--accent)" : owner ? ownerColor + "60" : "var(--border)"}`, borderRadius: 16, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", cursor: canTap ? "pointer" : "default", transition: "all .15s", WebkitTapHighlightColor: "transparent" },}
               , owner ? (
                 React.createElement('div', { style: { fontFamily: "'Bebas Neue',sans-serif", fontSize: 36, color: ownerColor, lineHeight: 1, filter: inWinLine ? `drop-shadow(0 0 8px ${ownerColor})` : "none" },}, owner)
               ) : (
@@ -7612,7 +7613,7 @@ function XOGame({ config, onComplete, onExit }) {
             , React.createElement('div', { style: { fontSize: 13, color: "var(--accent)", marginTop: 2 },}, CHECKOUTS[grid[selected]] || "—")
           )
           , attemptResult ? (
-            React.createElement('div', { style: { textAlign: "center", padding: "12px", borderRadius: 12, background: attemptResult === "hit" ? "rgba(202,243,0,.1)" : "rgba(255,71,87,.08)", border: `1px solid ${attemptResult === "hit" ? "rgba(202,243,0,.3)" : "rgba(255,71,87,.25)"}`, fontSize: 16, fontWeight: 700, color: attemptResult === "hit" ? "var(--accent)" : "var(--accent2)" },}
+            React.createElement('div', { style: { textAlign: "center", padding: "12px", borderRadius: 12, background: attemptResult === "hit" ? "rgba(232,118,63,.1)" : "rgba(194,72,63,.08)", border: `1px solid ${attemptResult === "hit" ? "rgba(232,118,63,.3)" : "rgba(194,72,63,.25)"}`, fontSize: 16, fontWeight: 700, color: attemptResult === "hit" ? "var(--accent)" : "var(--accent2)" },}
               , attemptResult === "hit" ? `✅ Hit! Square claimed.` : `❌ Miss — square stays open.`
             )
           ) : (
@@ -7626,7 +7627,7 @@ function XOGame({ config, onComplete, onExit }) {
 
       /* Done overlay */
       , phase === "done" && winResult && (
-        React.createElement('div', { style: { background: winResult.winner === "draw" ? "var(--surface)" : winResult.winner === "X" ? "rgba(202,243,0,.08)" : "rgba(255,107,107,.08)", border: `1px solid ${winResult.winner === "draw" ? "var(--border)" : winResult.winner === "X" ? "rgba(202,243,0,.35)" : "rgba(255,107,107,.35)"}`, borderRadius: 16, padding: 20, textAlign: "center" },}
+        React.createElement('div', { style: { background: winResult.winner === "draw" ? "var(--surface)" : winResult.winner === "X" ? "rgba(232,118,63,.08)" : "rgba(255,107,107,.08)", border: `1px solid ${winResult.winner === "draw" ? "var(--border)" : winResult.winner === "X" ? "rgba(232,118,63,.35)" : "rgba(255,107,107,.35)"}`, borderRadius: 16, padding: 20, textAlign: "center" },}
           , React.createElement('div', { style: { fontSize: 48, marginBottom: 8 },}, winResult.winner === "draw" ? "🤝" : winResult.winner === "X" ? "🏆" : "😤")
           , React.createElement('div', { style: { fontFamily: "'Bebas Neue',sans-serif", fontSize: 28, letterSpacing: 2, color: winResult.winner === "X" ? "var(--accent)" : winResult.winner === "draw" ? "var(--text)" : "#ff6b6b", marginBottom: 6 },}
             , winResult.winner === "draw" ? "It's a Draw!" : `${winResult.winner === "X" ? p1Name : p2Name} Wins!`
@@ -7678,7 +7679,7 @@ function DartsAtDoublePopup({ remaining, onConfirm }) {
         , React.createElement('div', { style: { display:"grid", gridTemplateColumns:"1fr 1fr 1fr 1fr", gap:10, marginBottom:16 },}
           , [0,1,2,3].map(n => (
             React.createElement('button', { key: n, onClick: () => { haptic("hit"); setSelected(n); },
-              style: { padding:"18px 0", background: selected===n ? "rgba(202,243,0,.2)" : "var(--surface2)", border:`2px solid ${selected===n ? "var(--accent)" : "var(--border)"}`, borderRadius:14, fontFamily:"'Bebas Neue',sans-serif", fontSize:32, color: selected===n ? "var(--accent)" : "var(--text)", cursor:"pointer", WebkitTapHighlightColor:"transparent", transition:"all .15s" },}
+              style: { padding:"18px 0", background: selected===n ? "rgba(232,118,63,.2)" : "var(--surface2)", border:`2px solid ${selected===n ? "var(--accent)" : "var(--border)"}`, borderRadius:14, fontFamily:"'Bebas Neue',sans-serif", fontSize:32, color: selected===n ? "var(--accent)" : "var(--text)", cursor:"pointer", WebkitTapHighlightColor:"transparent", transition:"all .15s" },}
               , n
             )
           ))
@@ -7757,16 +7758,16 @@ function Numpad({ value, onChange, onSubmit, disabled, submitLabel = "Submit →
       /* ── Score display bar ── */
       , React.createElement('div', { style: {
         background: hasValue ? "var(--glass-bg)" : "var(--surface)",
-        border: `1.5px solid ${error ? "rgba(255,71,87,.5)" : hasValue ? "rgba(202,243,0,.35)" : "var(--border)"}`,
+        border: `1.5px solid ${error ? "rgba(194,72,63,.5)" : hasValue ? "rgba(232,118,63,.35)" : "var(--border)"}`,
         borderRadius: "var(--radius-sm)", padding: "12px 16px", marginBottom: 10,
         display: "flex", alignItems: "center", justifyContent: "space-between",
         backdropFilter: "blur(12px)", transition: "border-color .15s",
-        boxShadow: hasValue ? "0 0 0 3px rgba(202,243,0,.06)" : "none",
+        boxShadow: hasValue ? "0 0 0 3px rgba(232,118,63,.06)" : "none",
       },}
         , React.createElement('div', { style: {
           fontFamily: "'Bebas Neue',sans-serif", fontSize: 56, letterSpacing: 2,
           color: hasValue ? "var(--text)" : "var(--muted)", lineHeight: 1, minWidth: 80,
-          filter: hasValue ? "drop-shadow(0 0 8px rgba(202,243,0,.2))" : "none",
+          filter: hasValue ? "drop-shadow(0 0 8px rgba(232,118,63,.2))" : "none",
           transition: "filter .15s, color .15s",
         },}
           , value || "—"
@@ -7808,7 +7809,7 @@ function Numpad({ value, onChange, onSubmit, disabled, submitLabel = "Submit →
         /* Miss */
         , React.createElement('button', { onClick: () => { haptic("miss"); handleMiss(); }, disabled: disabled,
           style: {
-            background: "rgba(255,71,87,.08)", border: "1px solid rgba(255,71,87,.25)",
+            background: "rgba(194,72,63,.08)", border: "1px solid rgba(194,72,63,.25)",
             borderRadius: "var(--radius-sm)", padding: "17px 0",
             fontFamily: "'Hanken Grotesk',sans-serif", fontSize: 13, fontWeight: 700,
             color: "var(--accent2)", cursor: disabled ? "not-allowed" : "pointer",
@@ -7844,7 +7845,7 @@ function Numpad({ value, onChange, onSubmit, disabled, submitLabel = "Submit →
             WebkitTapHighlightColor: "transparent",
             transition: "background .15s, transform .08s",
             display: "flex", alignItems: "center", justifyContent: "center",
-            boxShadow: hasValue && !disabled ? "0 4px 16px rgba(202,243,0,.25)" : "none",
+            boxShadow: hasValue && !disabled ? "0 4px 16px rgba(232,118,63,.25)" : "none",
           },
           onTouchStart: e => hasValue && !disabled && (e.currentTarget.style.transform = "scale(.93)"),
           onTouchEnd: e => (e.currentTarget.style.transform = "scale(1)"),}
@@ -7858,8 +7859,8 @@ function Numpad({ value, onChange, onSubmit, disabled, submitLabel = "Submit →
         , [26, 41, 60, 100, 140, 45, 81, 85, 121, 180].map(v => (
           React.createElement('button', { key: v, onClick: () => { haptic("hit"); onChange(String(v)); }, disabled: disabled,
             style: {
-              background: v === 180 ? "rgba(202,243,0,.08)" : "var(--surface2)",
-              border: `1px solid ${v === 180 ? "rgba(202,243,0,.2)" : "var(--border)"}`,
+              background: v === 180 ? "rgba(232,118,63,.08)" : "var(--surface2)",
+              border: `1px solid ${v === 180 ? "rgba(232,118,63,.2)" : "var(--border)"}`,
               borderRadius: 9, padding: "7px 4px",
               fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 500,
               color: v === 180 ? "var(--accent)" : "var(--muted)",
@@ -7887,7 +7888,7 @@ function CheckoutDartSelector({ score, finishRoute, onConfirm }) {
 
   return (
     React.createElement('div', { style: { position: "fixed", inset: 0, background: "rgba(0,0,0,0.85)", backdropFilter: "blur(6px)", zIndex: 500, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "0 24px" },}
-      , React.createElement('div', { style: { background: "var(--surface)", border: "1px solid rgba(202,243,0,.3)", borderRadius: 24, padding: "28px 24px", width: "100%", maxWidth: 380, textAlign: "center" },}
+      , React.createElement('div', { style: { background: "var(--surface)", border: "1px solid rgba(232,118,63,.3)", borderRadius: 24, padding: "28px 24px", width: "100%", maxWidth: 380, textAlign: "center" },}
         , React.createElement('div', { style: { fontSize: 48, marginBottom: 8 },}, "🎯")
         , React.createElement('div', { style: { fontFamily: "'Bebas Neue',sans-serif", fontSize: 32, letterSpacing: 2, color: "var(--accent)", marginBottom: 4 },}, "Checkout!")
         , React.createElement('div', { style: { fontSize: 14, color: "var(--muted)", marginBottom: 6 },}, "Finished on "
@@ -8351,12 +8352,12 @@ function X01Game({ config, onComplete, onExit }) {
       /* Scoreboard */
       , React.createElement('div', { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 12 },}
         /* Player */
-        , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(202,243,0,.08),rgba(168,255,120,.03))", border: "1px solid rgba(202,243,0,.3)", borderRadius: "var(--radius)", padding: "14px 12px", textAlign: "center" },}
+        , React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(232,118,63,.08),rgba(168,255,120,.03))", border: "1px solid rgba(232,118,63,.3)", borderRadius: "var(--radius)", padding: "14px 12px", textAlign: "center" },}
           , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--accent)", marginBottom: 4 },}, "You")
           , React.createElement('div', { style: { fontFamily: "'Bebas Neue',sans-serif", fontSize: 56, letterSpacing: 3, color: "var(--text)", lineHeight: 1 },}, playerRemaining)
           /* Averages + dart count */
           , React.createElement('div', { style: { display: "flex", gap: 5, justifyContent: "center", marginTop: 6 },}
-            , React.createElement('div', { style: { background: "rgba(202,243,0,.1)", borderRadius: 8, padding: "3px 7px" },}
+            , React.createElement('div', { style: { background: "rgba(232,118,63,.1)", borderRadius: 8, padding: "3px 7px" },}
               , React.createElement('div', { style: { fontSize: 8, color: "var(--accent)", fontWeight: 700, letterSpacing: 1 },}, "LEG")
               , React.createElement('div', { style: { fontSize: 13, fontWeight: 700, color: "var(--accent)" },}, legAvg)
             )
@@ -8377,13 +8378,13 @@ function X01Game({ config, onComplete, onExit }) {
           )
           /* Hide last visit badge when on a finish — checkout hint takes over */
           , lastPlayerVisit && !checkoutHint && (
-            React.createElement('div', { style: { marginTop: 6, padding: "3px 8px", borderRadius: 8, display: "inline-block", background: lastPlayerVisit.bust ? "rgba(255,71,87,.15)" : lastPlayerVisit.checkout ? "rgba(202,243,0,.2)" : "var(--surface2)", fontSize: 13, fontWeight: 700, color: lastPlayerVisit.bust ? "var(--accent2)" : lastPlayerVisit.checkout ? "var(--accent)" : "var(--text)" },}
+            React.createElement('div', { style: { marginTop: 6, padding: "3px 8px", borderRadius: 8, display: "inline-block", background: lastPlayerVisit.bust ? "rgba(194,72,63,.15)" : lastPlayerVisit.checkout ? "rgba(232,118,63,.2)" : "var(--surface2)", fontSize: 13, fontWeight: 700, color: lastPlayerVisit.bust ? "var(--accent2)" : lastPlayerVisit.checkout ? "var(--accent)" : "var(--text)" },}
               , lastPlayerVisit.bust ? `BUST` : lastPlayerVisit.checkout ? `✓ ${lastPlayerVisit.score}` : `+${lastPlayerVisit.score}`
             )
           )
         )
         /* Bot */
-        , React.createElement('div', { style: { background: "var(--surface)", border: `1px solid ${getCheckoutHint(botRemaining, finishRule) ? "rgba(255,71,87,.3)" : "var(--border)"}`, borderRadius: "var(--radius)", padding: "14px 12px", textAlign: "center" },}
+        , React.createElement('div', { style: { background: "var(--surface)", border: `1px solid ${getCheckoutHint(botRemaining, finishRule) ? "rgba(194,72,63,.3)" : "var(--border)"}`, borderRadius: "var(--radius)", padding: "14px 12px", textAlign: "center" },}
           , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--muted)", marginBottom: 4 },}, bot.name.split(" ")[0])
           , React.createElement('div', { style: { fontFamily: "'Bebas Neue',sans-serif", fontSize: 56, letterSpacing: 3, color: "var(--text)", lineHeight: 1 },}, botRemaining)
           /* Show bot checkout hint if on a finish */
@@ -8403,7 +8404,7 @@ function X01Game({ config, onComplete, onExit }) {
               , [0,1,2].map(i => (React.createElement('div', { key: i, style: { width: 7, height: 7, borderRadius: "50%", background: "var(--muted)", animation: `dlbounce 1.2s ${i*0.2}s infinite ease-in-out` },} )))
             )
           ) : lastBotVisit && (
-            React.createElement('div', { style: { marginTop: 6, padding: "3px 8px", borderRadius: 8, display: "inline-block", background: lastBotVisit.checkout ? "rgba(255,71,87,.15)" : "var(--surface2)", fontSize: 13, fontWeight: 700, color: lastBotVisit.checkout ? "var(--accent2)" : "var(--text)" },}
+            React.createElement('div', { style: { marginTop: 6, padding: "3px 8px", borderRadius: 8, display: "inline-block", background: lastBotVisit.checkout ? "rgba(194,72,63,.15)" : "var(--surface2)", fontSize: 13, fontWeight: 700, color: lastBotVisit.checkout ? "var(--accent2)" : "var(--text)" },}
               , lastBotVisit.checkout ? `✓ ${lastBotVisit.score}` : `+${lastBotVisit.score}`
             )
           )
@@ -8412,7 +8413,7 @@ function X01Game({ config, onComplete, onExit }) {
 
       /* Checkout hint — inline under remaining */
       , checkoutHint && (
-        React.createElement('div', { style: { background: "rgba(202,243,0,.08)", border: "1px solid rgba(202,243,0,.3)", borderRadius: 12, padding: "8px 14px", marginBottom: 12, display: "flex", alignItems: "center", justifyContent: "space-between" },}
+        React.createElement('div', { style: { background: "rgba(232,118,63,.08)", border: "1px solid rgba(232,118,63,.3)", borderRadius: 12, padding: "8px 14px", marginBottom: 12, display: "flex", alignItems: "center", justifyContent: "space-between" },}
           , React.createElement('div', { style: { fontSize: 11, fontWeight: 700, color: "var(--accent)" },}, "💡 " , playerRemaining)
           , React.createElement('div', { style: { fontSize: 14, fontWeight: 700, color: "var(--text)" },}, checkoutHint)
         )
@@ -8422,14 +8423,14 @@ function X01Game({ config, onComplete, onExit }) {
       , undoStack.length > 0 && !botThinking && (
         React.createElement('button', { onClick: handleUndo, style: {
           width: "100%", padding: "11px", marginBottom: 8,
-          background: "rgba(255,71,87,.08)", border: "1px solid rgba(255,71,87,.25)",
+          background: "rgba(194,72,63,.08)", border: "1px solid rgba(194,72,63,.25)",
           borderRadius: 14, cursor: "pointer", color: "var(--accent2)",
           fontFamily: "'DM Sans',sans-serif", fontSize: 13, fontWeight: 700,
           display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
           WebkitTapHighlightColor: "transparent",
         },}, "↩ Undo Last Visit"
 
-          , React.createElement('span', { style: { fontSize: 11, fontWeight: 400, color: "rgba(255,71,87,.6)" },}, "(was "
+          , React.createElement('span', { style: { fontSize: 11, fontWeight: 400, color: "rgba(194,72,63,.6)" },}, "(was "
              , undoStack[undoStack.length-1].playerRemaining, " → "  , undoStack[undoStack.length-1].playerRemaining - (_nullishCoalesce(_optionalChain([playerVisits, 'access', _58 => _58[playerVisits.length-1], 'optionalAccess', _59 => _59.score]), () => ( 0))), ")"
           )
         )
@@ -8496,7 +8497,7 @@ function X01Result({ result, config, onPlayAgain, onExit }) {
             , React.createElement('div', { style: { fontSize: 11, color: "var(--muted)" },}, "average")
           )
         )
-        , React.createElement('div', { style: { marginTop: 14, padding: "10px 14px", background: playerWon ? "rgba(202,243,0,.06)" : "rgba(255,71,87,.06)", border: `1px solid ${playerWon ? "rgba(202,243,0,.2)" : "rgba(255,71,87,.2)"}`, borderRadius: 10, fontSize: 13, color: "var(--muted)", lineHeight: 1.5, textAlign: "center" },}
+        , React.createElement('div', { style: { marginTop: 14, padding: "10px 14px", background: playerWon ? "rgba(232,118,63,.06)" : "rgba(194,72,63,.06)", border: `1px solid ${playerWon ? "rgba(232,118,63,.2)" : "rgba(194,72,63,.2)"}`, borderRadius: 10, fontSize: 13, color: "var(--muted)", lineHeight: 1.5, textAlign: "center" },}
           , playerWon
             ? playerAvg > botAvg ? "You outscored the bot — well played! 🎯" : "You won on checkouts — great finishing!"
             : playerAvg > botAvg ? "You scored well but the bot closed out better. Work on your finishing!" : `The bot averaged ${botAvg} — try a lower difficulty level to build confidence.`
@@ -8504,11 +8505,11 @@ function X01Result({ result, config, onPlayAgain, onExit }) {
       )
 
       /* AI Coaching */
-      , React.createElement('div', { style: { background:"var(--surface)", border:"1px solid rgba(202,243,0,.2)", borderRadius:"var(--radius)", padding:16, marginBottom:14 },}
-        , React.createElement('div', { style: { fontSize:11, fontWeight:700, letterSpacing:2, textTransform:"uppercase", color:"rgba(202,243,0,.7)", marginBottom:8 },}, React.createElement(Ms, { icon: "psychology", size: 14, fill: true,} ), " Coach Insight"  )
+      , React.createElement('div', { style: { background:"var(--surface)", border:"1px solid rgba(232,118,63,.2)", borderRadius:"var(--radius)", padding:16, marginBottom:14 },}
+        , React.createElement('div', { style: { fontSize:11, fontWeight:700, letterSpacing:2, textTransform:"uppercase", color:"rgba(232,118,63,.7)", marginBottom:8 },}, React.createElement(Ms, { icon: "psychology", size: 14, fill: true,} ), " Coach Insight"  )
         , coachLoading
           ? React.createElement('div', { style: { display:"flex", alignItems:"center", gap:10 },}
-              , React.createElement('div', { style: { width:16, height:16, border:"2px solid rgba(202,243,0,.2)", borderTopColor:"var(--accent)", borderRadius:"50%", animation:"spin .9s linear infinite", flexShrink:0 },} )
+              , React.createElement('div', { style: { width:16, height:16, border:"2px solid rgba(232,118,63,.2)", borderTopColor:"var(--accent)", borderRadius:"50%", animation:"spin .9s linear infinite", flexShrink:0 },} )
               , React.createElement('div', { style: { fontSize:13, color:"var(--muted)" },}, "Analysing your match…"  )
             )
           : coachInsight
@@ -8646,7 +8647,7 @@ var DAILY_CHALLENGES = [
 var DIFFICULTY_CONFIG = {
   normal:    { label:"Normal",    color:"#5cb85c", bg:"rgba(92,184,92,0.08)",   border:"rgba(92,184,92,0.25)"   },
   hard:      { label:"Hard",      color:"#f0ad4e", bg:"rgba(240,173,78,0.08)",  border:"rgba(240,173,78,0.25)"  },
-  legendary: { label:"Legendary", color:"#caf300", bg:"rgba(202,243,0,0.08)",  border:"rgba(202,243,0,0.25)"  },
+  legendary: { label:"Legendary", color:"#e8763f", bg:"rgba(232,118,63,0.08)",  border:"rgba(232,118,63,0.25)"  },
 };
 
 var WEEKLY_MISSIONS_KEY = "dl-weekly-missions";
@@ -8814,7 +8815,7 @@ function ProfileScreen({ history, botGames, onClose, onProfileSaved, onResetProg
       , React.createElement('div', { style: { maxWidth:430, margin:"0 auto", padding:"0 16px 80px" },}
 
         /* Top bar */
-        , React.createElement('div', { style: { position:"sticky", top:0, zIndex:10, background:"rgba(17,19,23,.95)", backdropFilter:"blur(16px)", borderBottom:"1px solid var(--border)", height:60, display:"flex", alignItems:"center", justifyContent:"space-between", margin:"0 -16px", padding:"0 16px" },}
+        , React.createElement('div', { style: { position:"sticky", top:0, zIndex:10, background:"rgba(27,24,21,.95)", backdropFilter:"blur(16px)", borderBottom:"1px solid var(--border)", height:60, display:"flex", alignItems:"center", justifyContent:"space-between", margin:"0 -16px", padding:"0 16px" },}
           , React.createElement('div', { style: { fontFamily:"'Hanken Grotesk',sans-serif", fontSize:18, fontWeight:800, letterSpacing:"-0.02em", color:"var(--text)" },}, "Edit Profile" )
           , profile.name && (
             React.createElement('button', { onClick: () => setEditing(false), style: { background:"none", border:"none", fontFamily:"'Hanken Grotesk',sans-serif", fontSize:14, fontWeight:600, color:"var(--muted)", cursor:"pointer", WebkitTapHighlightColor:"transparent" },}, "Cancel")
@@ -8824,10 +8825,10 @@ function ProfileScreen({ history, botGames, onClose, onProfileSaved, onResetProg
         /* Avatar */
         , React.createElement('div', { style: { textAlign:"center", padding:"28px 0 20px" },}
           , React.createElement('div', { onClick: () => setShowAvatarPicker(true),
-            style: { fontSize:72, cursor:"pointer", display:"inline-block", marginBottom:8, filter:"drop-shadow(0 0 20px rgba(202,243,0,.3))", lineHeight:1 },}, avatar)
+            style: { fontSize:72, cursor:"pointer", display:"inline-block", marginBottom:8, filter:"drop-shadow(0 0 20px rgba(232,118,63,.3))", lineHeight:1 },}, avatar)
           , React.createElement('div', null
             , React.createElement('button', { onClick: () => setShowAvatarPicker(!showAvatarPicker),
-              style: { fontFamily:"'JetBrains Mono',monospace", fontSize:10, fontWeight:500, letterSpacing:".05em", textTransform:"uppercase", color:"var(--accent)", background:"none", border:"1px solid rgba(202,243,0,.25)", borderRadius:100, padding:"4px 14px", cursor:"pointer", WebkitTapHighlightColor:"transparent" },}
+              style: { fontFamily:"'JetBrains Mono',monospace", fontSize:10, fontWeight:500, letterSpacing:".05em", textTransform:"uppercase", color:"var(--accent)", background:"none", border:"1px solid rgba(232,118,63,.25)", borderRadius:100, padding:"4px 14px", cursor:"pointer", WebkitTapHighlightColor:"transparent" },}
               , showAvatarPicker ? "Close" : "Change Avatar"
             )
           )
@@ -8835,7 +8836,7 @@ function ProfileScreen({ history, botGames, onClose, onProfileSaved, onResetProg
             React.createElement('div', { style: { display:"flex", gap:8, flexWrap:"wrap", justifyContent:"center", marginTop:14, padding:14, background:"var(--glass-bg)", borderRadius:"var(--radius)", border:"1px solid var(--glass-border)", backdropFilter:"blur(12px)" },}
               , AVATARS.map(a => (
                 React.createElement('div', { key: a, onClick: () => { setAvatar(a); setShowAvatarPicker(false); },
-                  style: { fontSize:32, cursor:"pointer", padding:8, borderRadius:12, background:a===avatar?"rgba(202,243,0,.15)":"transparent", border:`1px solid ${a===avatar?"var(--accent)":"transparent"}`, transition:"all .15s" },}
+                  style: { fontSize:32, cursor:"pointer", padding:8, borderRadius:12, background:a===avatar?"rgba(232,118,63,.15)":"transparent", border:`1px solid ${a===avatar?"var(--accent)":"transparent"}`, transition:"all .15s" },}
                   , a
                 )
               ))
@@ -8872,7 +8873,7 @@ function ProfileScreen({ history, botGames, onClose, onProfileSaved, onResetProg
       , React.createElement('div', { style: { maxWidth:430, margin:"0 auto", padding:"0 16px 80px" },}
 
         /* Top bar */
-        , React.createElement('div', { style: { position:"sticky", top:0, zIndex:10, background:"rgba(17,19,23,.95)", backdropFilter:"blur(16px)", borderBottom:"1px solid var(--border)", height:60, display:"flex", alignItems:"center", justifyContent:"space-between", margin:"0 -16px", padding:"0 16px" },}
+        , React.createElement('div', { style: { position:"sticky", top:0, zIndex:10, background:"rgba(27,24,21,.95)", backdropFilter:"blur(16px)", borderBottom:"1px solid var(--border)", height:60, display:"flex", alignItems:"center", justifyContent:"space-between", margin:"0 -16px", padding:"0 16px" },}
           , React.createElement('button', { onClick: onClose, style: { background:"none", border:"none", display:"flex", alignItems:"center", gap:6, fontFamily:"'Hanken Grotesk',sans-serif", fontSize:14, fontWeight:600, color:"var(--muted)", cursor:"pointer", WebkitTapHighlightColor:"transparent" },}
             , React.createElement(Ms, { icon: "arrow_back", size: 18,} ), " Back"
           )
@@ -8887,8 +8888,8 @@ function ProfileScreen({ history, botGames, onClose, onProfileSaved, onResetProg
           , React.createElement('div', { style: { position:"absolute", inset:0, background:"linear-gradient(to bottom,rgba(13,16,24,.4) 0%,transparent 15%,transparent 85%,rgba(13,16,24,.5) 100%)" },} )
         )
         /* Hero card */
-        , React.createElement('div', { style: { background:"linear-gradient(135deg,rgba(202,243,0,.08),rgba(168,255,120,.04))", border:"1px solid rgba(202,243,0,.2)", borderTop:"2px solid rgba(202,243,0,.4)", borderRadius:"var(--radius)", padding:"24px 20px 20px", margin:"0 0 14px", textAlign:"center", backdropFilter:"blur(12px)" },}
-          , React.createElement('div', { style: { fontSize:72, marginBottom:10, filter:"drop-shadow(0 0 16px rgba(202,243,0,.35))", lineHeight:1 },}, profile.avatar)
+        , React.createElement('div', { style: { background:"linear-gradient(135deg,rgba(232,118,63,.08),rgba(168,255,120,.04))", border:"1px solid rgba(232,118,63,.2)", borderTop:"2px solid rgba(232,118,63,.4)", borderRadius:"var(--radius)", padding:"24px 20px 20px", margin:"0 0 14px", textAlign:"center", backdropFilter:"blur(12px)" },}
+          , React.createElement('div', { style: { fontSize:72, marginBottom:10, filter:"drop-shadow(0 0 16px rgba(232,118,63,.35))", lineHeight:1 },}, profile.avatar)
           , React.createElement('div', { style: { fontFamily:"'Hanken Grotesk',sans-serif", fontSize:26, fontWeight:800, letterSpacing:"-0.02em", color:"var(--text)", lineHeight:1, marginBottom:4 },}, profile.name || "Anonymous")
           , (profile.club || profile.county) && (
             React.createElement('div', { style: { fontFamily:"'JetBrains Mono',monospace", fontSize:10, fontWeight:500, letterSpacing:".04em", color:"var(--muted)", marginTop:4 },}
@@ -8924,7 +8925,7 @@ function ProfileScreen({ history, botGames, onClose, onProfileSaved, onResetProg
             , gamePBs.map(([id, g]) => (
               React.createElement('div', { key: id, style: { background:"var(--glass-bg)", border:"1px solid var(--glass-border)", borderRadius:"var(--radius)", padding:"14px 16px", marginBottom:8, backdropFilter:"blur(12px)" },}
                 , React.createElement('div', { style: { display:"flex", alignItems:"center", gap:12 },}
-                  , React.createElement('div', { style: { width:40, height:40, borderRadius:10, background:"rgba(202,243,0,.08)", border:"1px solid rgba(202,243,0,.15)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:20, flexShrink:0 },}, g.icon)
+                  , React.createElement('div', { style: { width:40, height:40, borderRadius:10, background:"rgba(232,118,63,.08)", border:"1px solid rgba(232,118,63,.15)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:20, flexShrink:0 },}, g.icon)
                   , React.createElement('div', { style: { flex:1 },}
                     , React.createElement('div', { style: { fontFamily:"'Hanken Grotesk',sans-serif", fontSize:14, fontWeight:700, color:"var(--text)", letterSpacing:"-0.01em" },}, g.name)
                     , React.createElement('div', { style: { fontFamily:"'JetBrains Mono',monospace", fontSize:9, fontWeight:500, letterSpacing:".04em", color:"var(--muted)", marginTop:2 },}, g.totalPlays, " plays" )
@@ -8959,7 +8960,7 @@ function ProfileScreen({ history, botGames, onClose, onProfileSaved, onResetProg
         /* Danger Zone */
         , React.createElement('div', { style: { marginTop:24 },}
           , React.createElement('div', { className: "section-label", style: { color:"var(--accent2)" },}, "Danger Zone" )
-          , React.createElement('div', { style: { background:"rgba(255,71,87,.05)", border:"1px solid rgba(255,71,87,.2)", borderRadius:"var(--radius)", padding:16, backdropFilter:"blur(12px)" },}
+          , React.createElement('div', { style: { background:"rgba(194,72,63,.05)", border:"1px solid rgba(194,72,63,.2)", borderRadius:"var(--radius)", padding:16, backdropFilter:"blur(12px)" },}
             , React.createElement('div', { style: { fontFamily:"'Hanken Grotesk',sans-serif", fontSize:15, fontWeight:700, color:"var(--text)", marginBottom:4 },}, "Reset All Progress"  )
             , React.createElement('div', { style: { fontSize:13, color:"var(--muted)", marginBottom:14, lineHeight:1.6 },}, "Clears your session history, bot games, achievements, programmes and Darts IQ score. Cannot be undone."
 
@@ -9063,7 +9064,7 @@ function CheckoutTrainer({ onClose, onChallengeProgress }) {
           )
 
           , best !== null && (
-            React.createElement('div', { style: { background:"linear-gradient(135deg,rgba(202,243,0,.1),rgba(168,255,120,.05))", border:"1px solid rgba(202,243,0,.3)", borderRadius:"var(--radius)", padding:16, marginBottom:16, textAlign:"center" },}
+            React.createElement('div', { style: { background:"linear-gradient(135deg,rgba(232,118,63,.1),rgba(168,255,120,.05))", border:"1px solid rgba(232,118,63,.3)", borderRadius:"var(--radius)", padding:16, marginBottom:16, textAlign:"center" },}
               , React.createElement('div', { style: { fontSize:11, fontWeight:700, letterSpacing:1.5, textTransform:"uppercase", color:"var(--accent)", marginBottom:4 },}, "Your Best" )
               , React.createElement('div', { style: { fontFamily:"'Bebas Neue',sans-serif", fontSize:48, color:"var(--accent)", letterSpacing:3 },}, best, "/10")
             )
@@ -9127,7 +9128,7 @@ function CheckoutTrainer({ onClose, onChallengeProgress }) {
           /* Question */
           , React.createElement('div', { style: { textAlign:"center", marginBottom:28 },}
             , React.createElement('div', { style: { fontSize:13, fontWeight:600, letterSpacing:2, textTransform:"uppercase", color:"var(--muted)", marginBottom:10 },}, "What's the checkout for..."   )
-            , React.createElement('div', { style: { fontFamily:"'Bebas Neue',sans-serif", fontSize:96, color:"var(--accent)", letterSpacing:4, lineHeight:1, filter:"drop-shadow(0 0 20px rgba(202,243,0,.3))" },}, q.score)
+            , React.createElement('div', { style: { fontFamily:"'Bebas Neue',sans-serif", fontSize:96, color:"var(--accent)", letterSpacing:4, lineHeight:1, filter:"drop-shadow(0 0 20px rgba(232,118,63,.3))" },}, q.score)
           )
 
           /* Options */
@@ -9140,8 +9141,8 @@ function CheckoutTrainer({ onClose, onChallengeProgress }) {
               var border = "1px solid var(--border)";
               var color = "var(--text)";
               if (showAnswer) {
-                if (isCorrect) { bg = "rgba(202,243,0,.15)"; border = "1px solid rgba(202,243,0,.5)"; color = "var(--accent)"; }
-                else if (isSelected && !isCorrect) { bg = "rgba(255,71,87,.15)"; border = "1px solid rgba(255,71,87,.4)"; color = "var(--accent2)"; }
+                if (isCorrect) { bg = "rgba(232,118,63,.15)"; border = "1px solid rgba(232,118,63,.5)"; color = "var(--accent)"; }
+                else if (isSelected && !isCorrect) { bg = "rgba(194,72,63,.15)"; border = "1px solid rgba(194,72,63,.4)"; color = "var(--accent2)"; }
                 else { bg = "var(--surface)"; color = "var(--muted)"; }
               }
               return (
@@ -9159,7 +9160,7 @@ function CheckoutTrainer({ onClose, onChallengeProgress }) {
           , React.createElement('div', { style: { display:"flex", gap:6, justifyContent:"center", marginTop:20 },}
             , Array.from({length:10},(_,i) => {
               var h = history[i];
-              return React.createElement('div', { key: i, style: { width:26, height:26, borderRadius:7, background: h ? (h.wasCorrect ? "var(--accent)" : "var(--accent2)") : i===qIdx ? "rgba(202,243,0,.2)" : "var(--surface2)", border:`1px solid ${i<=qIdx ? "var(--accent)" : "var(--border)"}`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:11, fontWeight:700, color: h ? "#0d0d0b" : i===qIdx ? "var(--accent)" : "var(--muted)" },}
+              return React.createElement('div', { key: i, style: { width:26, height:26, borderRadius:7, background: h ? (h.wasCorrect ? "var(--accent)" : "var(--accent2)") : i===qIdx ? "rgba(232,118,63,.2)" : "var(--surface2)", border:`1px solid ${i<=qIdx ? "var(--accent)" : "var(--border)"}`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:11, fontWeight:700, color: h ? "#0d0d0b" : i===qIdx ? "var(--accent)" : "var(--muted)" },}
                 , h ? (h.wasCorrect ? "✓" : "✗") : i+1
               );
             })
@@ -9195,7 +9196,7 @@ function CheckoutTrainer({ onClose, onChallengeProgress }) {
 
         , React.createElement('div', { className: "section-label",}, "Question Review" )
         , history.map((h,i) => (
-          React.createElement('div', { key: i, className: "history-row", style: { marginBottom:6, background: h.wasCorrect ? "rgba(202,243,0,.06)" : "rgba(255,71,87,.06)", border:`1px solid ${h.wasCorrect ? "rgba(202,243,0,.2)" : "rgba(255,71,87,.2)"}`, borderRadius:10 },}
+          React.createElement('div', { key: i, className: "history-row", style: { marginBottom:6, background: h.wasCorrect ? "rgba(232,118,63,.06)" : "rgba(194,72,63,.06)", border:`1px solid ${h.wasCorrect ? "rgba(232,118,63,.2)" : "rgba(194,72,63,.2)"}`, borderRadius:10 },}
             , React.createElement('span', { style: { fontSize:14 },}, h.wasCorrect ? "✅" : "❌")
             , React.createElement('div', { style: { flex:1 },}
               , React.createElement('div', { style: { fontSize:13, fontWeight:600, color:"var(--text)" },}, h.score, " → "  , h.correct)
@@ -9237,7 +9238,7 @@ function DailyChallengeCard({ onOpenCheckout, history }) {
   var isSessionType = ["session","session_games","session_cats"].includes(challenge.challenge.type);
 
   return (
-    React.createElement('div', { style: { background: challenge.completed ? "linear-gradient(135deg,rgba(202,243,0,.1),rgba(168,255,120,.05))" : `${dc.bg}`, border:`1px solid ${challenge.completed ? "rgba(202,243,0,.4)" : dc.border}`, borderRadius:"var(--radius)", padding:16, marginBottom:14 },}
+    React.createElement('div', { style: { background: challenge.completed ? "linear-gradient(135deg,rgba(232,118,63,.1),rgba(168,255,120,.05))" : `${dc.bg}`, border:`1px solid ${challenge.completed ? "rgba(232,118,63,.4)" : dc.border}`, borderRadius:"var(--radius)", padding:16, marginBottom:14 },}
       /* Header row */
       , React.createElement('div', { style: { display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:10 },}
         , React.createElement('div', { style: { display:"flex", alignItems:"center", gap:8 },}
@@ -9251,7 +9252,7 @@ function DailyChallengeCard({ onOpenCheckout, history }) {
         )
         /* Streak badge */
         , streakData.streak >= 1 && (
-          React.createElement('div', { style: { textAlign:"center", flexShrink:0, padding:"6px 10px", background:"rgba(202,243,0,.1)", border:"1px solid rgba(202,243,0,.25)", borderRadius:12 },}
+          React.createElement('div', { style: { textAlign:"center", flexShrink:0, padding:"6px 10px", background:"rgba(232,118,63,.1)", border:"1px solid rgba(232,118,63,.25)", borderRadius:12 },}
             , React.createElement('div', { style: { fontSize:16 },}, "🔥")
             , React.createElement('div', { style: { fontFamily:"'Bebas Neue',sans-serif", fontSize:20, color:"var(--accent)", lineHeight:1 },}, streakData.streak)
             , React.createElement('div', { style: { fontSize:8, color:"var(--muted)", letterSpacing:1, textTransform:"uppercase" },}, "Streak")
@@ -9313,7 +9314,7 @@ function WeeklyMissionsCard({ history, botGames }) {
   var allDone = completedCount === 3;
 
   return (
-    React.createElement('div', { style: { background: allDone ? "linear-gradient(135deg,rgba(202,243,0,.1),rgba(168,255,120,.05))" : "var(--surface)", border:`1px solid ${allDone ? "rgba(202,243,0,.4)" : "var(--border)"}`, borderRadius:"var(--radius)", padding:16, marginBottom:14 },}
+    React.createElement('div', { style: { background: allDone ? "linear-gradient(135deg,rgba(232,118,63,.1),rgba(168,255,120,.05))" : "var(--surface)", border:`1px solid ${allDone ? "rgba(232,118,63,.4)" : "var(--border)"}`, borderRadius:"var(--radius)", padding:16, marginBottom:14 },}
       /* Header */
       , React.createElement('div', { style: { display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:12 },}
         , React.createElement('div', null
@@ -9335,7 +9336,7 @@ function WeeklyMissionsCard({ history, botGames }) {
         , wm.missions.map((m, i) => {
           var pct = Math.min(100, Math.round((m.progress / m.target) * 100));
           return (
-            React.createElement('div', { key: i, style: { background: m.done ? "rgba(202,243,0,.06)" : "rgba(255,255,255,0.03)", border:`1px solid ${m.done ? "rgba(202,243,0,.2)" : "rgba(255,255,255,0.07)"}`, borderRadius:12, padding:"11px 13px" },}
+            React.createElement('div', { key: i, style: { background: m.done ? "rgba(232,118,63,.06)" : "rgba(255,255,255,0.03)", border:`1px solid ${m.done ? "rgba(232,118,63,.2)" : "rgba(255,255,255,0.07)"}`, borderRadius:12, padding:"11px 13px" },}
               , React.createElement('div', { style: { display:"flex", alignItems:"center", gap:10, marginBottom: m.done ? 0 : 7 },}
                 , React.createElement('span', { style: { fontSize:20, flexShrink:0 },}, m.done ? "✅" : m.icon)
                 , React.createElement('div', { style: { flex:1, minWidth:0 },}
@@ -9350,7 +9351,7 @@ function WeeklyMissionsCard({ history, botGames }) {
               )
               , !m.done && (
                 React.createElement('div', { style: { height:4, background:"rgba(255,255,255,0.07)", borderRadius:100, overflow:"hidden" },}
-                  , React.createElement('div', { style: { height:"100%", width:`${pct}%`, background:"linear-gradient(90deg,#7ab8f5,#caf300)", borderRadius:100, transition:"width .5s ease" },} )
+                  , React.createElement('div', { style: { height:"100%", width:`${pct}%`, background:"linear-gradient(90deg,#7ab8f5,#e8763f)", borderRadius:100, transition:"width .5s ease" },} )
                 )
               )
             )
@@ -9360,7 +9361,7 @@ function WeeklyMissionsCard({ history, botGames }) {
 
       /* All done callout */
       , allDone && (
-        React.createElement('div', { style: { marginTop:12, padding:"10px 12px", background:"rgba(202,243,0,.08)", border:"1px solid rgba(202,243,0,.2)", borderRadius:10, fontSize:12, color:"var(--accent)", fontWeight:600, textAlign:"center" },}, "🏆 Perfect week! New missions drop next Monday."
+        React.createElement('div', { style: { marginTop:12, padding:"10px 12px", background:"rgba(232,118,63,.08)", border:"1px solid rgba(232,118,63,.2)", borderRadius:10, fontSize:12, color:"var(--accent)", fontWeight:600, textAlign:"center" },}, "🏆 Perfect week! New missions drop next Monday."
 
         )
       )
@@ -9537,7 +9538,7 @@ function OnboardingFlow({ onComplete, onClose, isRedo }) {
         )
 
         /* Profile summary */
-        , React.createElement('div', { style: { background:"var(--surface)", border:"1px solid rgba(202,243,0,.3)", borderRadius:"var(--radius)", padding:16, marginBottom:20 },}
+        , React.createElement('div', { style: { background:"var(--surface)", border:"1px solid rgba(232,118,63,.3)", borderRadius:"var(--radius)", padding:16, marginBottom:20 },}
           , React.createElement('div', { style: { fontSize:11, fontWeight:700, letterSpacing:1.5, textTransform:"uppercase", color:"var(--accent)", marginBottom:10 },}, "Your Profile" )
           , React.createElement('div', { style: { display:"flex", gap:16, flexWrap:"wrap" },}
             , skillLabel && React.createElement('div', { style: { fontSize:13 },}, React.createElement('span', { style: { color:"var(--muted)" },}, "Level: " ), React.createElement('span', { style: { color:"var(--text)", fontWeight:600 },}, skillLabel))
@@ -9625,7 +9626,7 @@ function OnboardingFlow({ onComplete, onClose, isRedo }) {
         , React.createElement('div', { style: { fontSize:13, color:"var(--muted)", marginBottom:24 },}, "Be honest — it helps us build the right programme."         )
         , React.createElement('div', { style: { display:"flex", flexDirection:"column", gap:10 },}
           , skillOptions.map(o => (
-            React.createElement('div', { key: o.id, onClick: () => setSkill(o.id), style: { background: skill === o.id ? "linear-gradient(135deg,rgba(202,243,0,.12),rgba(168,255,120,.06))" : "var(--surface)", border:`1px solid ${skill === o.id ? "rgba(202,243,0,.4)" : "var(--border)"}`, borderRadius:"var(--radius)", padding:"16px 18px", cursor:"pointer", display:"flex", gap:14, alignItems:"center", transition:"all .15s", WebkitTapHighlightColor:"transparent" },}
+            React.createElement('div', { key: o.id, onClick: () => setSkill(o.id), style: { background: skill === o.id ? "linear-gradient(135deg,rgba(232,118,63,.12),rgba(168,255,120,.06))" : "var(--surface)", border:`1px solid ${skill === o.id ? "rgba(232,118,63,.4)" : "var(--border)"}`, borderRadius:"var(--radius)", padding:"16px 18px", cursor:"pointer", display:"flex", gap:14, alignItems:"center", transition:"all .15s", WebkitTapHighlightColor:"transparent" },}
               , React.createElement('div', { style: { fontSize:28, flexShrink:0 },}, o.icon)
               , React.createElement('div', null
                 , React.createElement('div', { style: { fontSize:15, fontWeight:600, color:skill===o.id?"var(--accent)":"var(--text)" },}, o.label)
@@ -9649,7 +9650,7 @@ function OnboardingFlow({ onComplete, onClose, isRedo }) {
           , goalOptions.map(o => {
             var sel = goals.includes(o.id);
             return (
-              React.createElement('div', { key: o.id, onClick: () => toggleGoal(o.id), style: { background: sel ? "linear-gradient(135deg,rgba(202,243,0,.12),rgba(168,255,120,.06))" : "var(--surface)", border:`1px solid ${sel ? "rgba(202,243,0,.4)" : "var(--border)"}`, borderRadius:"var(--radius)", padding:"16px 18px", cursor:"pointer", display:"flex", gap:14, alignItems:"center", transition:"all .15s", WebkitTapHighlightColor:"transparent" },}
+              React.createElement('div', { key: o.id, onClick: () => toggleGoal(o.id), style: { background: sel ? "linear-gradient(135deg,rgba(232,118,63,.12),rgba(168,255,120,.06))" : "var(--surface)", border:`1px solid ${sel ? "rgba(232,118,63,.4)" : "var(--border)"}`, borderRadius:"var(--radius)", padding:"16px 18px", cursor:"pointer", display:"flex", gap:14, alignItems:"center", transition:"all .15s", WebkitTapHighlightColor:"transparent" },}
                 , React.createElement('div', { style: { fontSize:28, flexShrink:0 },}, o.icon)
                 , React.createElement('div', null
                   , React.createElement('div', { style: { fontSize:15, fontWeight:600, color:sel?"var(--accent)":"var(--text)" },}, o.label)
@@ -9676,7 +9677,7 @@ function OnboardingFlow({ onComplete, onClose, isRedo }) {
         , React.createElement('div', { style: { fontSize:13, color:"var(--muted)", marginBottom:24 },}, "Be realistic — consistent practice beats occasional marathons."       )
         , React.createElement('div', { style: { display:"flex", flexDirection:"column", gap:10 },}
           , freqOptions.map(o => (
-            React.createElement('div', { key: o.id, onClick: () => setFreq(o.id), style: { background: freq === o.id ? "linear-gradient(135deg,rgba(202,243,0,.12),rgba(168,255,120,.06))" : "var(--surface)", border:`1px solid ${freq === o.id ? "rgba(202,243,0,.4)" : "var(--border)"}`, borderRadius:"var(--radius)", padding:"16px 18px", cursor:"pointer", display:"flex", gap:14, alignItems:"center", transition:"all .15s", WebkitTapHighlightColor:"transparent" },}
+            React.createElement('div', { key: o.id, onClick: () => setFreq(o.id), style: { background: freq === o.id ? "linear-gradient(135deg,rgba(232,118,63,.12),rgba(168,255,120,.06))" : "var(--surface)", border:`1px solid ${freq === o.id ? "rgba(232,118,63,.4)" : "var(--border)"}`, borderRadius:"var(--radius)", padding:"16px 18px", cursor:"pointer", display:"flex", gap:14, alignItems:"center", transition:"all .15s", WebkitTapHighlightColor:"transparent" },}
               , React.createElement('div', { style: { fontSize:28, flexShrink:0 },}, o.icon)
               , React.createElement('div', null
                 , React.createElement('div', { style: { fontSize:15, fontWeight:600, color:freq===o.id?"var(--accent)":"var(--text)" },}, o.label)
@@ -9853,9 +9854,9 @@ var PLAYER_TIERS = [
   { name: "Club Starter",  minSessions: 3,  minGames: 8,  color: "#7ab8f5",  emoji: "🎯" },
   { name: "Club Player",   minSessions: 8,  minGames: 20, color: "#5cb85c",  emoji: "🎯" },
   { name: "Strong Club",   minSessions: 15, minGames: 40, color: "#f0ad4e",  emoji: "🎯" },
-  { name: "League Player", minSessions: 25, minGames: 70, color: "#caf300",  emoji: "🏆" },
+  { name: "League Player", minSessions: 25, minGames: 70, color: "#e8763f",  emoji: "🏆" },
   { name: "Advanced",      minSessions: 40, minGames: 110,color: "#ff9800",  emoji: "🏆" },
-  { name: "Elite",         minSessions: 60, minGames: 160,color: "#ff4757",  emoji: "👑" },
+  { name: "Elite",         minSessions: 60, minGames: 160,color: "#c2483f",  emoji: "👑" },
 ];
 
 function getPlayerTier(history) {
@@ -10061,10 +10062,10 @@ function LibraryInline({ onViewGame, onViewGroup }) {
 
   // Category colours
   var CAT_COLORS = {
-    Accuracy:    { color: "#7c6aff", bg: "rgba(124,106,255,.12)", border: "rgba(124,106,255,.25)" },
-    Finishing:   { color: "#caf300", bg: "rgba(202,243,0,.10)",  border: "rgba(202,243,0,.22)"  },
+    Accuracy:    { color: "#6f93b5", bg: "rgba(111,147,181,.12)", border: "rgba(111,147,181,.25)" },
+    Finishing:   { color: "#e8763f", bg: "rgba(232,118,63,.10)",  border: "rgba(232,118,63,.22)"  },
     Scoring:     { color: "#f0ad4e", bg: "rgba(240,173,78,.12)",  border: "rgba(240,173,78,.25)"  },
-    "Match Play":{ color: "#ff4757", bg: "rgba(255,71,87,.12)",   border: "rgba(255,71,87,.25)"   },
+    "Match Play":{ color: "#c2483f", bg: "rgba(194,72,63,.12)",   border: "rgba(194,72,63,.25)"   },
   };
   var catStyle = (category) => CAT_COLORS[category] || { color: "var(--muted)", bg: "var(--surface2)", border: "var(--border)" };
 
@@ -10140,7 +10141,7 @@ function LibraryInline({ onViewGame, onViewGroup }) {
       , flatGames.map(g => {
         var cs = catStyle(g.category);
         var diffColor = g.difficulty==="Advanced" ? "var(--accent2)" : g.difficulty==="Beginner" ? "#64c8ff" : "var(--muted)";
-        var diffBg = g.difficulty==="Advanced" ? "rgba(255,71,87,.1)" : g.difficulty==="Beginner" ? "rgba(100,200,255,.08)" : "var(--surface2)";
+        var diffBg = g.difficulty==="Advanced" ? "rgba(194,72,63,.1)" : g.difficulty==="Beginner" ? "rgba(100,200,255,.08)" : "var(--surface2)";
         return (
           React.createElement('div', { key: g.id, onClick: () => onViewGame(g),
             style: { background:"var(--glass-bg)", border:`1px solid var(--glass-border)`, borderLeft:`3px solid ${cs.color}`, borderRadius:"var(--radius)", padding:16, marginBottom:10, cursor:"pointer", boxShadow:"var(--shadow-card)", WebkitTapHighlightColor:"transparent", backdropFilter:"blur(12px)", transition:"transform .15s" },
@@ -10356,17 +10357,17 @@ function AuthScreen({ onAuth, onGuest }) {
       , React.createElement('style', null, `
         @keyframes auth-in { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
         @keyframes auth-board { from{opacity:0;transform:scale(.85)} to{opacity:1;transform:scale(1)} }
-        .auth-input:focus { border-color: var(--accent) !important; box-shadow: 0 0 0 3px rgba(202,243,0,.08); }
+        .auth-input:focus { border-color: var(--accent) !important; box-shadow: 0 0 0 3px rgba(232,118,63,.08); }
       `)
 
       /* Glow blob */
-      , React.createElement('div', { style: { position:"absolute", top:-80, left:"50%", transform:"translateX(-50%)", width:400, height:400, background:"radial-gradient(ellipse at center, rgba(202,243,0,.1) 0%, transparent 65%)", borderRadius:"50%", pointerEvents:"none", filter:"blur(24px)" },} )
+      , React.createElement('div', { style: { position:"absolute", top:-80, left:"50%", transform:"translateX(-50%)", width:400, height:400, background:"radial-gradient(ellipse at center, rgba(232,118,63,.1) 0%, transparent 65%)", borderRadius:"50%", pointerEvents:"none", filter:"blur(24px)" },} )
 
       /* Top — logo */
       , React.createElement('div', { style: { flex:1, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", textAlign:"center", animation:"auth-in .5s ease both" },}
         /* Real dartboard photo */
         , React.createElement('div', { style: { marginBottom:24, animation:"auth-board .6s .1s ease both", opacity:0, animationFillMode:"forwards" },}
-          , React.createElement('div', { style: { width:160, height:160, borderRadius:"50%", overflow:"hidden", margin:"0 auto", border:"2px solid rgba(202,243,0,.25)", boxShadow:"0 0 40px rgba(202,243,0,.2)" },}
+          , React.createElement('div', { style: { width:160, height:160, borderRadius:"50%", overflow:"hidden", margin:"0 auto", border:"2px solid rgba(232,118,63,.25)", boxShadow:"0 0 40px rgba(232,118,63,.2)" },}
             , React.createElement('img', { src: IMG_BOARD_AUTH, alt: "Dartboard", style: { width:"100%", height:"100%", objectFit:"cover", objectPosition:"center" },} )
           )
         )
@@ -10412,7 +10413,7 @@ function AuthScreen({ onAuth, onGuest }) {
   return (
     React.createElement('div', { style: { position:"fixed", inset:0, background:"var(--bg)", display:"flex", flexDirection:"column", overflowY:"auto" },}
       /* Glow blob */
-      , React.createElement('div', { style: { position:"fixed", top:-100, left:"50%", transform:"translateX(-50%)", width:360, height:360, background:"radial-gradient(ellipse at center, rgba(202,243,0,.08) 0%, transparent 65%)", borderRadius:"50%", pointerEvents:"none", filter:"blur(20px)", zIndex:0 },} )
+      , React.createElement('div', { style: { position:"fixed", top:-100, left:"50%", transform:"translateX(-50%)", width:360, height:360, background:"radial-gradient(ellipse at center, rgba(232,118,63,.08) 0%, transparent 65%)", borderRadius:"50%", pointerEvents:"none", filter:"blur(20px)", zIndex:0 },} )
 
       , React.createElement('div', { style: { maxWidth:400, width:"100%", margin:"auto", padding:"24px 24px 48px", position:"relative", zIndex:1 },}
 
@@ -10456,13 +10457,13 @@ function AuthScreen({ onAuth, onGuest }) {
 
         /* Error / success */
         , error && (
-          React.createElement('div', { style: { display:"flex", alignItems:"flex-start", gap:10, fontSize:13, color:"var(--accent2)", marginTop:12, marginBottom:4, padding:"11px 14px", background:"rgba(255,71,87,.08)", borderRadius:"var(--radius-sm)", border:"1px solid rgba(255,71,87,.2)" },}
+          React.createElement('div', { style: { display:"flex", alignItems:"flex-start", gap:10, fontSize:13, color:"var(--accent2)", marginTop:12, marginBottom:4, padding:"11px 14px", background:"rgba(194,72,63,.08)", borderRadius:"var(--radius-sm)", border:"1px solid rgba(194,72,63,.2)" },}
             , React.createElement(Ms, { icon: "error", size: 16, style: {flexShrink:0, marginTop:1},} )
             , error
           )
         )
         , success && (
-          React.createElement('div', { style: { display:"flex", alignItems:"flex-start", gap:10, fontSize:13, color:"var(--accent)", marginTop:12, marginBottom:4, padding:"11px 14px", background:"rgba(202,243,0,.06)", borderRadius:"var(--radius-sm)", border:"1px solid rgba(202,243,0,.2)" },}
+          React.createElement('div', { style: { display:"flex", alignItems:"flex-start", gap:10, fontSize:13, color:"var(--accent)", marginTop:12, marginBottom:4, padding:"11px 14px", background:"rgba(232,118,63,.06)", borderRadius:"var(--radius-sm)", border:"1px solid rgba(232,118,63,.2)" },}
             , React.createElement(Ms, { icon: "check_circle", size: 16, fill: true, style: {flexShrink:0, marginTop:1},} )
             , success
           )
@@ -10526,12 +10527,12 @@ class ErrorBoundary extends React.Component {
         }
       },
         React.createElement(DartboardSVG, { size: 100 }),
-        React.createElement("div", { style: { fontFamily: "'Bebas Neue', sans-serif", fontSize: 32, letterSpacing: 2, color: "#caf300", marginBottom: 8 } }, "Something went wrong"),
+        React.createElement("div", { style: { fontFamily: "'Bebas Neue', sans-serif", fontSize: 32, letterSpacing: 2, color: "#e8763f", marginBottom: 8 } }, "Something went wrong"),
         React.createElement("div", { style: { fontSize: 14, color: "rgba(255,255,255,0.4)", marginBottom: 32, lineHeight: 1.6 } }, "Don't worry — your progress is saved. Tap below to restart."),
         React.createElement("button", {
           onClick: () => { this.setState({ hasError: false, error: null }); window.location.reload(); },
           style: {
-            background: "#caf300", color: "var(--on-accent)", border: "none",
+            background: "#e8763f", color: "var(--on-accent)", border: "none",
             borderRadius: 14, padding: "14px 32px", fontSize: 15,
             fontWeight: 700, fontFamily: "'DM Sans', sans-serif",
             cursor: "pointer", letterSpacing: .1,
@@ -10702,12 +10703,12 @@ function App() {
     React.createElement(React.Fragment, null, React.createElement('style', null, css)
     , React.createElement('div', { style: { position:"fixed", inset:0, background:"var(--bg)", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:16, fontFamily:"'DM Sans',sans-serif" },}
       , React.createElement('svg', { viewBox: "0 0 200 110"   , style: { width:100, height:55 },}
-        , React.createElement('polyline', { points: "10,85 40,70 55,78 75,45 90,55 115,25 130,35"      , fill: "none", stroke: "#caf300", strokeWidth: "2.5", strokeLinecap: "round", strokeLinejoin: "round",})
-        , React.createElement('rect', { x: "123", y: "18", width: "22", height: "7", rx: "3", fill: "#caf300",})
+        , React.createElement('polyline', { points: "10,85 40,70 55,78 75,45 90,55 115,25 130,35"      , fill: "none", stroke: "#e8763f", strokeWidth: "2.5", strokeLinecap: "round", strokeLinejoin: "round",})
+        , React.createElement('rect', { x: "123", y: "18", width: "22", height: "7", rx: "3", fill: "#e8763f",})
         , React.createElement('rect', { x: "145", y: "20", width: "12", height: "3", rx: "1.5", fill: "#c8d800",})
-        , React.createElement('polygon', { points: "113,22 123,20 123,25"  , fill: "#caf300",})
-        , React.createElement('polygon', { points: "157,16 167,8 163,21"  , fill: "#caf300", opacity: "0.9",})
-        , React.createElement('polygon', { points: "157,27 167,35 163,22"  , fill: "#caf300", opacity: "0.7",})
+        , React.createElement('polygon', { points: "113,22 123,20 123,25"  , fill: "#e8763f",})
+        , React.createElement('polygon', { points: "157,16 167,8 163,21"  , fill: "#e8763f", opacity: "0.9",})
+        , React.createElement('polygon', { points: "157,27 167,35 163,22"  , fill: "#e8763f", opacity: "0.7",})
       )
       , React.createElement('div', { style: { fontFamily:"'Bebas Neue',sans-serif", fontSize:32, letterSpacing:4, color:"var(--accent)" },}, "DARTS IQ" )
       , React.createElement('div', { style: { fontSize:13, color:"var(--muted)", letterSpacing:1 },}, "Loading...")
@@ -10902,12 +10903,12 @@ function App() {
         /* ── Top App Bar — fixed, outside scroll flow ── */
         , React.createElement('div', { className: "top-bar", style: { position:"fixed", top:0, left:"50%", transform:"translateX(-50%)", width:"100%", maxWidth:430, zIndex:20 },}
           , React.createElement('div', { style: { display:"flex", alignItems:"center", gap:10 },}
-            , React.createElement('svg', { viewBox: "0 0 200 110"   , style: { width:40, height:22, filter:"drop-shadow(0 0 8px rgba(202,243,0,.5))" },}
-              , React.createElement('polyline', { points: "10,85 40,70 55,78 75,45 90,55 115,25 130,35"      , fill: "none", stroke: "#caf300", strokeWidth: "5", strokeLinecap: "round", strokeLinejoin: "round",})
-              , React.createElement('rect', { x: "123", y: "18", width: "22", height: "7", rx: "3", fill: "#caf300",})
-              , React.createElement('polygon', { points: "113,22 123,20 123,25"  , fill: "#caf300",})
-              , React.createElement('polygon', { points: "157,16 167,8 163,21"  , fill: "#caf300", opacity: "0.9",})
-              , React.createElement('polygon', { points: "157,27 167,35 163,22"  , fill: "#caf300", opacity: "0.7",})
+            , React.createElement('svg', { viewBox: "0 0 200 110"   , style: { width:40, height:22, filter:"drop-shadow(0 0 8px rgba(232,118,63,.5))" },}
+              , React.createElement('polyline', { points: "10,85 40,70 55,78 75,45 90,55 115,25 130,35"      , fill: "none", stroke: "#e8763f", strokeWidth: "5", strokeLinecap: "round", strokeLinejoin: "round",})
+              , React.createElement('rect', { x: "123", y: "18", width: "22", height: "7", rx: "3", fill: "#e8763f",})
+              , React.createElement('polygon', { points: "113,22 123,20 123,25"  , fill: "#e8763f",})
+              , React.createElement('polygon', { points: "157,16 167,8 163,21"  , fill: "#e8763f", opacity: "0.9",})
+              , React.createElement('polygon', { points: "157,27 167,35 163,22"  , fill: "#e8763f", opacity: "0.7",})
             )
             , React.createElement('span', { className: "top-bar-title",}, "DARTS IQ" )
           )
@@ -10933,7 +10934,7 @@ function App() {
               style: { flex:1, padding:"8px 4px", borderRadius:8, fontFamily:"'JetBrains Mono',monospace", fontSize:10, fontWeight:700, letterSpacing:".05em", textTransform:"uppercase", border:"none", cursor:"pointer", transition:"all .15s", WebkitTapHighlightColor:"transparent",
                 background: trainView === v ? "var(--accent)" : "transparent",
                 color: trainView === v ? "var(--on-accent)" : "var(--muted)",
-                boxShadow: trainView === v ? "0 1px 8px rgba(202,243,0,.2)" : "none",
+                boxShadow: trainView === v ? "0 1px 8px rgba(232,118,63,.2)" : "none",
               },}, label)
           ))
         )
@@ -10962,7 +10963,7 @@ function App() {
             )
             /* Streak banner */
             , streak >= 2 && (
-              React.createElement('div', { style: { background:"linear-gradient(135deg,rgba(202,243,0,.1),rgba(202,243,0,.05))", border:"1px solid rgba(202,243,0,.25)", borderRadius:"var(--radius)", padding:"12px 16px", marginBottom:12, display:"flex", alignItems:"center", gap:12 },}
+              React.createElement('div', { style: { background:"linear-gradient(135deg,rgba(232,118,63,.1),rgba(232,118,63,.05))", border:"1px solid rgba(232,118,63,.25)", borderRadius:"var(--radius)", padding:"12px 16px", marginBottom:12, display:"flex", alignItems:"center", gap:12 },}
                 , React.createElement('div', null, React.createElement(Ms, { icon: "local_fire_department", size: 28, fill: true, style: {color:"#ff6b35"},} ))
                 , React.createElement('div', null
                   , React.createElement('div', { style: { fontFamily:"'Hanken Grotesk',sans-serif", fontWeight:800, color:"var(--accent)", fontSize:15, letterSpacing:"-0.01em" },}, streak, " day streak!"  )
@@ -10973,7 +10974,7 @@ function App() {
 
             /* PB callout from last session */
             , pbs.length > 0 && (
-              React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(202,243,0,.15),rgba(168,255,120,.08))", border: "1px solid rgba(202,243,0,.4)", borderRadius: "var(--radius)", padding: "12px 16px", marginBottom: 14 },}
+              React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(232,118,63,.15),rgba(168,255,120,.08))", border: "1px solid rgba(232,118,63,.4)", borderRadius: "var(--radius)", padding: "12px 16px", marginBottom: 14 },}
                 , React.createElement('div', { style: { fontSize: 12, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--accent)", marginBottom: 8 },}, "🏆 New Personal Best"   , pbs.length > 1 ? "s" : "", "!")
                 , pbs.map((pb, i) => (
                   React.createElement('div', { key: i, style: { display: "flex", alignItems: "center", gap: 10, marginBottom: i < pbs.length - 1 ? 6 : 0 },}
@@ -11002,7 +11003,7 @@ function App() {
                 React.createElement('div', { style: { background:"var(--glass-bg)", border:"1px solid var(--glass-border)", borderRadius:"var(--radius)", padding:16, marginBottom:12, boxShadow:"var(--shadow-card)", backdropFilter:"blur(12px)" },}
                   , React.createElement('div', { style: { fontFamily:"'JetBrains Mono',monospace", fontSize:9, fontWeight:500, letterSpacing:".05em", textTransform:"uppercase", color:"var(--muted)", marginBottom:12 },}, "This Week" )
                   , React.createElement('div', { style: { display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom: weekly.bestImprovement ? 12 : 0 },}
-                    , React.createElement('div', { style: { textAlign:"center", padding:"12px 8px", background:"var(--surface2)", borderRadius:10, borderTop:"2px solid rgba(202,243,0,.3)" },}
+                    , React.createElement('div', { style: { textAlign:"center", padding:"12px 8px", background:"var(--surface2)", borderRadius:10, borderTop:"2px solid rgba(232,118,63,.3)" },}
                       , React.createElement('div', { style: { fontFamily:"'Hanken Grotesk',sans-serif", fontSize:30, fontWeight:800, letterSpacing:"-0.04em", color:"var(--accent)", lineHeight:1 },}, weekly.sessions)
                       , React.createElement('div', { style: { fontFamily:"'JetBrains Mono',monospace", fontSize:9, fontWeight:500, letterSpacing:".05em", textTransform:"uppercase", color:"var(--muted)", marginTop:4 },}, "Sessions", weekly.sessionDiff > 0 ? ` +${weekly.sessionDiff}` : weekly.sessionDiff < 0 ? ` ${weekly.sessionDiff}` : "")
                     )
@@ -11012,7 +11013,7 @@ function App() {
                     )
                   )
                   , weekly.bestImprovement && weekly.bestImprovement.diff > 0 && (
-                    React.createElement('div', { style: { display:"flex", alignItems:"center", gap:10, padding:"10px 12px", background:"rgba(202,243,0,.04)", borderRadius:10, border:"1px solid rgba(202,243,0,.12)" },}
+                    React.createElement('div', { style: { display:"flex", alignItems:"center", gap:10, padding:"10px 12px", background:"rgba(232,118,63,.04)", borderRadius:10, border:"1px solid rgba(232,118,63,.12)" },}
                       , React.createElement('span', { style: { fontSize:18 },}, weekly.bestImprovement.icon)
                       , React.createElement('div', { style: { fontSize:12, color:"var(--text2)", lineHeight:1.45 },}
                         , React.createElement('span', { style: { color:"var(--text)", fontWeight:700 },}, weekly.bestImprovement.name), " up "  , React.createElement('span', { style: { color:"var(--accent)", fontWeight:700 },}, "+", weekly.bestImprovement.diff), " vs last week"
@@ -11118,7 +11119,7 @@ function App() {
 
             /* Welcome state for new users */
             , programmes.length === 0 && (
-              React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(202,243,0,.08),rgba(168,255,120,.04))", border: "1px solid rgba(202,243,0,.25)", borderRadius: "var(--radius)", padding: 20, marginBottom: 16, textAlign: "center" },}
+              React.createElement('div', { style: { background: "linear-gradient(135deg,rgba(232,118,63,.08),rgba(168,255,120,.04))", border: "1px solid rgba(232,118,63,.25)", borderRadius: "var(--radius)", padding: 20, marginBottom: 16, textAlign: "center" },}
                 , React.createElement('div', { style: { fontFamily: "'Hanken Grotesk',sans-serif", fontSize: 18, fontWeight: 700, letterSpacing: "-0.01em", color: "var(--text)", marginBottom: 6 },}, "Welcome to Darts IQ"   )
                 , React.createElement('div', { style: { fontSize: 13, color: "var(--muted)", lineHeight: 1.55, marginBottom: 14 },}, "Start by creating a training programme or browsing the game library."          )
                 , React.createElement('div', { style: { display: "flex", gap: 10 },}
@@ -11138,7 +11139,7 @@ function App() {
             , React.createElement(WeeklyMissionsCard, { history: history, botGames: botGames,} )
 
             /* Checkout trainer quick access */
-            , React.createElement('div', { onClick: () => setShowCheckout(true), className: "card", style: { background:"linear-gradient(135deg,rgba(202,243,0,.08),rgba(168,255,120,.04))", border:"1px solid rgba(202,243,0,.25)", marginBottom:14 },}
+            , React.createElement('div', { onClick: () => setShowCheckout(true), className: "card", style: { background:"linear-gradient(135deg,rgba(232,118,63,.08),rgba(168,255,120,.04))", border:"1px solid rgba(232,118,63,.25)", marginBottom:14 },}
               , React.createElement('div', { className: "card-header",}
                 , React.createElement('div', { className: "card-icon",}, "🎯")
                 , React.createElement('div', { className: "card-info",}
@@ -11177,7 +11178,7 @@ function App() {
               , ["darts-penalties","catch-40","bobs-27","halve-it","priestleys-triples","jdc-challenge"].map(id => {
                 var g = GAMES.find(x => x.id === id);
                 if (!g) return null;
-                var catColor = { Accuracy:"#7c6aff", Finishing:"var(--accent)", Scoring:"#f0ad4e", "Match Play":"#ff4757" }[g.category] || "var(--accent)";
+                var catColor = { Accuracy:"#6f93b5", Finishing:"var(--accent)", Scoring:"#f0ad4e", "Match Play":"#c2483f" }[g.category] || "var(--accent)";
                 return (
                   React.createElement('div', { key: g.id, onClick: () => goToGame(g), style: { flexShrink:0, width:160, background:"var(--surface)", border:"1px solid var(--border)", borderRadius:18, padding:16, cursor:"pointer", boxShadow:"var(--shadow-card)", WebkitTapHighlightColor:"transparent", transition:"transform .15s" },
                     onTouchStart: e => e.currentTarget.style.transform="scale(.97)",
@@ -11256,7 +11257,7 @@ function App() {
 
       /* Floating AI button — hidden during active games */
       , !showAI && !inPlayGame && (
-        React.createElement('button', { onClick: () => setShowAI(true), style: { position: "fixed", bottom: 82, right: 16, width: 50, height: 50, borderRadius: "50%", background: "linear-gradient(135deg,var(--accent),#a8ff78)", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 20px rgba(202,243,0,.45)", zIndex: 90, WebkitTapHighlightColor: "transparent" },}
+        React.createElement('button', { onClick: () => setShowAI(true), style: { position: "fixed", bottom: 82, right: 16, width: 50, height: 50, borderRadius: "50%", background: "linear-gradient(135deg,var(--accent),#f0a06a)", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 20px rgba(232,118,63,.45)", zIndex: 90, WebkitTapHighlightColor: "transparent" },}
           , React.createElement(Ms, { icon: "smart_toy", size: 22, fill: true,} )
         )
       )
@@ -11268,7 +11269,7 @@ function App() {
           , React.createElement('div', { style: { height: "88vh", background: "var(--bg)", borderRadius: "24px 24px 0 0", overflow: "hidden", display: "flex", flexDirection: "column", maxWidth: 430, width: "100%", margin: "0 auto", borderTop: "1px solid var(--border)" },}
             , React.createElement('div', { style: { display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 20px 12px", borderBottom: "1px solid var(--border)", flexShrink: 0 },}
               , React.createElement('div', { style: { display: "flex", alignItems: "center", gap: 10 },}
-                , React.createElement('div', { style: { width: 34, height: 34, borderRadius: 10, background: "linear-gradient(135deg,var(--accent),#a8ff78)", display: "flex", alignItems: "center", justifyContent: "center" },}, React.createElement(Ms, { icon: "smart_toy", size: 18, fill: true,} ))
+                , React.createElement('div', { style: { width: 34, height: 34, borderRadius: 10, background: "linear-gradient(135deg,var(--accent),#f0a06a)", display: "flex", alignItems: "center", justifyContent: "center" },}, React.createElement(Ms, { icon: "smart_toy", size: 18, fill: true,} ))
                 , React.createElement('div', null
                   , React.createElement('div', { style: { fontFamily:"'Hanken Grotesk',sans-serif", fontSize:16, fontWeight:800, letterSpacing:"-0.02em", color:"var(--text)", lineHeight:1 },}, "Darts IQ Coach"  )
                   , React.createElement('div', { style: { fontSize: 11, color: "var(--muted)" },}, "AI powered coaching"  )
